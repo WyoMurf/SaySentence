@@ -1159,6 +1159,7 @@ class SS_interp
 	
 	if (script.script_type == SS_script.SS_S_TYPE_NUMBER 
 		                     || script.script_type == SS_script.SS_S_TYPE_ENUMERATION 
+		                     || script.script_type == SS_script.SS_S_TYPE_USER_DEFINED  // just in case
 		                     || script.script_type == SS_script.SS_S_TYPE_MONEY ) 
 	  {
 		num = Long.parseLong(str);

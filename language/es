@@ -55,5 +55,3 @@ PATTERN  "^0[0-9]"  -                 -          CUT(1)  ;; get rid of leading z
 
 
 
-[money]
-

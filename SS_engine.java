@@ -61,7 +61,7 @@ class SS_engine
 
   void print()
   {
-     System.out.println("Engine:");
+     // System.out.println("Engine:");
      Set entries = scriptsets_by_lang.entrySet();
      Iterator it = entries.iterator();
      while (it.hasNext() ) 
@@ -163,6 +163,7 @@ class SS_engine
   SS_silence_def find_silence(String pref_lang_locale, char sent, char script)
   {
 	String loc = pref_lang_locale;
+	// System.out.println("Looking for silence '"+sent+"' in locale '"+pref_lang_locale+"'");
 	
 	do
 	  {
@@ -175,6 +176,7 @@ class SS_engine
 			while (silit.hasNext())
 			  {
 				SS_silence_def sd = (SS_silence_def)silit.next();
+				// System.out.println("Silence def '"+sd.sent_silence_rep+"'");
 				if (sent != '\0')
 				  {
 					if (sent == sd.sent_silence_rep)
@@ -191,10 +193,14 @@ class SS_engine
 				  }
 			  }
 		  }
+                else
+                  {
+                        // System.out.println("no scriptset for "+loc);
+                  }
 		
 		loc = strip_locale(loc);
 	  }
-	while( loc.lastIndexOf('_') != -1 );
+	while( loc != null);
 	
 	/* wait a minute, we really should revert to "en" if nothing else works */
 	if (!loc.equals("en"))

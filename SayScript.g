@@ -305,7 +305,7 @@ bad_statement[SS_scriptset scriptset]
 
 statement_list[SS_scriptset scriptset, SS_script script] : (statement[scriptset,script] | bad_statement[scriptset] )+ ;  /*  complaint */
 
-header[SS_scriptset scriptset, SS_script script] : WHITE? LBRACK x=ID 
+header[SS_scriptset scriptset, SS_script script] : WHITE? LBRACK x=ID
      {
 		SS_script_name z3 = new SS_script_name($x.text); 
         script.names.add(z3); 

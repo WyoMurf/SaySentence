@@ -1,4 +1,4 @@
-// $ANTLR 3.4 format.g 2013-11-26 15:34:05
+// $ANTLR 3.4 format.g 2059-12-15 23:13:51
 
 import org.antlr.runtime.*;
 import java.util.Stack;
@@ -21,6 +21,45 @@ public class formatLexer extends Lexer {
     public static final int T__29=29;
     public static final int T__30=30;
     public static final int T__31=31;
+    public static final int T__32=32;
+    public static final int T__33=33;
+    public static final int T__34=34;
+    public static final int T__35=35;
+    public static final int T__36=36;
+    public static final int T__37=37;
+    public static final int T__38=38;
+    public static final int T__39=39;
+    public static final int T__40=40;
+    public static final int T__41=41;
+    public static final int T__42=42;
+    public static final int T__43=43;
+    public static final int T__44=44;
+    public static final int T__45=45;
+    public static final int T__46=46;
+    public static final int T__47=47;
+    public static final int T__48=48;
+    public static final int T__49=49;
+    public static final int T__50=50;
+    public static final int T__51=51;
+    public static final int T__52=52;
+    public static final int T__53=53;
+    public static final int T__54=54;
+    public static final int T__55=55;
+    public static final int T__56=56;
+    public static final int T__57=57;
+    public static final int T__58=58;
+    public static final int T__59=59;
+    public static final int T__60=60;
+    public static final int T__61=61;
+    public static final int T__62=62;
+    public static final int T__63=63;
+    public static final int T__64=64;
+    public static final int T__65=65;
+    public static final int T__66=66;
+    public static final int T__67=67;
+    public static final int T__68=68;
+    public static final int T__69=69;
+    public static final int T__70=70;
     public static final int FILE=4;
     public static final int LANG=5;
     public static final int LBRACK=6;
@@ -57,10 +96,10 @@ public class formatLexer extends Lexer {
         try {
             int _type = T__19;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // format.g:7:7: ( 'D' )
-            // format.g:7:9: 'D'
+            // format.g:7:7: ( 'A' )
+            // format.g:7:9: 'A'
             {
-            match('D'); 
+            match('A'); 
 
             }
 
@@ -78,10 +117,10 @@ public class formatLexer extends Lexer {
         try {
             int _type = T__20;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // format.g:8:7: ( 'c' )
-            // format.g:8:9: 'c'
+            // format.g:8:7: ( 'B' )
+            // format.g:8:9: 'B'
             {
-            match('c'); 
+            match('B'); 
 
             }
 
@@ -99,10 +138,10 @@ public class formatLexer extends Lexer {
         try {
             int _type = T__21;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // format.g:9:7: ( 'd' )
-            // format.g:9:9: 'd'
+            // format.g:9:7: ( 'C' )
+            // format.g:9:9: 'C'
             {
-            match('d'); 
+            match('C'); 
 
             }
 
@@ -120,10 +159,10 @@ public class formatLexer extends Lexer {
         try {
             int _type = T__22;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // format.g:10:7: ( 'e' )
-            // format.g:10:9: 'e'
+            // format.g:10:7: ( 'D' )
+            // format.g:10:9: 'D'
             {
-            match('e'); 
+            match('D'); 
 
             }
 
@@ -141,10 +180,10 @@ public class formatLexer extends Lexer {
         try {
             int _type = T__23;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // format.g:11:7: ( 'f' )
-            // format.g:11:9: 'f'
+            // format.g:11:7: ( 'E' )
+            // format.g:11:9: 'E'
             {
-            match('f'); 
+            match('E'); 
 
             }
 
@@ -162,10 +201,10 @@ public class formatLexer extends Lexer {
         try {
             int _type = T__24;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // format.g:12:7: ( 'i' )
-            // format.g:12:9: 'i'
+            // format.g:12:7: ( 'F' )
+            // format.g:12:9: 'F'
             {
-            match('i'); 
+            match('F'); 
 
             }
 
@@ -183,10 +222,10 @@ public class formatLexer extends Lexer {
         try {
             int _type = T__25;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // format.g:13:7: ( 'm' )
-            // format.g:13:9: 'm'
+            // format.g:13:7: ( 'G' )
+            // format.g:13:9: 'G'
             {
-            match('m'); 
+            match('G'); 
 
             }
 
@@ -204,10 +243,10 @@ public class formatLexer extends Lexer {
         try {
             int _type = T__26;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // format.g:14:7: ( 'n' )
-            // format.g:14:9: 'n'
+            // format.g:14:7: ( 'H' )
+            // format.g:14:9: 'H'
             {
-            match('n'); 
+            match('H'); 
 
             }
 
@@ -225,10 +264,10 @@ public class formatLexer extends Lexer {
         try {
             int _type = T__27;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // format.g:15:7: ( 'p' )
-            // format.g:15:9: 'p'
+            // format.g:15:7: ( 'I' )
+            // format.g:15:9: 'I'
             {
-            match('p'); 
+            match('I'); 
 
             }
 
@@ -246,10 +285,10 @@ public class formatLexer extends Lexer {
         try {
             int _type = T__28;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // format.g:16:7: ( 'r' )
-            // format.g:16:9: 'r'
+            // format.g:16:7: ( 'J' )
+            // format.g:16:9: 'J'
             {
-            match('r'); 
+            match('J'); 
 
             }
 
@@ -267,10 +306,10 @@ public class formatLexer extends Lexer {
         try {
             int _type = T__29;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // format.g:17:7: ( 's' )
-            // format.g:17:9: 's'
+            // format.g:17:7: ( 'K' )
+            // format.g:17:9: 'K'
             {
-            match('s'); 
+            match('K'); 
 
             }
 
@@ -288,10 +327,10 @@ public class formatLexer extends Lexer {
         try {
             int _type = T__30;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // format.g:18:7: ( 't' )
-            // format.g:18:9: 't'
+            // format.g:18:7: ( 'L' )
+            // format.g:18:9: 'L'
             {
-            match('t'); 
+            match('L'); 
 
             }
 
@@ -309,8 +348,827 @@ public class formatLexer extends Lexer {
         try {
             int _type = T__31;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // format.g:19:7: ( 'z' )
-            // format.g:19:9: 'z'
+            // format.g:19:7: ( 'M' )
+            // format.g:19:9: 'M'
+            {
+            match('M'); 
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        	// do for sure before leaving
+        }
+    }
+    // $ANTLR end "T__31"
+
+    // $ANTLR start "T__32"
+    public final void mT__32() throws RecognitionException {
+        try {
+            int _type = T__32;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // format.g:20:7: ( 'N' )
+            // format.g:20:9: 'N'
+            {
+            match('N'); 
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        	// do for sure before leaving
+        }
+    }
+    // $ANTLR end "T__32"
+
+    // $ANTLR start "T__33"
+    public final void mT__33() throws RecognitionException {
+        try {
+            int _type = T__33;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // format.g:21:7: ( 'O' )
+            // format.g:21:9: 'O'
+            {
+            match('O'); 
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        	// do for sure before leaving
+        }
+    }
+    // $ANTLR end "T__33"
+
+    // $ANTLR start "T__34"
+    public final void mT__34() throws RecognitionException {
+        try {
+            int _type = T__34;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // format.g:22:7: ( 'P' )
+            // format.g:22:9: 'P'
+            {
+            match('P'); 
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        	// do for sure before leaving
+        }
+    }
+    // $ANTLR end "T__34"
+
+    // $ANTLR start "T__35"
+    public final void mT__35() throws RecognitionException {
+        try {
+            int _type = T__35;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // format.g:23:7: ( 'Q' )
+            // format.g:23:9: 'Q'
+            {
+            match('Q'); 
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        	// do for sure before leaving
+        }
+    }
+    // $ANTLR end "T__35"
+
+    // $ANTLR start "T__36"
+    public final void mT__36() throws RecognitionException {
+        try {
+            int _type = T__36;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // format.g:24:7: ( 'R' )
+            // format.g:24:9: 'R'
+            {
+            match('R'); 
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        	// do for sure before leaving
+        }
+    }
+    // $ANTLR end "T__36"
+
+    // $ANTLR start "T__37"
+    public final void mT__37() throws RecognitionException {
+        try {
+            int _type = T__37;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // format.g:25:7: ( 'S' )
+            // format.g:25:9: 'S'
+            {
+            match('S'); 
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        	// do for sure before leaving
+        }
+    }
+    // $ANTLR end "T__37"
+
+    // $ANTLR start "T__38"
+    public final void mT__38() throws RecognitionException {
+        try {
+            int _type = T__38;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // format.g:26:7: ( 'T' )
+            // format.g:26:9: 'T'
+            {
+            match('T'); 
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        	// do for sure before leaving
+        }
+    }
+    // $ANTLR end "T__38"
+
+    // $ANTLR start "T__39"
+    public final void mT__39() throws RecognitionException {
+        try {
+            int _type = T__39;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // format.g:27:7: ( 'U' )
+            // format.g:27:9: 'U'
+            {
+            match('U'); 
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        	// do for sure before leaving
+        }
+    }
+    // $ANTLR end "T__39"
+
+    // $ANTLR start "T__40"
+    public final void mT__40() throws RecognitionException {
+        try {
+            int _type = T__40;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // format.g:28:7: ( 'V' )
+            // format.g:28:9: 'V'
+            {
+            match('V'); 
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        	// do for sure before leaving
+        }
+    }
+    // $ANTLR end "T__40"
+
+    // $ANTLR start "T__41"
+    public final void mT__41() throws RecognitionException {
+        try {
+            int _type = T__41;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // format.g:29:7: ( 'W' )
+            // format.g:29:9: 'W'
+            {
+            match('W'); 
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        	// do for sure before leaving
+        }
+    }
+    // $ANTLR end "T__41"
+
+    // $ANTLR start "T__42"
+    public final void mT__42() throws RecognitionException {
+        try {
+            int _type = T__42;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // format.g:30:7: ( 'X' )
+            // format.g:30:9: 'X'
+            {
+            match('X'); 
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        	// do for sure before leaving
+        }
+    }
+    // $ANTLR end "T__42"
+
+    // $ANTLR start "T__43"
+    public final void mT__43() throws RecognitionException {
+        try {
+            int _type = T__43;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // format.g:31:7: ( 'Y' )
+            // format.g:31:9: 'Y'
+            {
+            match('Y'); 
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        	// do for sure before leaving
+        }
+    }
+    // $ANTLR end "T__43"
+
+    // $ANTLR start "T__44"
+    public final void mT__44() throws RecognitionException {
+        try {
+            int _type = T__44;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // format.g:32:7: ( 'Z' )
+            // format.g:32:9: 'Z'
+            {
+            match('Z'); 
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        	// do for sure before leaving
+        }
+    }
+    // $ANTLR end "T__44"
+
+    // $ANTLR start "T__45"
+    public final void mT__45() throws RecognitionException {
+        try {
+            int _type = T__45;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // format.g:33:7: ( 'a' )
+            // format.g:33:9: 'a'
+            {
+            match('a'); 
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        	// do for sure before leaving
+        }
+    }
+    // $ANTLR end "T__45"
+
+    // $ANTLR start "T__46"
+    public final void mT__46() throws RecognitionException {
+        try {
+            int _type = T__46;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // format.g:34:7: ( 'b' )
+            // format.g:34:9: 'b'
+            {
+            match('b'); 
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        	// do for sure before leaving
+        }
+    }
+    // $ANTLR end "T__46"
+
+    // $ANTLR start "T__47"
+    public final void mT__47() throws RecognitionException {
+        try {
+            int _type = T__47;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // format.g:35:7: ( 'c' )
+            // format.g:35:9: 'c'
+            {
+            match('c'); 
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        	// do for sure before leaving
+        }
+    }
+    // $ANTLR end "T__47"
+
+    // $ANTLR start "T__48"
+    public final void mT__48() throws RecognitionException {
+        try {
+            int _type = T__48;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // format.g:36:7: ( 'd' )
+            // format.g:36:9: 'd'
+            {
+            match('d'); 
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        	// do for sure before leaving
+        }
+    }
+    // $ANTLR end "T__48"
+
+    // $ANTLR start "T__49"
+    public final void mT__49() throws RecognitionException {
+        try {
+            int _type = T__49;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // format.g:37:7: ( 'e' )
+            // format.g:37:9: 'e'
+            {
+            match('e'); 
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        	// do for sure before leaving
+        }
+    }
+    // $ANTLR end "T__49"
+
+    // $ANTLR start "T__50"
+    public final void mT__50() throws RecognitionException {
+        try {
+            int _type = T__50;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // format.g:38:7: ( 'f' )
+            // format.g:38:9: 'f'
+            {
+            match('f'); 
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        	// do for sure before leaving
+        }
+    }
+    // $ANTLR end "T__50"
+
+    // $ANTLR start "T__51"
+    public final void mT__51() throws RecognitionException {
+        try {
+            int _type = T__51;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // format.g:39:7: ( 'g' )
+            // format.g:39:9: 'g'
+            {
+            match('g'); 
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        	// do for sure before leaving
+        }
+    }
+    // $ANTLR end "T__51"
+
+    // $ANTLR start "T__52"
+    public final void mT__52() throws RecognitionException {
+        try {
+            int _type = T__52;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // format.g:40:7: ( 'h' )
+            // format.g:40:9: 'h'
+            {
+            match('h'); 
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        	// do for sure before leaving
+        }
+    }
+    // $ANTLR end "T__52"
+
+    // $ANTLR start "T__53"
+    public final void mT__53() throws RecognitionException {
+        try {
+            int _type = T__53;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // format.g:41:7: ( 'i' )
+            // format.g:41:9: 'i'
+            {
+            match('i'); 
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        	// do for sure before leaving
+        }
+    }
+    // $ANTLR end "T__53"
+
+    // $ANTLR start "T__54"
+    public final void mT__54() throws RecognitionException {
+        try {
+            int _type = T__54;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // format.g:42:7: ( 'j' )
+            // format.g:42:9: 'j'
+            {
+            match('j'); 
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        	// do for sure before leaving
+        }
+    }
+    // $ANTLR end "T__54"
+
+    // $ANTLR start "T__55"
+    public final void mT__55() throws RecognitionException {
+        try {
+            int _type = T__55;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // format.g:43:7: ( 'k' )
+            // format.g:43:9: 'k'
+            {
+            match('k'); 
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        	// do for sure before leaving
+        }
+    }
+    // $ANTLR end "T__55"
+
+    // $ANTLR start "T__56"
+    public final void mT__56() throws RecognitionException {
+        try {
+            int _type = T__56;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // format.g:44:7: ( 'l' )
+            // format.g:44:9: 'l'
+            {
+            match('l'); 
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        	// do for sure before leaving
+        }
+    }
+    // $ANTLR end "T__56"
+
+    // $ANTLR start "T__57"
+    public final void mT__57() throws RecognitionException {
+        try {
+            int _type = T__57;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // format.g:45:7: ( 'm' )
+            // format.g:45:9: 'm'
+            {
+            match('m'); 
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        	// do for sure before leaving
+        }
+    }
+    // $ANTLR end "T__57"
+
+    // $ANTLR start "T__58"
+    public final void mT__58() throws RecognitionException {
+        try {
+            int _type = T__58;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // format.g:46:7: ( 'n' )
+            // format.g:46:9: 'n'
+            {
+            match('n'); 
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        	// do for sure before leaving
+        }
+    }
+    // $ANTLR end "T__58"
+
+    // $ANTLR start "T__59"
+    public final void mT__59() throws RecognitionException {
+        try {
+            int _type = T__59;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // format.g:47:7: ( 'o' )
+            // format.g:47:9: 'o'
+            {
+            match('o'); 
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        	// do for sure before leaving
+        }
+    }
+    // $ANTLR end "T__59"
+
+    // $ANTLR start "T__60"
+    public final void mT__60() throws RecognitionException {
+        try {
+            int _type = T__60;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // format.g:48:7: ( 'p' )
+            // format.g:48:9: 'p'
+            {
+            match('p'); 
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        	// do for sure before leaving
+        }
+    }
+    // $ANTLR end "T__60"
+
+    // $ANTLR start "T__61"
+    public final void mT__61() throws RecognitionException {
+        try {
+            int _type = T__61;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // format.g:49:7: ( 'q' )
+            // format.g:49:9: 'q'
+            {
+            match('q'); 
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        	// do for sure before leaving
+        }
+    }
+    // $ANTLR end "T__61"
+
+    // $ANTLR start "T__62"
+    public final void mT__62() throws RecognitionException {
+        try {
+            int _type = T__62;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // format.g:50:7: ( 'r' )
+            // format.g:50:9: 'r'
+            {
+            match('r'); 
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        	// do for sure before leaving
+        }
+    }
+    // $ANTLR end "T__62"
+
+    // $ANTLR start "T__63"
+    public final void mT__63() throws RecognitionException {
+        try {
+            int _type = T__63;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // format.g:51:7: ( 's' )
+            // format.g:51:9: 's'
+            {
+            match('s'); 
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        	// do for sure before leaving
+        }
+    }
+    // $ANTLR end "T__63"
+
+    // $ANTLR start "T__64"
+    public final void mT__64() throws RecognitionException {
+        try {
+            int _type = T__64;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // format.g:52:7: ( 't' )
+            // format.g:52:9: 't'
+            {
+            match('t'); 
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        	// do for sure before leaving
+        }
+    }
+    // $ANTLR end "T__64"
+
+    // $ANTLR start "T__65"
+    public final void mT__65() throws RecognitionException {
+        try {
+            int _type = T__65;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // format.g:53:7: ( 'u' )
+            // format.g:53:9: 'u'
+            {
+            match('u'); 
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        	// do for sure before leaving
+        }
+    }
+    // $ANTLR end "T__65"
+
+    // $ANTLR start "T__66"
+    public final void mT__66() throws RecognitionException {
+        try {
+            int _type = T__66;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // format.g:54:7: ( 'v' )
+            // format.g:54:9: 'v'
+            {
+            match('v'); 
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        	// do for sure before leaving
+        }
+    }
+    // $ANTLR end "T__66"
+
+    // $ANTLR start "T__67"
+    public final void mT__67() throws RecognitionException {
+        try {
+            int _type = T__67;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // format.g:55:7: ( 'w' )
+            // format.g:55:9: 'w'
+            {
+            match('w'); 
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        	// do for sure before leaving
+        }
+    }
+    // $ANTLR end "T__67"
+
+    // $ANTLR start "T__68"
+    public final void mT__68() throws RecognitionException {
+        try {
+            int _type = T__68;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // format.g:56:7: ( 'x' )
+            // format.g:56:9: 'x'
+            {
+            match('x'); 
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        	// do for sure before leaving
+        }
+    }
+    // $ANTLR end "T__68"
+
+    // $ANTLR start "T__69"
+    public final void mT__69() throws RecognitionException {
+        try {
+            int _type = T__69;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // format.g:57:7: ( 'y' )
+            // format.g:57:9: 'y'
+            {
+            match('y'); 
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        	// do for sure before leaving
+        }
+    }
+    // $ANTLR end "T__69"
+
+    // $ANTLR start "T__70"
+    public final void mT__70() throws RecognitionException {
+        try {
+            int _type = T__70;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // format.g:58:7: ( 'z' )
+            // format.g:58:9: 'z'
             {
             match('z'); 
 
@@ -323,7 +1181,7 @@ public class formatLexer extends Lexer {
         	// do for sure before leaving
         }
     }
-    // $ANTLR end "T__31"
+    // $ANTLR end "T__70"
 
     // $ANTLR start "LANG"
     public final void mLANG() throws RecognitionException {
@@ -752,112 +1610,307 @@ public class formatLexer extends Lexer {
     // $ANTLR end "FILE"
 
     public void mTokens() throws RecognitionException {
-        // format.g:1:8: ( T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | PERCENT | SILENCE_SPACE | SILENCE_PERIOD | SILENCE_QUEST | SILENCE_SEMI | SILENCE_COLON | SILENCE_COMMA | SILENCE_PLUS | NUM | OPT | FILE )
-        int alt4=24;
+        // format.g:1:8: ( T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | T__61 | T__62 | T__63 | T__64 | T__65 | T__66 | T__67 | T__68 | T__69 | T__70 | PERCENT | SILENCE_SPACE | SILENCE_PERIOD | SILENCE_QUEST | SILENCE_SEMI | SILENCE_COLON | SILENCE_COMMA | SILENCE_PLUS | NUM | OPT | FILE )
+        int alt4=63;
         switch ( input.LA(1) ) {
-        case 'D':
+        case 'A':
             {
             alt4=1;
             }
             break;
-        case 'c':
+        case 'B':
             {
             alt4=2;
             }
             break;
-        case 'd':
+        case 'C':
             {
             alt4=3;
             }
             break;
-        case 'e':
+        case 'D':
             {
             alt4=4;
             }
             break;
-        case 'f':
+        case 'E':
             {
             alt4=5;
             }
             break;
-        case 'i':
+        case 'F':
             {
             alt4=6;
             }
             break;
-        case 'm':
+        case 'G':
             {
             alt4=7;
             }
             break;
-        case 'n':
+        case 'H':
             {
             alt4=8;
             }
             break;
-        case 'p':
+        case 'I':
             {
             alt4=9;
             }
             break;
-        case 'r':
+        case 'J':
             {
             alt4=10;
             }
             break;
-        case 's':
+        case 'K':
             {
             alt4=11;
             }
             break;
-        case 't':
+        case 'L':
             {
             alt4=12;
             }
             break;
-        case 'z':
+        case 'M':
             {
             alt4=13;
             }
             break;
-        case '%':
+        case 'N':
             {
             alt4=14;
             }
             break;
-        case ' ':
+        case 'O':
             {
             alt4=15;
             }
             break;
-        case '.':
+        case 'P':
             {
             alt4=16;
             }
             break;
-        case '?':
+        case 'Q':
             {
             alt4=17;
             }
             break;
-        case ';':
+        case 'R':
             {
             alt4=18;
             }
             break;
-        case ':':
+        case 'S':
             {
             alt4=19;
             }
             break;
-        case ',':
+        case 'T':
             {
             alt4=20;
             }
             break;
-        case '+':
+        case 'U':
             {
             alt4=21;
+            }
+            break;
+        case 'V':
+            {
+            alt4=22;
+            }
+            break;
+        case 'W':
+            {
+            alt4=23;
+            }
+            break;
+        case 'X':
+            {
+            alt4=24;
+            }
+            break;
+        case 'Y':
+            {
+            alt4=25;
+            }
+            break;
+        case 'Z':
+            {
+            alt4=26;
+            }
+            break;
+        case 'a':
+            {
+            alt4=27;
+            }
+            break;
+        case 'b':
+            {
+            alt4=28;
+            }
+            break;
+        case 'c':
+            {
+            alt4=29;
+            }
+            break;
+        case 'd':
+            {
+            alt4=30;
+            }
+            break;
+        case 'e':
+            {
+            alt4=31;
+            }
+            break;
+        case 'f':
+            {
+            alt4=32;
+            }
+            break;
+        case 'g':
+            {
+            alt4=33;
+            }
+            break;
+        case 'h':
+            {
+            alt4=34;
+            }
+            break;
+        case 'i':
+            {
+            alt4=35;
+            }
+            break;
+        case 'j':
+            {
+            alt4=36;
+            }
+            break;
+        case 'k':
+            {
+            alt4=37;
+            }
+            break;
+        case 'l':
+            {
+            alt4=38;
+            }
+            break;
+        case 'm':
+            {
+            alt4=39;
+            }
+            break;
+        case 'n':
+            {
+            alt4=40;
+            }
+            break;
+        case 'o':
+            {
+            alt4=41;
+            }
+            break;
+        case 'p':
+            {
+            alt4=42;
+            }
+            break;
+        case 'q':
+            {
+            alt4=43;
+            }
+            break;
+        case 'r':
+            {
+            alt4=44;
+            }
+            break;
+        case 's':
+            {
+            alt4=45;
+            }
+            break;
+        case 't':
+            {
+            alt4=46;
+            }
+            break;
+        case 'u':
+            {
+            alt4=47;
+            }
+            break;
+        case 'v':
+            {
+            alt4=48;
+            }
+            break;
+        case 'w':
+            {
+            alt4=49;
+            }
+            break;
+        case 'x':
+            {
+            alt4=50;
+            }
+            break;
+        case 'y':
+            {
+            alt4=51;
+            }
+            break;
+        case 'z':
+            {
+            alt4=52;
+            }
+            break;
+        case '%':
+            {
+            alt4=53;
+            }
+            break;
+        case ' ':
+            {
+            alt4=54;
+            }
+            break;
+        case '.':
+            {
+            alt4=55;
+            }
+            break;
+        case '?':
+            {
+            alt4=56;
+            }
+            break;
+        case ';':
+            {
+            alt4=57;
+            }
+            break;
+        case ':':
+            {
+            alt4=58;
+            }
+            break;
+        case ',':
+            {
+            alt4=59;
+            }
+            break;
+        case '+':
+            {
+            alt4=60;
             }
             break;
         case '0':
@@ -871,17 +1924,17 @@ public class formatLexer extends Lexer {
         case '8':
         case '9':
             {
-            alt4=22;
+            alt4=61;
             }
             break;
         case '[':
             {
-            alt4=23;
+            alt4=62;
             }
             break;
         case '<':
             {
-            alt4=24;
+            alt4=63;
             }
             break;
         default:
@@ -998,87 +2051,399 @@ public class formatLexer extends Lexer {
                 }
                 break;
             case 14 :
-                // format.g:1:88: PERCENT
+                // format.g:1:88: T__32
+                {
+                mT__32(); 
+
+
+                }
+                break;
+            case 15 :
+                // format.g:1:94: T__33
+                {
+                mT__33(); 
+
+
+                }
+                break;
+            case 16 :
+                // format.g:1:100: T__34
+                {
+                mT__34(); 
+
+
+                }
+                break;
+            case 17 :
+                // format.g:1:106: T__35
+                {
+                mT__35(); 
+
+
+                }
+                break;
+            case 18 :
+                // format.g:1:112: T__36
+                {
+                mT__36(); 
+
+
+                }
+                break;
+            case 19 :
+                // format.g:1:118: T__37
+                {
+                mT__37(); 
+
+
+                }
+                break;
+            case 20 :
+                // format.g:1:124: T__38
+                {
+                mT__38(); 
+
+
+                }
+                break;
+            case 21 :
+                // format.g:1:130: T__39
+                {
+                mT__39(); 
+
+
+                }
+                break;
+            case 22 :
+                // format.g:1:136: T__40
+                {
+                mT__40(); 
+
+
+                }
+                break;
+            case 23 :
+                // format.g:1:142: T__41
+                {
+                mT__41(); 
+
+
+                }
+                break;
+            case 24 :
+                // format.g:1:148: T__42
+                {
+                mT__42(); 
+
+
+                }
+                break;
+            case 25 :
+                // format.g:1:154: T__43
+                {
+                mT__43(); 
+
+
+                }
+                break;
+            case 26 :
+                // format.g:1:160: T__44
+                {
+                mT__44(); 
+
+
+                }
+                break;
+            case 27 :
+                // format.g:1:166: T__45
+                {
+                mT__45(); 
+
+
+                }
+                break;
+            case 28 :
+                // format.g:1:172: T__46
+                {
+                mT__46(); 
+
+
+                }
+                break;
+            case 29 :
+                // format.g:1:178: T__47
+                {
+                mT__47(); 
+
+
+                }
+                break;
+            case 30 :
+                // format.g:1:184: T__48
+                {
+                mT__48(); 
+
+
+                }
+                break;
+            case 31 :
+                // format.g:1:190: T__49
+                {
+                mT__49(); 
+
+
+                }
+                break;
+            case 32 :
+                // format.g:1:196: T__50
+                {
+                mT__50(); 
+
+
+                }
+                break;
+            case 33 :
+                // format.g:1:202: T__51
+                {
+                mT__51(); 
+
+
+                }
+                break;
+            case 34 :
+                // format.g:1:208: T__52
+                {
+                mT__52(); 
+
+
+                }
+                break;
+            case 35 :
+                // format.g:1:214: T__53
+                {
+                mT__53(); 
+
+
+                }
+                break;
+            case 36 :
+                // format.g:1:220: T__54
+                {
+                mT__54(); 
+
+
+                }
+                break;
+            case 37 :
+                // format.g:1:226: T__55
+                {
+                mT__55(); 
+
+
+                }
+                break;
+            case 38 :
+                // format.g:1:232: T__56
+                {
+                mT__56(); 
+
+
+                }
+                break;
+            case 39 :
+                // format.g:1:238: T__57
+                {
+                mT__57(); 
+
+
+                }
+                break;
+            case 40 :
+                // format.g:1:244: T__58
+                {
+                mT__58(); 
+
+
+                }
+                break;
+            case 41 :
+                // format.g:1:250: T__59
+                {
+                mT__59(); 
+
+
+                }
+                break;
+            case 42 :
+                // format.g:1:256: T__60
+                {
+                mT__60(); 
+
+
+                }
+                break;
+            case 43 :
+                // format.g:1:262: T__61
+                {
+                mT__61(); 
+
+
+                }
+                break;
+            case 44 :
+                // format.g:1:268: T__62
+                {
+                mT__62(); 
+
+
+                }
+                break;
+            case 45 :
+                // format.g:1:274: T__63
+                {
+                mT__63(); 
+
+
+                }
+                break;
+            case 46 :
+                // format.g:1:280: T__64
+                {
+                mT__64(); 
+
+
+                }
+                break;
+            case 47 :
+                // format.g:1:286: T__65
+                {
+                mT__65(); 
+
+
+                }
+                break;
+            case 48 :
+                // format.g:1:292: T__66
+                {
+                mT__66(); 
+
+
+                }
+                break;
+            case 49 :
+                // format.g:1:298: T__67
+                {
+                mT__67(); 
+
+
+                }
+                break;
+            case 50 :
+                // format.g:1:304: T__68
+                {
+                mT__68(); 
+
+
+                }
+                break;
+            case 51 :
+                // format.g:1:310: T__69
+                {
+                mT__69(); 
+
+
+                }
+                break;
+            case 52 :
+                // format.g:1:316: T__70
+                {
+                mT__70(); 
+
+
+                }
+                break;
+            case 53 :
+                // format.g:1:322: PERCENT
                 {
                 mPERCENT(); 
 
 
                 }
                 break;
-            case 15 :
-                // format.g:1:96: SILENCE_SPACE
+            case 54 :
+                // format.g:1:330: SILENCE_SPACE
                 {
                 mSILENCE_SPACE(); 
 
 
                 }
                 break;
-            case 16 :
-                // format.g:1:110: SILENCE_PERIOD
+            case 55 :
+                // format.g:1:344: SILENCE_PERIOD
                 {
                 mSILENCE_PERIOD(); 
 
 
                 }
                 break;
-            case 17 :
-                // format.g:1:125: SILENCE_QUEST
+            case 56 :
+                // format.g:1:359: SILENCE_QUEST
                 {
                 mSILENCE_QUEST(); 
 
 
                 }
                 break;
-            case 18 :
-                // format.g:1:139: SILENCE_SEMI
+            case 57 :
+                // format.g:1:373: SILENCE_SEMI
                 {
                 mSILENCE_SEMI(); 
 
 
                 }
                 break;
-            case 19 :
-                // format.g:1:152: SILENCE_COLON
+            case 58 :
+                // format.g:1:386: SILENCE_COLON
                 {
                 mSILENCE_COLON(); 
 
 
                 }
                 break;
-            case 20 :
-                // format.g:1:166: SILENCE_COMMA
+            case 59 :
+                // format.g:1:400: SILENCE_COMMA
                 {
                 mSILENCE_COMMA(); 
 
 
                 }
                 break;
-            case 21 :
-                // format.g:1:180: SILENCE_PLUS
+            case 60 :
+                // format.g:1:414: SILENCE_PLUS
                 {
                 mSILENCE_PLUS(); 
 
 
                 }
                 break;
-            case 22 :
-                // format.g:1:193: NUM
+            case 61 :
+                // format.g:1:427: NUM
                 {
                 mNUM(); 
 
 
                 }
                 break;
-            case 23 :
-                // format.g:1:197: OPT
+            case 62 :
+                // format.g:1:431: OPT
                 {
                 mOPT(); 
 
 
                 }
                 break;
-            case 24 :
-                // format.g:1:201: FILE
+            case 63 :
+                // format.g:1:435: FILE
                 {
                 mFILE(); 
 

@@ -92,6 +92,12 @@ class SS_format
 				interp.num = 0;
 				interp.timeval = new Date(0);
 				break;
+			  case SS_script.SS_S_TYPE_USER_DEFINED:
+				sayscript_name = fe.user_def_name;
+				interp.str = args.get(argcount++).value;
+				interp.num = 0;
+				interp.timeval = new Date(0);
+				break;
 			  case SS_script.SS_S_TYPE_CHAR_STR:
 				sayscript_name = new String("char_str");
 				interp.str = args.get(argcount++).value;

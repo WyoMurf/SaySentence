@@ -39,6 +39,7 @@ class SS_format_element
   long num; /* the optional number in the %x construct  for SAYSCRIPT */
   String opt;  /* the optional option letters for the sayscript */
   int sayscript_type; /* the numerical rep for the sayscript type */
+  String user_def_name; /* which user_defined name to use */
 
   void print()
   {

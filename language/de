@@ -50,7 +50,3 @@ ATBEGIN,GREATER     999999999999                 -                     - RANGE_E
 
 PATTERN  "^0[0-9]"  -                 -          CUT(1)  ;; get rid of leading zeroes!
 
-
-[money]
-
-

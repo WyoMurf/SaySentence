@@ -1,4 +1,4 @@
-// $ANTLR 3.4 SayScript.g 2059-12-15 12:17:10
+// $ANTLR 3.4 SayScript.g 2059-12-16 10:21:22
 
 import java.util.regex.*;
 
@@ -2455,9 +2455,9 @@ public class SayScriptParser extends Parser {
             	case 1 :
             	    // SayScript.g:319:9: COMMA y= ID
             	    {
-            	    match(input,COMMA,FOLLOW_COMMA_in_header2599); 
+            	    match(input,COMMA,FOLLOW_COMMA_in_header2598); 
 
-            	    y=(Token)match(input,ID,FOLLOW_ID_in_header2603); 
+            	    y=(Token)match(input,ID,FOLLOW_ID_in_header2602); 
 
 
             	    		 		SS_script_name z4 = new SS_script_name((y!=null?y.getText():null)); 
@@ -2479,7 +2479,7 @@ public class SayScriptParser extends Parser {
             } while (true);
 
 
-            match(input,RBRACK,FOLLOW_RBRACK_in_header2619); 
+            match(input,RBRACK,FOLLOW_RBRACK_in_header2618); 
 
             // SayScript.g:329:21: ( WHITE )?
             int alt29=2;
@@ -2492,7 +2492,7 @@ public class SayScriptParser extends Parser {
                 case 1 :
                     // SayScript.g:329:21: WHITE
                     {
-                    match(input,WHITE,FOLLOW_WHITE_in_header2621); 
+                    match(input,WHITE,FOLLOW_WHITE_in_header2620); 
 
                     }
                     break;
@@ -2549,7 +2549,7 @@ public class SayScriptParser extends Parser {
                 case 1 :
                     // SayScript.g:333:21: WHITE
                     {
-                    match(input,WHITE,FOLLOW_WHITE_in_silence_statement2663); 
+                    match(input,WHITE,FOLLOW_WHITE_in_silence_statement2662); 
 
                     }
                     break;
@@ -2557,7 +2557,7 @@ public class SayScriptParser extends Parser {
             }
 
 
-            nam=(Token)match(input,ID,FOLLOW_ID_in_silence_statement2668); 
+            nam=(Token)match(input,ID,FOLLOW_ID_in_silence_statement2667); 
 
             // SayScript.g:333:35: ( WHITE )?
             int alt31=2;
@@ -2570,7 +2570,7 @@ public class SayScriptParser extends Parser {
                 case 1 :
                     // SayScript.g:333:35: WHITE
                     {
-                    match(input,WHITE,FOLLOW_WHITE_in_silence_statement2670); 
+                    match(input,WHITE,FOLLOW_WHITE_in_silence_statement2669); 
 
                     }
                     break;
@@ -2578,7 +2578,7 @@ public class SayScriptParser extends Parser {
             }
 
 
-            match(input,EQUALS,FOLLOW_EQUALS_in_silence_statement2673); 
+            match(input,EQUALS,FOLLOW_EQUALS_in_silence_statement2672); 
 
             // SayScript.g:333:49: ( WHITE )?
             int alt32=2;
@@ -2591,7 +2591,7 @@ public class SayScriptParser extends Parser {
                 case 1 :
                     // SayScript.g:333:49: WHITE
                     {
-                    match(input,WHITE,FOLLOW_WHITE_in_silence_statement2675); 
+                    match(input,WHITE,FOLLOW_WHITE_in_silence_statement2674); 
 
                     }
                     break;
@@ -2707,11 +2707,11 @@ public class SayScriptParser extends Parser {
                     	case 1 :
                     	    // SayScript.g:404:14: LANG pc= PATHCONST RANG
                     	    {
-                    	    match(input,LANG,FOLLOW_LANG_in_silence_statement2697); 
+                    	    match(input,LANG,FOLLOW_LANG_in_silence_statement2696); 
 
-                    	    pc=(Token)match(input,PATHCONST,FOLLOW_PATHCONST_in_silence_statement2701); 
+                    	    pc=(Token)match(input,PATHCONST,FOLLOW_PATHCONST_in_silence_statement2700); 
 
-                    	    match(input,RANG,FOLLOW_RANG_in_silence_statement2703); 
+                    	    match(input,RANG,FOLLOW_RANG_in_silence_statement2702); 
 
                     	    SS_playlist pl = new SS_playlist(); pl.str = (pc!=null?pc.getText():null); sd.playfiles.add(pl);
 
@@ -2733,7 +2733,7 @@ public class SayScriptParser extends Parser {
                 case 2 :
                     // SayScript.g:404:121: DASH
                     {
-                    match(input,DASH,FOLLOW_DASH_in_silence_statement2712); 
+                    match(input,DASH,FOLLOW_DASH_in_silence_statement2711); 
 
                     }
                     break;
@@ -2752,7 +2752,7 @@ public class SayScriptParser extends Parser {
                 case 1 :
                     // SayScript.g:404:127: WHITE
                     {
-                    match(input,WHITE,FOLLOW_WHITE_in_silence_statement2715); 
+                    match(input,WHITE,FOLLOW_WHITE_in_silence_statement2714); 
 
                     }
                     break;
@@ -2819,7 +2819,7 @@ public class SayScriptParser extends Parser {
             	case 1 :
             	    // SayScript.g:407:50: silence_statement[scriptset]
             	    {
-            	    pushFollow(FOLLOW_silence_statement_in_silence_statement_list2740);
+            	    pushFollow(FOLLOW_silence_statement_in_silence_statement_list2739);
             	    silence_statement(scriptset);
 
             	    state._fsp--;
@@ -2873,7 +2873,7 @@ public class SayScriptParser extends Parser {
                 case 1 :
                     // SayScript.g:409:18: WHITE
                     {
-                    match(input,WHITE,FOLLOW_WHITE_in_silence_header2753); 
+                    match(input,WHITE,FOLLOW_WHITE_in_silence_header2752); 
 
                     }
                     break;
@@ -2881,11 +2881,11 @@ public class SayScriptParser extends Parser {
             }
 
 
-            match(input,LBRACK,FOLLOW_LBRACK_in_silence_header2756); 
+            match(input,LBRACK,FOLLOW_LBRACK_in_silence_header2755); 
 
-            match(input,HDR_SILENCE,FOLLOW_HDR_SILENCE_in_silence_header2758); 
+            match(input,HDR_SILENCE,FOLLOW_HDR_SILENCE_in_silence_header2757); 
 
-            match(input,RBRACK,FOLLOW_RBRACK_in_silence_header2760); 
+            match(input,RBRACK,FOLLOW_RBRACK_in_silence_header2759); 
 
             // SayScript.g:409:51: ( WHITE )?
             int alt38=2;
@@ -2898,7 +2898,7 @@ public class SayScriptParser extends Parser {
                 case 1 :
                     // SayScript.g:409:51: WHITE
                     {
-                    match(input,WHITE,FOLLOW_WHITE_in_silence_header2762); 
+                    match(input,WHITE,FOLLOW_WHITE_in_silence_header2761); 
 
                     }
                     break;
@@ -3001,13 +3001,13 @@ public class SayScriptParser extends Parser {
                 case 1 :
                     // SayScript.g:415:10: hdr= header[scriptset, script] statement_list[scriptset, script]
                     {
-                    pushFollow(FOLLOW_header_in_script2802);
+                    pushFollow(FOLLOW_header_in_script2801);
                     header(scriptset, script);
 
                     state._fsp--;
 
 
-                    pushFollow(FOLLOW_statement_list_in_script2805);
+                    pushFollow(FOLLOW_statement_list_in_script2804);
                     statement_list(scriptset, script);
 
                     state._fsp--;
@@ -3018,13 +3018,13 @@ public class SayScriptParser extends Parser {
                 case 2 :
                     // SayScript.g:416:10: silence_header silence_statement_list[scriptset]
                     {
-                    pushFollow(FOLLOW_silence_header_in_script2817);
+                    pushFollow(FOLLOW_silence_header_in_script2816);
                     silence_header();
 
                     state._fsp--;
 
 
-                    pushFollow(FOLLOW_silence_statement_list_in_script2819);
+                    pushFollow(FOLLOW_silence_statement_list_in_script2818);
                     silence_statement_list(scriptset);
 
                     state._fsp--;
@@ -3113,7 +3113,7 @@ public class SayScriptParser extends Parser {
             	    	        case 1 :
             	    	            // SayScript.g:422:12: WHITE
             	    	            {
-            	    	            match(input,WHITE,FOLLOW_WHITE_in_script_set2857); 
+            	    	            match(input,WHITE,FOLLOW_WHITE_in_script_set2856); 
 
             	    	            }
             	    	            break;
@@ -3140,7 +3140,7 @@ public class SayScriptParser extends Parser {
             	    } while (true);
 
 
-            	    pushFollow(FOLLOW_script_in_script_set2870);
+            	    pushFollow(FOLLOW_script_in_script_set2869);
             	    script(scriptset);
 
             	    state._fsp--;
@@ -3304,35 +3304,35 @@ public class SayScriptParser extends Parser {
     public static final BitSet FOLLOW_WHITE_in_header2581 = new BitSet(new long[]{0x0008000000000000L});
     public static final BitSet FOLLOW_LBRACK_in_header2584 = new BitSet(new long[]{0x0002000000000000L});
     public static final BitSet FOLLOW_ID_in_header2588 = new BitSet(new long[]{0x0000000000004000L,0x0000000000000040L});
-    public static final BitSet FOLLOW_COMMA_in_header2599 = new BitSet(new long[]{0x0002000000000000L});
-    public static final BitSet FOLLOW_ID_in_header2603 = new BitSet(new long[]{0x0000000000004000L,0x0000000000000040L});
-    public static final BitSet FOLLOW_RBRACK_in_header2619 = new BitSet(new long[]{0x0100000000008000L,0x0000000000001000L});
-    public static final BitSet FOLLOW_WHITE_in_header2621 = new BitSet(new long[]{0x0100000000008000L});
-    public static final BitSet FOLLOW_set_in_header2624 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_WHITE_in_silence_statement2663 = new BitSet(new long[]{0x0002000000000000L});
-    public static final BitSet FOLLOW_ID_in_silence_statement2668 = new BitSet(new long[]{0x0000000000400000L,0x0000000000001000L});
-    public static final BitSet FOLLOW_WHITE_in_silence_statement2670 = new BitSet(new long[]{0x0000000000400000L});
-    public static final BitSet FOLLOW_EQUALS_in_silence_statement2673 = new BitSet(new long[]{0x0004000000010000L,0x0000000000001000L});
-    public static final BitSet FOLLOW_WHITE_in_silence_statement2675 = new BitSet(new long[]{0x0004000000010000L});
-    public static final BitSet FOLLOW_LANG_in_silence_statement2697 = new BitSet(new long[]{0x8000000000000000L});
-    public static final BitSet FOLLOW_PATHCONST_in_silence_statement2701 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
-    public static final BitSet FOLLOW_RANG_in_silence_statement2703 = new BitSet(new long[]{0x0104000000008000L,0x0000000000001000L});
-    public static final BitSet FOLLOW_DASH_in_silence_statement2712 = new BitSet(new long[]{0x0100000000008000L,0x0000000000001000L});
-    public static final BitSet FOLLOW_WHITE_in_silence_statement2715 = new BitSet(new long[]{0x0100000000008000L});
-    public static final BitSet FOLLOW_set_in_silence_statement2718 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_silence_statement_in_silence_statement_list2740 = new BitSet(new long[]{0x0002000000000002L,0x0000000000001000L});
-    public static final BitSet FOLLOW_WHITE_in_silence_header2753 = new BitSet(new long[]{0x0008000000000000L});
-    public static final BitSet FOLLOW_LBRACK_in_silence_header2756 = new BitSet(new long[]{0x0000800000000000L});
-    public static final BitSet FOLLOW_HDR_SILENCE_in_silence_header2758 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000040L});
-    public static final BitSet FOLLOW_RBRACK_in_silence_header2760 = new BitSet(new long[]{0x0100000000008000L,0x0000000000001000L});
-    public static final BitSet FOLLOW_WHITE_in_silence_header2762 = new BitSet(new long[]{0x0100000000008000L});
-    public static final BitSet FOLLOW_set_in_silence_header2765 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_header_in_script2802 = new BitSet(new long[]{0x37A34000001E9C00L,0x0000000000007A21L});
-    public static final BitSet FOLLOW_statement_list_in_script2805 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_silence_header_in_script2817 = new BitSet(new long[]{0x0002000000000000L,0x0000000000001000L});
-    public static final BitSet FOLLOW_silence_statement_list_in_script2819 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_WHITE_in_script_set2857 = new BitSet(new long[]{0x0100000000008000L});
-    public static final BitSet FOLLOW_set_in_script_set2860 = new BitSet(new long[]{0x0108000000008000L,0x0000000000001000L});
-    public static final BitSet FOLLOW_script_in_script_set2870 = new BitSet(new long[]{0x0108000000008002L,0x0000000000001000L});
+    public static final BitSet FOLLOW_COMMA_in_header2598 = new BitSet(new long[]{0x0002000000000000L});
+    public static final BitSet FOLLOW_ID_in_header2602 = new BitSet(new long[]{0x0000000000004000L,0x0000000000000040L});
+    public static final BitSet FOLLOW_RBRACK_in_header2618 = new BitSet(new long[]{0x0100000000008000L,0x0000000000001000L});
+    public static final BitSet FOLLOW_WHITE_in_header2620 = new BitSet(new long[]{0x0100000000008000L});
+    public static final BitSet FOLLOW_set_in_header2623 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_WHITE_in_silence_statement2662 = new BitSet(new long[]{0x0002000000000000L});
+    public static final BitSet FOLLOW_ID_in_silence_statement2667 = new BitSet(new long[]{0x0000000000400000L,0x0000000000001000L});
+    public static final BitSet FOLLOW_WHITE_in_silence_statement2669 = new BitSet(new long[]{0x0000000000400000L});
+    public static final BitSet FOLLOW_EQUALS_in_silence_statement2672 = new BitSet(new long[]{0x0004000000010000L,0x0000000000001000L});
+    public static final BitSet FOLLOW_WHITE_in_silence_statement2674 = new BitSet(new long[]{0x0004000000010000L});
+    public static final BitSet FOLLOW_LANG_in_silence_statement2696 = new BitSet(new long[]{0x8000000000000000L});
+    public static final BitSet FOLLOW_PATHCONST_in_silence_statement2700 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
+    public static final BitSet FOLLOW_RANG_in_silence_statement2702 = new BitSet(new long[]{0x0104000000008000L,0x0000000000001000L});
+    public static final BitSet FOLLOW_DASH_in_silence_statement2711 = new BitSet(new long[]{0x0100000000008000L,0x0000000000001000L});
+    public static final BitSet FOLLOW_WHITE_in_silence_statement2714 = new BitSet(new long[]{0x0100000000008000L});
+    public static final BitSet FOLLOW_set_in_silence_statement2717 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_silence_statement_in_silence_statement_list2739 = new BitSet(new long[]{0x0002000000000002L,0x0000000000001000L});
+    public static final BitSet FOLLOW_WHITE_in_silence_header2752 = new BitSet(new long[]{0x0008000000000000L});
+    public static final BitSet FOLLOW_LBRACK_in_silence_header2755 = new BitSet(new long[]{0x0000800000000000L});
+    public static final BitSet FOLLOW_HDR_SILENCE_in_silence_header2757 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000040L});
+    public static final BitSet FOLLOW_RBRACK_in_silence_header2759 = new BitSet(new long[]{0x0100000000008000L,0x0000000000001000L});
+    public static final BitSet FOLLOW_WHITE_in_silence_header2761 = new BitSet(new long[]{0x0100000000008000L});
+    public static final BitSet FOLLOW_set_in_silence_header2764 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_header_in_script2801 = new BitSet(new long[]{0x37A34000001E9C00L,0x0000000000007A21L});
+    public static final BitSet FOLLOW_statement_list_in_script2804 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_silence_header_in_script2816 = new BitSet(new long[]{0x0002000000000000L,0x0000000000001000L});
+    public static final BitSet FOLLOW_silence_statement_list_in_script2818 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_WHITE_in_script_set2856 = new BitSet(new long[]{0x0100000000008000L});
+    public static final BitSet FOLLOW_set_in_script_set2859 = new BitSet(new long[]{0x0108000000008000L,0x0000000000001000L});
+    public static final BitSet FOLLOW_script_in_script_set2869 = new BitSet(new long[]{0x0108000000008002L,0x0000000000001000L});
 
 }
