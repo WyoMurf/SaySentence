@@ -1,0 +1,1070 @@
+# ./channels/sig_analog.c line 2057:
+[<ss-noservice>]
+
+
+
+# ./apps/app_dial.c line 1754:
+[<priv-callpending>]
+
+
+
+# ./apps/app_dial.c line 1773:
+[<priv-callee-options>]
+
+
+
+# ./apps/app_dial.c line 1780:
+[<screen-callee-options>]
+
+
+
+# ./apps/app_dial.c line 1971:
+# ./apps/app_voicemail.c line 12116:
+[<vm-dialout>]
+
+
+
+# ./apps/app_dictate.c line 166:
+[<dictate/forhelp>]
+
+
+
+# ./apps/app_dictate.c line 240:
+[<dictate/pause>]
+
+
+
+# ./apps/app_dictate.c line 243:
+[<dictate/playback>]
+
+
+
+# ./apps/app_dictate.c line 245:
+[<dictate/record>]
+
+
+
+# ./apps/app_dictate.c line 258:
+[<dictate/paused>]
+
+
+
+# ./apps/app_dictate.c line 265:
+[<dictate/play_help>]
+
+
+
+# ./apps/app_dictate.c line 272:
+[<dictate/record_help>]
+
+
+
+# ./apps/app_dictate.c line 280:
+[<dictate/both_help>]
+
+
+
+# ./apps/app_dictate.c line 344:
+[<dictate/record_mode>]
+
+
+
+# ./apps/app_dictate.c line 363:
+[<dictate/truncating_audio>]
+
+
+
+# ./apps/app_voicemail.c line 2486:
+# ./apps/app_voicemail.c line 2500:
+# ./apps/app_voicemail.c line 6639:
+# ./apps/app_voicemail.c line 6657:
+# ./apps/app_voicemail.c line 8126:
+# ./apps/app_voicemail.c line 8302:
+# ./apps/app_voicemail.c line 11538:
+# ./apps/app_voicemail.c line 11547:
+# ./apps/app_voicemail.c line 12017:
+[<vm-mailboxfull>]
+
+
+
+# ./apps/app_voicemail.c line 5472:
+[%z<vm-isonphone>]
+
+
+
+# ./apps/app_voicemail.c line 5474:
+[%z<vm-isunavail>]
+
+
+
+# ./apps/app_voicemail.c line 5484:
+[<vm-theperson>%i<vm-isonphone>]
+
+
+
+# ./apps/app_voicemail.c line 5486:
+[<vm-theperson>%i<vm-isunavail>]
+
+
+
+# ./apps/app_voicemail.c line 6531:
+[<vm-intro>]
+
+
+
+# ./apps/app_voicemail.c line 6569:
+# ./apps/app_minivm.c line 2491:
+[<transfer>]
+
+
+
+# ./apps/app_voicemail.c line 7546:
+[<vm-press>%n<vm-for>%z.]
+
+
+
+# ./apps/app_voicemail.c line 7548:
+[<vm-press><digits/0><vm-for><vm-INBOX>.]
+
+
+
+# ./apps/app_voicemail.c line 7552:
+[<vm-press><digits/1><vm-for><vm-Old>.]
+
+
+
+# ./apps/app_voicemail.c line 7555:
+[<vm-press><digits/2><vm-for><vm-Work>.]
+
+
+
+# ./apps/app_voicemail.c line 7558:
+[<vm-press><digits/3><vm-for><vm-Family>.]
+
+
+
+# ./apps/app_voicemail.c line 7561:
+[<vm-press><digits/4><vm-for><vm-Friends>.]
+
+
+
+# ./apps/app_voicemail.c line 7604:
+[<vm-tocancel>]
+
+
+
+# ./apps/app_voicemail.c line 7710:
+# ./apps/app_voicemail.c line 15377:
+[<vm-intro><beep>]
+
+
+
+# ./apps/app_voicemail.c line 7796:
+[<vm-forwardoptions>]
+
+
+
+# ./apps/app_voicemail.c line 7803:
+# ./apps/app_voicemail.c line 11742:
+[<vm-starmain>]
+
+
+
+# ./apps/app_voicemail.c line 8037:
+[<vm-forward>]
+
+
+
+# ./apps/app_voicemail.c line 8115:
+# ./apps/app_voicemail.c line 8151:
+[<pbx-invalid>]
+
+
+
+# ./apps/app_voicemail.c line 8164:
+# ./apps/app_voicemail.c line 8362:
+# ./apps/app_voicemail.c line 8503:
+# ./apps/app_meetme.c line 3095:
+# ./apps/app_meetme.c line 3642:
+# ./apps/app_meetme.c line 4009:
+# ./apps/app_confbridge.c line 1997:
+# ./apps/app_confbridge.c line 2034:
+[%z]
+
+
+
+# ./apps/app_voicemail.c line 8174:
+# ./apps/app_voicemail.c line 8517:
+# ./apps/app_voicemail.c line 8553:
+[%i]
+
+
+
+# ./apps/app_voicemail.c line 8272:
+# ./apps/app_voicemail.c line 12000:
+[<vm-message>]
+
+
+
+# ./apps/app_voicemail.c line 8278:
+[<vm-messages>]
+
+
+
+# ./apps/app_voicemail.c line 8284:
+[<vm-saved>]
+
+
+
+# ./apps/app_voicemail.c line 8293:
+[<vm-msgforwarded>]
+
+
+
+# ./apps/app_voicemail.c line 8425:
+[<vm-recieved>%[q]d<digits/at>%[IMp]d]
+
+
+
+# ./apps/app_voicemail.c line 8501:
+# ./apps/app_voicemail.c line 8536:
+[<vm-from>%z]
+
+
+
+# ./apps/app_voicemail.c line 8515:
+[<vm-from-extension>%i]
+
+
+
+# ./apps/app_voicemail.c line 8545:
+[<vm-from-phonenumber>%i]
+
+
+
+# ./apps/app_voicemail.c line 8564:
+[<vm-unknown-caller>]
+
+
+
+# ./apps/app_voicemail.c line 8622:
+[<vm-duration>%n<vm-minutes>]
+
+
+
+# ./apps/app_voicemail.c line 8652:
+[<vm-first><vm-Urgent><vm-message>]
+
+
+
+# ./apps/app_voicemail.c line 8654:
+[<vm-first><vm-message>]
+
+
+
+# ./apps/app_voicemail.c line 8658:
+[<vm-last><vm-Urgent><vm-message>]
+
+
+
+# ./apps/app_voicemail.c line 8660:
+[<vm-last><vm-message>]
+
+
+
+# ./apps/app_voicemail.c line 8665:
+[<vm-Urgent><vm-message>%n]
+
+
+
+# ./apps/app_voicemail.c line 8667:
+[<vm-message>%n]
+
+
+
+# ./apps/app_voicemail.c line 9099:
+[%z<vm-messages]
+
+
+
+# ./apps/app_voicemail.c line 9358:
+[<vm-youhave>%n<vm-Urgent><vm-messages>]
+
+
+
+# ./apps/app_voicemail.c line 9367:
+# ./apps/app_voicemail.c line 9376:
+[<vm-and>%n<vm-INBOX><vm-messages>]
+
+
+
+# ./apps/app_voicemail.c line 9369:
+# ./apps/app_voicemail.c line 9378:
+[<vm-youhave>%n<vm-INBOX><vm-messages>]
+
+
+
+# ./apps/app_voicemail.c line 9383:
+[<vm-youhave><vm-no><vm-messages>]
+
+
+
+# ./apps/app_voicemail.c line 10081:
+[<vm-tempgreetactive>]
+
+
+
+# ./apps/app_voicemail.c line 10151:
+[<vm-onefor-full>%z.<vm-opts-full>.]
+
+
+
+# ./apps/app_voicemail.c line 10153:
+[<vm-onefor>%z.<vm-opts>.]
+
+
+
+# ./apps/app_voicemail.c line 10158:
+[<vm-onefor-full>%z<vm-opts-full>.]
+
+
+
+# ./apps/app_voicemail.c line 10167:
+[<vm-prev>]
+
+
+
+# ./apps/app_voicemail.c line 10170:
+[<vm-advopts>]
+
+
+
+# ./apps/app_voicemail.c line 10172:
+[<vm-repeat>]
+
+
+
+# ./apps/app_voicemail.c line 10181:
+[<vm-next>]
+
+
+
+# ./apps/app_voicemail.c line 10193:
+[<vm-delete>]
+
+
+
+# ./apps/app_voicemail.c line 10195:
+[<vm-undelete>]
+
+
+
+# ./apps/app_voicemail.c line 10198:
+[<vm-toforward>]
+
+
+
+# ./apps/app_voicemail.c line 10201:
+[<vm-savemessage>]
+
+
+
+# ./apps/app_voicemail.c line 10206:
+[<vm-helpexit>]
+
+
+
+# ./apps/app_voicemail.c line 10388:
+# ./apps/app_voicemail.c line 10505:
+[<vm-newpassword>]
+
+
+
+# ./apps/app_voicemail.c line 10403:
+[<vm-invalid-password>]
+
+
+
+# ./apps/app_voicemail.c line 10410:
+# ./apps/app_voicemail.c line 10533:
+[<vm_reenterpassword>]
+
+
+
+# ./apps/app_voicemail.c line 10425:
+[<vm-mismatch>]
+
+
+
+# ./apps/app_voicemail.c line 10434:
+[<vm-pls-try-again>]
+
+
+
+# ./apps/app_voicemail.c line 10447:
+# ./apps/app_voicemail.c line 10571:
+[<vm-passchanged>]
+
+
+
+# ./apps/app_voicemail.c line 10497:
+[<vm-no>]
+
+
+
+# ./apps/app_voicemail.c line 10522:
+[<vm-invalid-password><vm-pls-try-again>]
+
+
+# ./apps/app_voicemail.c line 10551:
+[<vm-mismatch><vm-pls-try-again>]
+
+
+
+# ./apps/app_voicemail.c line 10585:
+[<vm-tmpexists>]
+
+
+
+# ./apps/app_voicemail.c line 10593:
+[<vm-options>]
+
+
+
+# ./apps/app_voicemail.c line 10669:
+[<vm-tempremoved>]
+
+
+
+# ./apps/app_voicemail.c line 10681:
+[<vm-tempgreeting2>]
+
+
+
+# ./apps/app_voicemail.c line 10683:
+[<vm-tempgreeting>]
+
+
+
+# ./apps/app_voicemail.c line 10726:
+[<vm-youhave><vm-no><vm-INBOX><vm-messages>]
+
+
+
+# ./apps/app_voicemail.c line 10728:
+[<vm-youhave><vm-no><vm-Old><vm-messages>]
+
+
+
+# ./apps/app_voicemail.c line 10730:
+[<vm-youhave><vm-no><vm-Urgent><vm-messages>]
+
+
+
+# ./apps/app_voicemail.c line 10732:
+[<vm-youhave><vm-no><vm-Work><vm-messages>]
+
+
+
+# ./apps/app_voicemail.c line 10734:
+[<vm-youhave><vm-no><vm-Friends><vm-messages>]
+
+
+
+# ./apps/app_voicemail.c line 10736:
+[<vm-youhave><vm-no><vm-Family><vm-messages>]
+
+
+
+# ./apps/app_voicemail.c line 10738:
+[<vm-youhave><vm-no><vm-Cust1><vm-messages>]
+
+
+
+# ./apps/app_voicemail.c line 10740:
+[<vm-youhave><vm-no><vm-Cust2><vm-messages>]
+
+
+
+# ./apps/app_voicemail.c line 10742:
+[<vm-youhave><vm-no><vm-Cust3><vm-messages>]
+
+
+
+# ./apps/app_voicemail.c line 10744:
+[<vm-youhave><vm-no><vm-Cust4><vm-messages>]
+
+
+
+# ./apps/app_voicemail.c line 10994:
+[<vm-login>]
+
+
+
+# ./apps/app_voicemail.c line 11049:
+[<vm-password>]
+
+
+
+# ./apps/app_voicemail.c line 11093:
+[<vm-incorrect>]
+
+
+
+# ./apps/app_voicemail.c line 11109:
+[<vm-incorrect-mailbox>]
+
+
+
+# ./apps/app_voicemail.c line 11129:
+# ./apps/app_voicemail.c line 12122:
+# ./apps/app_voicemail.c line 12243:
+# ./apps/app_voicemail.c line 15631:
+# ./apps/app_authenticate.c line 291:
+# ./apps/app_minivm.c line 1825:
+[<vm-goodbye>]
+
+
+
+# ./apps/app_voicemail.c line 11514:
+[<vm-newuser>]
+
+
+
+# ./apps/app_dial.c line 1807:
+# ./apps/app_voicemail.c line 11621:
+# ./apps/app_voicemail.c line 11642:
+# ./apps/app_voicemail.c line 11658:
+# ./apps/app_voicemail.c line 11674:
+# ./apps/app_voicemail.c line 11691:
+# ./apps/app_voicemail.c line 15150:
+# ./apps/app_voicemail.c line 15170:
+# ./apps/app_voicemail.c line 15472:
+# ./apps/app_voicemail.c line 15464:
+# ./apps/app_voicemail.c line 15486:
+# ./apps/app_voicemail.c line 15512:
+# ./apps/app_minivm.c line 1742:
+# ./apps/app_minivm.c line 1750:
+# ./main/app.c line 2165:
+[<vm-sorry>]
+
+
+
+# ./apps/app_voicemail.c line 11707:
+[<vm-toreply>]
+
+
+
+# ./apps/app_voicemail.c line 11714:
+[<vm-tocallback>]
+
+
+
+# ./apps/app_voicemail.c line 11721:
+[<vm-tohearenv>]
+
+
+
+# ./apps/app_voicemail.c line 11728:
+[<vm-tomakecall>]
+
+
+
+# ./apps/app_voicemail.c line 11735:
+[<vm-leavemsg>]
+
+
+
+# ./apps/app_voicemail.c line 11859:
+# ./apps/app_voicemail.c line 15497:
+# ./apps/app_voicemail.c line 15551:
+# ./apps/app_minivm.c line 1773:
+[<vm-deleted>]
+
+
+
+# ./apps/app_voicemail.c line 11874:
+[<vm-undeleted>]
+
+
+
+# ./apps/app_voicemail.c line 11787:
+# ./apps/app_voicemail.c line 11797:
+# ./apps/app_voicemail.c line 11826:
+# ./apps/app_voicemail.c line 11836:
+# ./apps/app_voicemail.c line 11904:
+# ./apps/app_voicemail.c line 11911:
+# ./apps/app_voicemail.c line 11950:
+# ./apps/app_voicemail.c line 11957:
+# ./apps/app_voicemail.c line 12047:
+# ./apps/app_voicemail.c line 12054:
+[<vm-nomore>]
+
+
+
+# ./apps/app_voicemail.c line 12008:
+[<vm-savedto>]
+
+
+
+# ./apps/app_voicemail.c line 12065:
+[<vm-onefor>]
+
+
+
+# ./apps/app_voicemail.c line 12071:
+[<vm-for>]
+
+
+
+# ./apps/app_voicemail.c line 12080:
+[<vm-opts>]
+
+
+
+# ./apps/app_voicemail.c line 12214:
+[<vm-whichbox>]
+
+
+
+# ./apps/app_voicemail.c line 12757:
+# ./apps/app_authenticate.c line 284:
+[<auth-thankyou>]
+
+
+
+# ./apps/app_voicemail.c line 15007:
+[<vm-enter-num-to-call><vm-then-pound><vm-star-cancel>]
+
+
+
+# ./apps/app_voicemail.c line 15180:
+[<vm-num-i-have>]
+
+
+
+# ./apps/app_voicemail.c line 15188:
+[<vm-tocallnum>]
+
+
+
+# ./apps/app_voicemail.c line 15197:
+[<vm-calldiffnum>]
+
+
+
+# ./apps/app_voicemail.c line 15205:
+# ./apps/app_voicemail.c line 15256:
+[<vm-nonumber>]
+
+
+
+# ./apps/app_voicemail.c line 15212:
+[<vm-toenternumber>]
+
+
+
+# ./apps/app_voicemail.c line 15221:
+[<vm-star-cancel>]
+
+
+
+# ./apps/app_voicemail.c line 15283:
+[<vm-nobox>]
+
+
+
+# ./apps/app_voicemail.c line 15414:
+[<vm-tooshort>]
+
+
+
+# ./apps/app_voicemail.c line 15425:
+[<vm-nothingrecorded>]
+
+
+
+# ./apps/app_voicemail.c line 15431:
+[<vm-speakup>]
+
+
+
+# ./apps/app_voicemail.c line 15449:
+# ./apps/app_voicemail.c line 15537:
+[<vm-marked-urgent>]
+
+
+
+# ./apps/app_voicemail.c line 15457:
+[<vm-marked-nonurgent>]
+
+
+
+# ./apps/app_voicemail.c line 15520:
+# ./apps/app_minivm.c line 1758:
+[<vm-saveoper>]
+
+
+
+# ./apps/app_voicemail.c line 15529:
+# ./apps/app_voicemail.c line 15544:
+# ./apps/app_minivm.c line 1766:
+[<vm-msgsaved>]
+
+
+
+# ./apps/app_voicemail.c line 15568:
+# ./apps/app_minivm.c line 1790:
+# ./main/app.c line 2173:
+[<vm-review>]
+
+
+
+# ./apps/app_voicemail.c line 15575:
+[<vm-review-urgent>]
+
+
+
+# ./apps/app_voicemail.c line 15581:
+[<vm-review-nonurgent>]
+
+
+
+# ./apps/app_voicemail.c line 15589:
+# ./apps/app_minivm.c line 1796:
+[<vm-torerecord>]
+
+
+
+# ./apps/app_voicemail.c line 15599:
+# ./apps/app_minivm.c line 1806:
+[<vm-reachoper>]
+
+
+
+# ./apps/app_voicemail.c line 15609:
+[<vm-tocancelmsg>]
+
+
+
+# ./apps/app_authenticate.c line 167:
+[<agent-pass>.]
+
+
+
+# ./apps/app_authenticate.c line 169:
+[<auth-incorrect>.]
+
+
+
+# ./apps/app_authenticate.c line 171:
+[%z.]
+
+
+
+# ./apps/app_directory.c line 375:
+[%c<vm-extension>%c<dir-instr>.]
+
+
+
+# ./apps/app_directory.c line 377:
+[%c<dir-instr>.]
+
+
+
+# ./apps/app_directory.c line 381:
+[%z<vm-extension>%c<dir-instr>.]
+
+
+
+# ./apps/app_directory.c line 383:
+[%z<dir-instr>.]
+
+
+
+# ./apps/app_directory.c line 445:
+[<dir-multi1>%n<dir-multi2>%c<vm-extension>%c]
+
+
+
+# ./apps/app_directory.c line 447:
+[<dir-multi1>%n<dir-multi2>%c]
+
+
+
+# ./apps/app_directory.c line 451:
+[<dir-multi1>%n<dir-multi2>%z<vm-extension>%c]
+
+
+
+# ./apps/app_directory.c line 453:
+[<dir-multi1>%n<dir-multi2>%z]
+
+
+
+# ./apps/app_directory.c line 482:
+[<dir-multi9>.]
+
+
+
+# ./apps/app_directory.c line 840:
+[<dir-nomatch>.]
+
+
+
+# ./apps/app_directory.c line 876:
+[<dir-nomore>.]
+
+
+
+# ./apps/app_meetme.c line 2771:
+# ./apps/app_meetme.c line 2869:
+[<conf-muted>]
+
+
+
+# ./apps/app_meetme.c line 2779:
+# ./apps/app_meetme.c line 2877:
+[<conf-unmuted>]
+
+
+
+# ./apps/app_meetme.c line 2796:
+# ./apps/app_minivm.c line 1707:
+[<beep>]
+
+
+
+# ./apps/app_meetme.c line 2835:
+# ./apps/app_meetme.c line 2918:
+# ./apps/app_meetme.c line 2941:
+# ./apps/app_meetme.c line 2949:
+# ./apps/app_meetme.c line 2989:
+# ./apps/app_meetme.c line 3137:
+# ./apps/app_meetme.c line 3236:
+[<conf-errormenu>]
+
+
+
+# ./apps/app_meetme.c line 2891:
+[<conf-unlockednow>]
+
+
+
+# ./apps/app_meetme.c line 2900:
+[<conf-lockednow>]
+
+
+
+# ./apps/app_meetme.c line 2971:
+[<conf-adminmenu-menu8>]
+
+
+
+# ./apps/app_meetme.c line 3027:
+# ./apps/app_meetme.c line 3653:
+# ./apps/app_meetme.c line 4123:
+[<conf-onlyperson>]
+
+
+
+# ./apps/app_meetme.c line 3044:
+# ./apps/app_meetme.c line 3676:
+# ./apps/app_confbridge.c line 774:
+# ./apps/app_confbridge.c line 787:
+[<conf-onlyone>]
+
+
+
+# ./apps/app_meetme.c line 3061:
+# ./apps/app_meetme.c line 3693:
+# ./apps/app_confbridge.c line 797:
+# ./apps/app_confbridge.c line 818:
+[<conf-thereare>%n<conf-otherinparty>]
+
+
+
+# ./apps/app_meetme.c line 3116:
+[<conf-roll-callcomplete>]
+
+
+
+# ./apps/app_meetme.c line 3155:
+# ./apps/app_confbridge.c line 1968:
+[<conf-now-unmuted>]
+
+
+
+# ./apps/app_meetme.c line 3165:
+# ./apps/app_confbridge.c line 1960:
+# ./apps/app_confbridge.c line 1964:
+# ./apps/app_confbridge.c line 1972:
+[<conf-now-muted>]
+
+
+
+# ./apps/app_meetme.c line 3217:
+[<conf-now-recording>]
+
+
+
+# ./apps/app_meetme.c line 3513:
+[<conf-locked>]
+
+
+
+# ./apps/app_meetme.c line 3527:
+[<conf-full>]
+
+
+
+# ./apps/app_meetme.c line 3662:
+[<conf-waitforleader>]
+
+
+
+# ./apps/app_meetme.c line 3958:
+[<conf-will-end-in>%n<minutes>]
+
+
+
+# ./apps/app_meetme.c line 4039:
+[<vm-youhave>%n<queue-minutes><vm-and>%n<queue-seconds>]
+
+
+
+# ./apps/app_meetme.c line 4041:
+[<vm-youhave>%n<queue-minutes>]
+
+
+
+# ./apps/app_meetme.c line 4043:
+[<vm-youhave>%n<queue-seconds>]
+
+
+
+# ./apps/app_meetme.c line 4062:
+["%z"]
+
+
+# ./apps/app_meetme.c line 4107:
+[%n<conf-userswilljoin>]
+
+
+# ./apps/app_meetme.c line 4140:
+[<conf-leaderhasleft>]
+
+
+
+# ./apps/app_meetme.c line 4187:
+[<conf-placeintoconf>]
+
+
+
+# ./apps/app_meetme.c line 4288:
+# ./apps/app_confbridge.c line 1878:
+[<conf-kicked>]
+
+
+
+# ./apps/app_meetme.c line 4394:
+[<conf-adminmenu-18>]
+
+
+
+# ./apps/app_meetme.c line 4401:
+[<conf-usermenu-162>]
+
+
+
+# ./apps/app_meetme.c line 4775:
+[<conf-has-not-started>]
+
+
+
+# ./apps/app_meetme.c line 5193:
+[<conf-noempty>]
+
+
+
+# ./apps/app_meetme.c line 5203:
+[<conf-enteringno>%n]
+
+
+
+# ./apps/app_meetme.c line 5245:
+[<conf-invalid>]
+
+
+
+# ./apps/app_meetme.c line 5316:
+[<conf-invalidpin>]
+
+
+
+# ./apps/app_confbridge.c line 1539:
+[<conf-invalid-pin>]
+
+
+
+# ./apps/app_confbridge.c line 1783:
+[%z<conf-hasjoin>]
+
+
+
+# ./apps/app_confbridge.c line 1796:
+# ./apps/app_confbridge.c line 1799:
+[<confbridge-join>]
+
+
+
+# ./apps/app_confbridge.c line 1847:
+[%z<conf-hasleft>]
+
+
+
+# ./apps/app_confbridge.c line 1862:
+[<confbridge-leave>]
+
+
+
+# ./apps/app_minivm.c line 1567:
+[%z<vm-isonphone>.]
+
+
+
+# ./apps/app_minivm.c line 1569:
+[%z<vm-isunavail>.]
+
+
+
+# ./apps/app_minivm.c line 1587:
+[<vm-theperson>%i<vm-isonphone>.]
+
+
+
+# ./apps/app_minivm.c line 1589:
+[<vm-theperson>%i<vm-isunavail>.]
+
+
+
+# ./apps/app_minivm.c line 1592:
+[<vm-theextensionis><vm-isonphone>.]
+
+
+
+# ./apps/app_minivm.c line 1594:
+[<vm-theextensionis><vm-isunavail>.]
+
+
+
+# ./apps/app_minivm.c line 2024:
+[<vm-mailboxfull>.]
+
+
+
+# ./apps/app_minivm.c line 2457:
+[<vm-intro>.]
+
+
+

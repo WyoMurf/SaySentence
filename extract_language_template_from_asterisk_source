@@ -1,0 +1,5 @@
+#!/bin/bash
+
+grep -n --exclude-dir=doc --exclude-dir=.git --exclude=\*.o --exclude=\*.so --exclude=\*.h --exclude=file.c --exclude=xx\* --exclude=asterisk --exclude=app_saysentence.c --exclude=\*.recov --exclude-dir=.svn -r ast_say_sentence . > /tmp/saysent.txt
+
+sed -f template-sed-script /tmp/saysent.txt > en.template
