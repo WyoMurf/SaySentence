@@ -1032,10 +1032,15 @@ class SS_interp
 			  }
 		  }
 	  }
+
+	String oldStr = str;
+	boolean executed = false;
+	int lastline =0;
+	int cycleCount = 0;
 	  do {
 		if (script.statement_list != null)
 		  {
-			
+			executed = false;
 			ListIterator<SS_statement> stat_it = script.statement_list.listIterator();
 			while (stat_it.hasNext())
 			  {
@@ -1048,6 +1053,8 @@ class SS_interp
 					  {
 						if (ops_are_true(stat, stat.oplist, log_list) )
 						  {
+							lastline = stat.lineno;
+							executed = true;
 							System.out.println("line:"+stat.lineno+" executing. str="+str+" num="+num);
 							int ret = execute_the_statement(engine, stat, flist, log_list, interrupts);
 							switch( ret )
@@ -1074,6 +1081,23 @@ class SS_interp
 					  }
 				  }
 			  } /* while next statment */
+			if (str == oldStr)
+			  {
+				cycleCount++;
+			  }
+			else
+			  {
+				cycleCount = 0;
+				oldStr = str;
+			  }
+			if (cycleCount > 5)
+			  {
+				if (executed == true)
+					System.out.println("ABORT: Script is not making progress! line:"+lastline+"; String: "+str);
+				else
+					System.out.println("ABORT: Script is not making progress! <NO statements met conditionals!> String: "+str);
+				break;
+			  }
 		  }
 		
 	  } while (restart);
