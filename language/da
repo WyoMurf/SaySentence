@@ -34,9 +34,17 @@ PATTERN "^[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]$"        <<num
 PATTERN "^[0-9][0-9][0-9]000000000$"                                       <<number:{num[0:2]}>>,digits/billion                      - DONE
 PATTERN "^[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]$"   <<number:{num[0:2]}>>,digits/billion,<<number:{num[3]}>>  - DONE
 
-    _datetime::.$"         date:AdBY 'digits/at' kM:{num[0]}
-    _date::.$"         date:AdBY:{num[0]}
-    _time::.$"         date:HM:{num[0]}
+
+[date_time]
+ANYDATE  -  <<date_format_A:{timeval}>>,<<date_format_d:{timeval}>>,<<date_format_B:{timeval}>>,<<date_format_Y:{timeval}>>,digits/at,<<date_format_k:{timeval}>>,<<date_format_M:{timeval}>>
+
+[date]
+ANYDATE  -  <<date_format_A:{timeval}>>,<<date_format_d:{timeval}>>,<<date_format_B:{timeval}>>,<<date_format_Y:{timeval}>>
+
+
+[time]
+ANYDATE -  <<date_format_H:{timeval}>>,<<date_format_M:{timeval}>>
+
 
 [enumeration]
 PATTERN    "^[0-9]$"           digits/h-{num[0]}                                              - DONE

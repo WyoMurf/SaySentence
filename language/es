@@ -31,9 +31,16 @@ PATTERN "^[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]$"         <<number:{num[
 PATTERN "^[0-9][0-9][0-9][0-9]000000$"                            <<number:{num[0:4]}>>,digits/millions                         - DONE
 PATTERN "^[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]$"    <<number:{num[0:4]}>>,digits/millions,<<number:{num[4]}>>     - DONE
 
-    _datetime::.$"         date:Ad 'letters/d' B 'letters/d' Y 'digits/at' HMp:{num[0]}
-    _date::.$"         date:Ad 'letters/d' B 'letters/d' Y:{num[0]}
-    _time::.$"         date:HMp:{num[0]}
+[date_time]
+ANYDATE  -  <<date_format_A:{timeval}>>,<<date_format_d:{timeval}>>,letters/d,<<date_format_B:{timeval}>>,letters/d,<<date_format_Y:{timeval}>>,digits/at,<<date_format_H:{timeval}>>,<<date_format_M:{timeval}>>,<<date_format_p:{timeval}>>
+
+[date]
+ANYDATE  -  <<date_format_A:{timeval}>>,<<date_format_d:{timeval}>>,letters/d,<<date_format_B:{timeval}>>,letters/d,<<date_format_Y:{timeval}>>
+
+
+[time]
+ANYDATE -  <<date_format_H:{timeval}>>,<<date_format_M:{timeval}>>,<<date_format_p:{timeval}>>
+
 
 [enumeration]
 
