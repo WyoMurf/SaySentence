@@ -63,7 +63,7 @@ will both reduce the learning curve, keep the code simple, and improve security.
 Building:
 
 In this repository, I have two files, app_say_sentence.c, and asterisk-trunk-diffs. THey are 
-both based on trunk version 402607. I may provide frequent updates to follow trunk, but it would
+both based on trunk version 403615. I may provide frequent updates to follow trunk, but it would
 appear that most of the files I have patches for aren't in very combustible code. I let the
 trunk version lapse for two years before I finally did another "svn update", and got like two
 small conflicts total! 
