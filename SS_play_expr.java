@@ -64,6 +64,7 @@ class SS_play_expr
 
   String subcall_script_name;
   ArrayList<SS_play_expr> subcall_exprlist;
+  String subcall_options; /* for subcalls! */
 
   String get_string_for_type(int type)
   {

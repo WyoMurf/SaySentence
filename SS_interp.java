@@ -756,6 +756,9 @@ class SS_interp
 						
 			String x = new String(filename2); /* copy of the current string; do we want the sub to hack the current str? */
 			String y = new String(options);
+			/* override options with the ones on the pexp */
+			if( pexp.subcall_options != null )
+				y = pexp.subcall_options;
 			Date z  = new Date(timeval.getTime());
 			// System.out.print("Creating subinterp with str="+x+" and opts="+y+" and timeval="+z+" and filename2=" +filename2+"\n");
 

@@ -208,7 +208,8 @@ returns[SS_play_expr expr]
 @init {
 	  $expr = new SS_play_expr(); $expr.subcall_exprlist = new ArrayList<SS_play_expr>();
 }
-                : FE_Lsubr a=ID {$expr.type = $expr.SS_EXPR_SUBCALL;$expr.subcall_script_name = $a.text;} 
+                : FE_Lsubr a=ID {$expr.type = $expr.SS_EXPR_SUBCALL;$expr.subcall_script_name = $a.text; $expr.subcall_options=null; } 
+		  (COLON d=PATHCONST {$expr.subcall_options = $d.text;} )?
                   COLON (b=PATHCONST {SS_play_expr b2 = new SS_play_expr(); b2.type=$expr.SS_EXPR_STR_CONST;b2.str=$b.text; $expr.subcall_exprlist.add(b2); } 
                           | c=file_var { $expr.subcall_exprlist.add($c.expr);} )* FE_Rsubr {}
 				;
