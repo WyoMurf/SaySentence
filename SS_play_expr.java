@@ -50,6 +50,23 @@ class SS_play_expr
   static final int SS_EXPR_SILENCE_PLUS = 31;
   static final int SS_EXPR_SILENCE_SEMICOLON = 32;
   static final int SS_EXPR_SILENCE_QUESTION = 33;
+  static final int SS_EXPR_LEN = 34;
+  static final int SS_EXPR_PAREN = 35;
+  static final int SS_EXPR_CONDITIONAL = 36;
+  static final int SS_EXPR_LOGOR = 37;
+  static final int SS_EXPR_LOGAND = 38;
+  static final int SS_EXPR_EQ = 39;
+  static final int SS_EXPR_NEQ = 40;
+  static final int SS_EXPR_LT = 41;
+  static final int SS_EXPR_GT  = 42;
+  static final int SS_EXPR_LE  = 43;
+  static final int SS_EXPR_GE  = 44;
+  static final int SS_EXPR_PLUS  = 45;
+  static final int SS_EXPR_MINUS  = 46;
+  static final int SS_EXPR_MULT  = 47;
+  static final int SS_EXPR_DIV  = 48;
+  static final int SS_EXPR_MOD  = 49;
+  static final int SS_EXPR_NOT  = 50;
   
   int type;
   
@@ -59,12 +76,16 @@ class SS_play_expr
   static final int SS_EXPR_RANGE = 1;
   static final int SS_EXPR_RANGE_START = 2;
   int range_type;  /* zero means no range notation */
-  int range_start;
-  int range_end;
+  SS_play_expr range_start;
+  SS_play_expr range_end;
 
   String subcall_script_name;
   ArrayList<SS_play_expr> subcall_exprlist;
   String subcall_options; /* for subcalls! */
+  SS_play_expr Left; /* also, true conditional */
+  SS_play_expr Right; /* also, false conditional */
+  SS_play_expr cond;
+  
 
   String get_string_for_type(int type)
   {
@@ -75,6 +96,8 @@ class SS_play_expr
 		return "CONCAT";
   	case SS_EXPR_NUM:
 		return "{num}";
+  	case SS_EXPR_LEN:
+		return "{len}";
   	case SS_EXPR_OPT:
 		return "{opt}";
   	case SS_EXPR_TIME_SEC:
@@ -156,6 +179,8 @@ class SS_play_expr
 		return "--CONCAT--";
   	case SS_EXPR_NUM:
 		return "{num"+this.get_range_notation()+"}";
+  	case SS_EXPR_LEN:
+		return "{len}";
   	case SS_EXPR_OPT:
 		return "{opt:"+this.str+"}";
   	case SS_EXPR_TIME_SEC:

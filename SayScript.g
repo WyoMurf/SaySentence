@@ -15,36 +15,38 @@
 grammar SayScript;
 options {
 		language=Java;
+/*		backtrack=true; Looks like there's a bug in the code; the args to the subgrammar calls seem to get lost in this mode. */
 }
 @header {
 import java.util.regex.*;
 }
 
 @members {
-//public String getErrorMessage(RecognitionException e, String[] tokenNames)
-//{
-//	List stack = getRuleInvocationStack(e, this.getClass().getName());
-//	String msg = null;
-//	if ( e instanceof NoViableAltException ) 
-//	{
-//		NoViableAltException nvae = (NoViableAltException)e;
-//		msg = " no viable alt; token="+e.token+" (decision="+nvae.decisionNumber+" state "+nvae.stateNumber+")"+" decision=<<"+nvae.grammarDecisionDescription+">>";
-//	}
-//	else
-//	{
-//		msg = super.getErrorMessage(e,tokenNames);
-//	}
-//	return stack+" "+msg;
-//}
-//public String getTokenErrorDisplay(Token t)
-//{
-//	return t.toString();
-//}
+public String getErrorMessage(RecognitionException e, String[] tokenNames)
+{
+	List stack = getRuleInvocationStack(e, this.getClass().getName());
+	String msg = null;
+	if ( e instanceof NoViableAltException ) 
+	{
+		NoViableAltException nvae = (NoViableAltException)e;
+		msg = " no viable alt; token="+e.token+" (decision="+nvae.decisionNumber+" state "+nvae.stateNumber+")"+" decision=<<"+nvae.grammarDecisionDescription+">>";
+	}
+	else
+	{
+		msg = super.getErrorMessage(e,tokenNames);
+	}
+	return stack+" "+msg;
+}
+public String getTokenErrorDisplay(Token t)
+{
+	return t.toString();
+}
 }
 
 HDR_SILENCE : 'silence';
 FE_num : 'num';
 FE_opt : 'opt';
+FE_length : 'len';
 FE_timeval : 'timeval';
 ACT_CUT : 'CUT';
 ACT_ZERO : 'ZERO';
@@ -69,6 +71,16 @@ PERIOD : '.';
 PLUS  :  '+';
 QUESTION : '?';
 EQUALS : '=';
+EQEQ : '==';
+NOTEQ : '!=';
+LOG_AND : '&&';
+LOG_OR : '||';
+LE : '<=';
+GE : '>=';
+BANG : '!';
+MULT : '*';
+DIV : '/';
+MOD : '%';
 SEMICOLON : ';';
 RANGE : 'RANGE';
 PATTERN : 'PATTERN';
@@ -115,7 +127,7 @@ FE_Lsubr : '<<';
 FE_Rsubr : '>>';
 COMMENT : ';;'.* NEWLINE;
 ID : ('A'..'Z'|'a'..'z')('A'..'Z'|'a'..'z'|'0'..'9'|'_')* ;
-PATHCONST : ('A'..'Z'|'a'..'z'|'0'..'9'|'_'|'/'|'-'|'.')+;
+PATHCONST : ('A'..'Z'|'a'..'z'|'_'|'/'|'-'|'.')+;
 PAT : '"' ( ~( '\r' | '\n' | '"') | '\\"' )* '"'; 
 
 oper[SS_script script] 
@@ -149,7 +161,7 @@ returns[SS_op_arg oa]
 	  $oa = new SS_op_arg();
 }
          : (
-            t=NUM {$oa.num = Long.parseLong($t.text);} 
+                    t=NUM {$oa.num = Long.parseLong($t.text);} 
 		 |  u=ID {$oa.str=$u.text;} 
 		 |  v=PAT {$oa.pattern=$v.text.substring(1,$v.text.length()-1);
 				  try {
@@ -183,60 +195,132 @@ returns[SS_op_arg oa]
 
 arglist[SS_script script, SS_statement stat] : p=arg[script, stat] {stat.arglist.add(p);}  (COMMA q=arg[script, stat] {stat.arglist.add(q);} )*;
 
-file_var 
+file_var[SS_statement stat] 
 returns[SS_play_expr expr] 
 @init {
-	  expr = new SS_play_expr();
+	  expr = new SS_play_expr(); expr.range_start=null; expr.range_end=null;
 }
                  : LCURLY ( (FE_num {expr.type = expr.SS_EXPR_NUM;}| FE_opt COLON x=ID {expr.type = expr.SS_EXPR_OPT; expr.str = $x.text;} 
-                 | FE_time_sec {expr.type = expr.SS_EXPR_TIME_SEC;} | FE_time_min {expr.type = expr.SS_EXPR_TIME_MIN;} 
-                 | FE_time_12hour {expr.type = expr.SS_EXPR_TIME_12HOUR;} | FE_time_12hour2d {expr.type = expr.SS_EXPR_TIME_12HOUR2D;}
-                 | FE_time_24hour {expr.type = expr.SS_EXPR_TIME_24HOUR;} | FE_time_24hour2d {expr.type = expr.SS_EXPR_TIME_24HOUR2D;} 
+			| FE_length {expr.type = expr.SS_EXPR_LEN;} 
+                 	| FE_time_sec {expr.type = expr.SS_EXPR_TIME_SEC;} | FE_time_min {expr.type = expr.SS_EXPR_TIME_MIN;} 
+                 	| FE_time_12hour {expr.type = expr.SS_EXPR_TIME_12HOUR;} | FE_time_12hour2d {expr.type = expr.SS_EXPR_TIME_12HOUR2D;}
+                	 | FE_time_24hour {expr.type = expr.SS_EXPR_TIME_24HOUR;} | FE_time_24hour2d {expr.type = expr.SS_EXPR_TIME_24HOUR2D;} 
 				 | FE_time_ampm {expr.type = expr.SS_EXPR_TIME_AMPM;} 
-                 | FE_time_xm {expr.type = expr.SS_EXPR_TIME_XM;} | FE_time_cm {expr.type = expr.SS_EXPR_TIME_CM;} | FE_time_tz {expr.type = expr.SS_EXPR_TIME_TZ;}
-                 | FE_date_dom {expr.type = expr.SS_EXPR_DATE_DOM;} | FE_date_dow {expr.type = expr.SS_EXPR_DATE_DOW;} 
-                 | FE_date_month {expr.type = expr.SS_EXPR_DATE_MONTH;} | FE_date_dowstr {expr.type = expr.SS_EXPR_DATE_DOWSTR;}
-                 | FE_date_monthstr {expr.type = expr.SS_EXPR_DATE_MONTHSTR;}  | FE_date_year {expr.type = expr.SS_EXPR_DATE_YEAR;}  
+                 	| FE_time_xm {expr.type = expr.SS_EXPR_TIME_XM;} | FE_time_cm {expr.type = expr.SS_EXPR_TIME_CM;} | FE_time_tz {expr.type = expr.SS_EXPR_TIME_TZ;}
+                 	| FE_date_dom {expr.type = expr.SS_EXPR_DATE_DOM;} | FE_date_dow {expr.type = expr.SS_EXPR_DATE_DOW;} 
+                	 | FE_date_month {expr.type = expr.SS_EXPR_DATE_MONTH;} | FE_date_dowstr {expr.type = expr.SS_EXPR_DATE_DOWSTR;}
+               		  | FE_date_monthstr {expr.type = expr.SS_EXPR_DATE_MONTHSTR;}  | FE_date_year {expr.type = expr.SS_EXPR_DATE_YEAR;}  
 				 | FE_date_century {expr.type = expr.SS_EXPR_DATE_CENT;}  | FE_date_decade {expr.type = expr.SS_EXPR_DATE_DECADE;}  ) 
-                    ( LBRACK y=NUM {expr.range_type = expr.SS_EXPR_RANGE_START; expr.range_start = Integer.parseInt($y.text);} 
-			          (COLON z=NUM {expr.range_type = expr.SS_EXPR_RANGE; expr.range_end = Integer.parseInt($z.text);})? RBRACK )? 
-                 | FE_timeval {expr.type = expr.SS_EXPR_TIMEVAL;} ) RCURLY
+               		     ( LBRACK y=playexpr[stat] {
+							expr.range_type = expr.SS_EXPR_RANGE_START; expr.range_start = $y.expr; } 
+			          (COLON z=playexpr[stat] {expr.range_type = expr.SS_EXPR_RANGE; expr.range_end = $z.expr; })? RBRACK )? 
+               		  | FE_timeval {expr.type = expr.SS_EXPR_TIMEVAL;} ) RCURLY
 		 ;
 
-subcall 
+subcall[SS_statement stat]
 returns[SS_play_expr expr]
 @init {
 	  $expr = new SS_play_expr(); $expr.subcall_exprlist = new ArrayList<SS_play_expr>();
 }
                 : FE_Lsubr a=ID {$expr.type = $expr.SS_EXPR_SUBCALL;$expr.subcall_script_name = $a.text; $expr.subcall_options=null; } 
-		  (COLON d=PATHCONST {$expr.subcall_options = $d.text;} )?
-                  COLON (b=PATHCONST {SS_play_expr b2 = new SS_play_expr(); b2.type=$expr.SS_EXPR_STR_CONST;b2.str=$b.text; $expr.subcall_exprlist.add(b2); } 
-                          | c=file_var { $expr.subcall_exprlist.add($c.expr);} )* FE_Rsubr {}
+		  (COLON OPT d=PATHCONST {$expr.subcall_options = $d.text;} )?
+                  COLON (b=PATHCONST {expr = new SS_play_expr(); expr.type=$expr.SS_EXPR_STR_CONST;expr.str=$b.text; $expr.subcall_exprlist.add(expr); } 
+                        | c=file_var[stat] { $expr.subcall_exprlist.add($c.expr);} )* FE_Rsubr {}
 				;
 
 
 file_element[SS_statement stat] 
-						  : a=PATHCONST {SS_play_expr b2 = new SS_play_expr(); b2.type=SS_play_expr.SS_EXPR_STR_CONST;b2.str=$a.text; stat.playlist.add(b2);} 
-						  | b=ID {SS_play_expr b2 = new SS_play_expr(); b2.type=SS_play_expr.SS_EXPR_STR_CONST;b2.str=$b.text; stat.playlist.add(b2);}
-						  | c=file_var {stat.playlist.add($c.expr);} 
-						  | d=subcall {stat.playlist.add($d.expr);} 
-						  | e=NUM {SS_play_expr e2 = new SS_play_expr(); e2.type=SS_play_expr.SS_EXPR_STR_CONST;e2.str=$e.text; stat.playlist.add(e2);}
+returns[SS_play_expr expr]
+						  : a=PATHCONST {expr = new SS_play_expr(); expr.type=SS_play_expr.SS_EXPR_STR_CONST;expr.str=$a.text; } 
+						  | b=ID {expr = new SS_play_expr(); expr.type=SS_play_expr.SS_EXPR_STR_CONST;expr.str=$b.text; }
+						  | c=file_var[stat] {expr = $c.expr; } 
+						  | d=subcall[stat] {expr = $d.expr; } 
+						  | e=NUM {expr = new SS_play_expr(); expr.type=SS_play_expr.SS_EXPR_STR_CONST;expr.str=$e.text; }
+						  | LPAR f=playexpr[stat] RPAR {expr = new SS_play_expr(); expr.type=SS_play_expr.SS_EXPR_PAREN;expr.Left=$f.expr; }
 						  ;
 
-file_silence[SS_statement stat]
+playexpr[SS_statement stat]
+returns[SS_play_expr expr]
 @init {
-	  SS_play_expr expr = new SS_play_expr();
+	$expr = new SS_play_expr(); 
 }
-			 : COLON {expr.type=expr.SS_EXPR_SILENCE_COLON; stat.playlist.add(expr);}
-			 | COMMA {expr.type=expr.SS_EXPR_SILENCE_COMMA; stat.playlist.add(expr);}
-			 | PERIOD {expr.type=expr.SS_EXPR_SILENCE_PERIOD; stat.playlist.add(expr);}
-			 | PLUS {expr.type=expr.SS_EXPR_SILENCE_PLUS; stat.playlist.add(expr);}
-			 | SEMICOLON {expr.type=expr.SS_EXPR_SILENCE_SEMICOLON; stat.playlist.add(expr);}
-			 | QUESTION {expr.type=expr.SS_EXPR_SILENCE_QUESTION; stat.playlist.add(expr);}
+		: a=logicalOrExpr[stat] (QUESTION b=logicalOrExpr[stat] COLON c=logicalOrExpr[stat] {expr = new SS_play_expr(); expr.type=SS_play_expr.SS_EXPR_CONDITIONAL;expr.cond=$a.expr; expr.Left = $b.expr; expr.Right = $c.expr; } )? { if ($b.expr==null) expr=$a.expr;  }
+		;
+
+logicalOrExpr[SS_statement stat]
+returns[SS_play_expr expr]
+		: a=logicalAndExpr[stat] (LOG_OR b=logicalAndExpr[stat] {expr = new SS_play_expr(); expr.type=SS_play_expr.SS_EXPR_LOGOR; expr.Left = $a.expr; expr.Right = $b.expr;  })? { if ($b.expr==null) expr=$a.expr; }
+		;
+
+logicalAndExpr[SS_statement stat]
+returns[SS_play_expr expr]
+		: a=equalityExpr[stat] (LOG_AND b=equalityExpr[stat] {expr = new SS_play_expr(); expr.type=SS_play_expr.SS_EXPR_LOGAND; expr.Left = $a.expr; expr.Right = $b.expr;  })? { if ($b.expr==null) expr=$a.expr; }
+		;
+
+equalityExpr[SS_statement stat]
+returns[SS_play_expr expr]
+		: a=relationalExpr[stat] (e=(EQEQ | NOTEQ) b=relationalExpr[stat]  {expr = new SS_play_expr(); if($e.text.equals("EQEQ")) expr.type=SS_play_expr.SS_EXPR_EQ; else expr.type=SS_play_expr.SS_EXPR_NEQ; expr.Left = $a.expr; expr.Right = $b.expr;  })? { if ($b.expr==null) expr=$a.expr; }
+/* 		| c=relationalExpr[stat] NOTEQ d=relationalExpr[stat]  {expr = new SS_play_expr(); expr.type=SS_play_expr.SS_EXPR_NEQ; expr.Left = $c.expr; expr.Right = $d.expr;  } */
+		;
+
+relationalExpr[SS_statement stat]
+returns[SS_play_expr expr]
+		: a=additiveExpr[stat] (j=(LANG|RANG|LE|GE) b=additiveExpr[stat]  
+			{expr = new SS_play_expr(); if ($j.text.equals("<"))
+								expr.type=SS_play_expr.SS_EXPR_LT; 
+						    else if ($j.text.equals(">"))
+								expr.type=SS_play_expr.SS_EXPR_GT;
+						    else if ($j.text.equals("<="))
+								expr.type=SS_play_expr.SS_EXPR_LE;
+						    else
+								expr.type=SS_play_expr.SS_EXPR_GE;
+			 expr.Left = $a.expr; expr.Right = $b.expr; } )? { if ($b.expr==null) expr=$a.expr; }
+/*		| c=additiveExpr[stat] RANG d=additiveExpr[stat]  {expr = new SS_play_expr(); expr.type=SS_play_expr.SS_EXPR_GT; expr.Left = $c.expr; expr.Right = $d.expr;  }
+		| e=additiveExpr[stat] LE f=additiveExpr[stat]    {expr = new SS_play_expr(); expr.type=SS_play_expr.SS_EXPR_LE; expr.Left = $e.expr; expr.Right = $f.expr;  }
+		| g=additiveExpr[stat] GE h=additiveExpr[stat]    {expr = new SS_play_expr(); expr.type=SS_play_expr.SS_EXPR_GE; expr.Left = $g.expr; expr.Right = $h.expr;  } */
+		;
+
+additiveExpr[SS_statement stat]
+returns[SS_play_expr expr]
+		: a=multiplyExpr[stat] (j=(PLUS|DASH) b=multiplyExpr[stat]  {expr = new SS_play_expr(); if($j.text.equals("PLUS"))expr.type=SS_play_expr.SS_EXPR_PLUS; else expr.type=SS_play_expr.SS_EXPR_MINUS; expr.Left = $a.expr; expr.Right = $b.expr; })? { if ($b.expr==null) expr=$a.expr; }
+	
+/*
+		| c=multiplyExpr[stat] DASH d=multiplyExpr[stat]  {expr = new SS_play_expr(); expr.type=SS_play_expr.SS_EXPR_MINUS; expr.Left = $c.expr; expr.Right = $d.expr;  } */
+		;
+
+multiplyExpr[SS_statement stat]
+returns[SS_play_expr expr]
+		: a=unaryExpr[stat] (j=(MULT|DIV|MOD)  b=unaryExpr[stat] 
+			{expr = new SS_play_expr(); 
+			 if ($j.text.equals("*"))
+				expr.type=SS_play_expr.SS_EXPR_MULT; 
+			 else if ($j.text.equals("/"))
+				expr.type=SS_play_expr.SS_EXPR_DIV;
+			 else 
+				expr.type=SS_play_expr.SS_EXPR_MOD;
+			expr.Left = $a.expr; expr.Right = $b.expr; } )? { if ($b.expr==null) expr=$a.expr; }
+/*		| c=unaryExpr[stat] DIV d=unaryExpr[stat]   {expr = new SS_play_expr(); expr.type=SS_play_expr.SS_EXPR_DIV; expr.Left = $c.expr; expr.Right = $d.expr;  }
+		| e=unaryExpr[stat] MOD f=unaryExpr[stat]   {expr = new SS_play_expr(); expr.type=SS_play_expr.SS_EXPR_MOD; expr.Left = $e.expr; expr.Right = $f.expr;  } */
+		;
+
+unaryExpr[SS_statement stat]
+returns[SS_play_expr expr]
+		: BANG a=file_element[stat]    {expr = new SS_play_expr(); expr.type=SS_play_expr.SS_EXPR_NOT; expr.Left = $a.expr; }
+		| a=file_element[stat]    {expr = $a.expr;  }
+		;
+
+
+
+file_silence[SS_statement stat]
+returns[SS_play_expr expr] 
+			 : COLON {expr = new SS_play_expr(); expr.type=expr.SS_EXPR_SILENCE_COLON; }
+			 | COMMA {expr = new SS_play_expr();expr.type=expr.SS_EXPR_SILENCE_COMMA; }
+			 | PERIOD {expr = new SS_play_expr();expr.type=expr.SS_EXPR_SILENCE_PERIOD; }
+			 | SEMICOLON {expr = new SS_play_expr();expr.type=expr.SS_EXPR_SILENCE_SEMICOLON; }
 			 ;
 
 
-file_expr[SS_statement stat] : (file_element[stat] | file_silence[stat] )+
+file_expr[SS_statement stat] : (a=file_element[stat] {stat.playlist.add($a.expr);}  | b=file_silence[stat]  {stat.playlist.add($b.expr);} )+
           ;
 
 
@@ -251,26 +335,26 @@ varset[SS_statement stat]
 						 var.varval = $b.text; 
 						 stat.varlist.add(var);
 					  } 
-					| c=NUM 
+								| c=NUM 
 					  {
 						 SS_vardef var = new SS_vardef(); 
 					  	 var.varname = $a.text; 
 						 var.varval = $c.text; 
 						 stat.varlist.add(var);
-					  } ) (COMMA d=ID EQUALS (e=ID 
+					  }                                 ) (COMMA d=ID EQUALS (e=ID 
 					  {
 						 SS_vardef var = new SS_vardef(); 
 					  	 var.varname = $d.text; 
 						 var.varval = $e.text; 
 						 stat.varlist.add(var);
 					  } 
-					| f=NUM 
+													| f=NUM 
 					  {
 						 SS_vardef var = new SS_vardef(); 
 					  	 var.varname = $d.text; 
 						 var.varval = $f.text; 
 						 stat.varlist.add(var);
-					  } ))* 
+			  		  }                                                                       ))* 
 					;
 
 action[SS_statement stat] 
@@ -287,23 +371,45 @@ statement[SS_scriptset scriptset, SS_script script]
           : WHITE? ((oper_list[script,stat] WHITE (arglist[script,stat] | DASH) WHITE (file_expr[stat] | DASH) WHITE (varset[stat] | DASH) WHITE action[stat] WHITE? (NEWLINE | COMMENT)) | (COMMENT | NEWLINE)) {if(!stat.oplist.isEmpty())script.statement_list.add(stat);}
 		  ;
 
-bad_statement[SS_scriptset scriptset]
-		:
-		x=ID (WHITE | COMMA | RANGE | PATTERN | GREATER | LESS | NUMLEN | ATBEGIN | DATEPAST_RANGE | DATEFUT_RANGE 
-		       | DATEPAST_GREATER | DATEFUT_GREATER | ANYDATE | MINUTE_RANGE | HOUR_RANGE | YEAR_RANGE | NOTOPT 
-               | YEAR_PATTERN | VAR | NOTVAR | ATEXIT | SECOND_RANGE | OPT | NUM | ID | DAYAMOUNT | PATHCONST 
-			   | LCURLY | RCURLY | FE_num | COLON | LBRACK | RBRACK | FE_opt | FE_time_sec | FE_time_12hour
-			   | FE_time_24hour | FE_time_ampm | FE_time_xm | FE_date_dom | FE_date_month | FE_date_monthstr
-			   | FE_date_century | FE_timeval | FE_time_min | FE_time_12hour2d | FE_time_24hour2d | FE_time_cm 
-			   | FE_date_dow | FE_date_dowstr | FE_date_year | FE_date_decade | FE_time_tz | FE_Lsubr | FE_Rsubr 
-			   | PERIOD | PLUS | SEMICOLON | QUESTION | PAT | DASH | ACT_DONE | ACT_RESTART | ACT_CUT | ACT_RANGE | LPAR | RPAR)* (COMMENT | NEWLINE)+
-	    {
-			SS_log log = new SS_log($x.line, $x.pos, "Syntax Error", "Expecting an OP, but got '"+$x.text+"' instead! This line ignored!");
+/* good idea, but hard to implement in a non-backtracking environment.
+
+bad_statement[SS_scriptset scriptset, SS_script script]
+@init { SS_statement stat = new SS_statement(); }
+		: WHITE? ((arglist[script,stat] | DASH) x=WHITE (file_expr[stat] | DASH) WHITE (varset[stat] | DASH) WHITE action[stat] WHITE? (NEWLINE | COMMENT))  
+	    	{
+			SS_log log = new SS_log($x.line, $x.pos, "Syntax Error", "Expecting an OP in the first column, like PATTERN or RANGE, but seems to be missing, everything else is there! This line ignored!");
+			scriptset.log_list.add(log);
+		}
+                | WHITE? ((oper_list[script,stat] x=WHITE (file_expr[stat] | DASH) WHITE (varset[stat] | DASH) WHITE action[stat] WHITE? (NEWLINE | COMMENT)))
+	    	{
+			SS_log log = new SS_log($x.line, $x.pos, "Syntax Error", "Expecting an arglist (or a dash) in the second column, like a regular expression in quotes, or whatever appropriate, but seems to be missing, everything else is there! This line ignored!");
+			scriptset.log_list.add(log);
+		}
+		| WHITE? ((oper_list[script,stat] x=WHITE (arglist[script,stat] | DASH) WHITE (varset[stat] | DASH) WHITE action[stat] WHITE? (NEWLINE | COMMENT)))
+	    	{
+			SS_log log = new SS_log($x.line, $x.pos, "Syntax Error", "Expecting a sound file list (or a dash) in the third column, but seems to be missing, everything else is there! This line ignored!");
+			scriptset.log_list.add(log);
+		}
+		| WHITE? ((oper_list[script,stat] x=WHITE (arglist[script,stat] | DASH) WHITE (file_expr[stat] | DASH) WHITE action[stat] WHITE? (NEWLINE | COMMENT)))
+	    	{
+			SS_log log = new SS_log($x.line, $x.pos, "Syntax Error", "Expecting a varset in the fourth column, like SAY_X=1, or a dash, but seems to be missing, everything else is there! This line ignored!");
+			scriptset.log_list.add(log);
+		}
+		| WHITE? ((oper_list[script,stat] x=WHITE (arglist[script,stat] | DASH) WHITE (file_expr[stat] | DASH) WHITE (varset[stat] | DASH) WHITE? (NEWLINE | COMMENT)))
+	    	{
+			SS_log log = new SS_log($x.line, $x.pos, "Syntax Error", "Expecting an action in the fifth column, like DONE or CUT, but seems to be missing, everything else is there! This line ignored!");
+			scriptset.log_list.add(log);
+		}
+		| WHITE? ((oper_list[script,stat] WHITE (arglist[script,stat] | DASH) x=WHITE (file_expr[stat] | DASH) WHITE? (NEWLINE | COMMENT)))
+	    	{
+			SS_log log = new SS_log($x.line, $x.pos, "Syntax Error", "Expecting a varset (or dash)  in the 4th column, and an action (or dash)  in the fifth column, but they seem to be missing, everything else is there! This line ignored!");
 			scriptset.log_list.add(log);
 		}
 		;
+*/
 
-statement_list[SS_scriptset scriptset, SS_script script] : (statement[scriptset,script] | bad_statement[scriptset] )+ ;  /*  complaint */
+/* statement_list[SS_scriptset scriptset, SS_script script] : (statement[scriptset,script] | bad_statement[scriptset, script] )+ ; */ /*  complaint */
+statement_list[SS_scriptset scriptset, SS_script script] : statement[scriptset,script]+ ;  /*  complaint */
 
 header[SS_scriptset scriptset, SS_script script] : WHITE? LBRACK x=ID
      {

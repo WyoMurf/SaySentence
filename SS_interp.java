@@ -460,6 +460,549 @@ class SS_interp
 	filename.delete(0,filename.length());
 	flist.add(play);
   }
+
+  static boolean isNumeric(String str)
+  {
+	for (char c : str.toCharArray())
+	  {
+		if(!Character.isDigit(c)) return false; // works for int strings only 
+	  }
+	return true;
+  }
+
+String eval_play_expr(SS_play_expr expr, long num, String str, Date timeval, SS_engine engine, ListIterator<SS_play_expr> itplay, StringBuffer filename, ArrayList<SS_playlist> flist, ArrayList<SS_log> log_list, SS_script script, SS_statement stat, String interrupts) 
+{
+	GregorianCalendar cal;
+	String l1, r1;
+	int sec;
+
+	switch(expr.type)
+	{
+        case SS_play_expr.SS_EXPR_CONDITIONAL:
+		String cond = eval_play_expr(expr.cond, num, str, timeval, engine, itplay, filename, flist, log_list, script, stat, interrupts);
+		if ( cond == null || cond.equals("0"))
+		  {
+			String f1 = eval_play_expr(expr.Right, num, str, timeval, engine, itplay, filename, flist, log_list, script, stat, interrupts);
+			return f1;
+		  }
+		else
+		  {
+			String t1 = eval_play_expr(expr.Left, num, str, timeval, engine, itplay, filename, flist, log_list, script, stat, interrupts);
+			return t1;
+		  }
+
+        case SS_play_expr.SS_EXPR_LOGOR:
+		l1 = eval_play_expr(expr.Left, num, str, timeval, engine, itplay, filename, flist, log_list, script, stat, interrupts);
+		if ( l1 != null && !l1.equals("0"))
+		  {
+			return "1";
+		  }
+		else
+		  {
+			l1 = eval_play_expr(expr.Right, num, str, timeval, engine, itplay, filename, flist, log_list, script, stat, interrupts);
+			if ( l1 != null && !l1.equals("0"))
+			  {
+				return "1";
+			  }
+			else
+			  {
+				return "0";
+			  }
+		  }
+
+        case SS_play_expr.SS_EXPR_LOGAND:
+		l1 = eval_play_expr(expr.Left, num, str, timeval, engine, itplay, filename, flist, log_list, script, stat, interrupts);
+		if ( l1 == null || l1.equals("0"))
+		  {
+			return "0";
+		  }
+		else
+		  {
+			l1 = eval_play_expr(expr.Right, num, str, timeval, engine, itplay, filename, flist, log_list, script, stat, interrupts);
+			if ( l1 == null || l1.equals("0"))
+			  {
+				return "0";
+			  }
+			else
+			  {
+				return "1";
+			  }
+		  }
+
+        case SS_play_expr.SS_EXPR_EQ:
+		l1 = eval_play_expr(expr.Left, num, str, timeval, engine, itplay, filename, flist, log_list, script, stat, interrupts);
+		r1 = eval_play_expr(expr.Right, num, str, timeval, engine, itplay, filename, flist, log_list, script, stat, interrupts);
+		if (l1.equals(r1))
+			return "1";
+		else
+			return "0";
+
+        case SS_play_expr.SS_EXPR_NEQ:
+		l1 = eval_play_expr(expr.Left, num, str, timeval, engine, itplay, filename, flist, log_list, script, stat, interrupts);
+		r1 = eval_play_expr(expr.Right, num, str, timeval, engine, itplay, filename, flist, log_list, script, stat, interrupts);
+		if (!l1.equals(r1))
+			return "1";
+		else
+			return "0";
+
+        case SS_play_expr.SS_EXPR_LT:
+		l1 = eval_play_expr(expr.Left, num, str, timeval, engine, itplay, filename, flist, log_list, script, stat, interrupts);
+		r1 = eval_play_expr(expr.Right, num, str, timeval, engine, itplay, filename, flist, log_list, script, stat, interrupts);
+		if (isNumeric(l1) && isNumeric(r1))
+		  {
+			long a = Long.parseLong(l1);
+			long b = Long.parseLong(r1);
+			
+			if (a<b)
+				return "1";
+			else
+				return "0";
+		  }
+		else
+		  {
+			int d = l1.compareTo(r1);
+			if (d<0)
+				return "1";
+			else
+				return "0";
+		  }
+
+        case SS_play_expr.SS_EXPR_GT:
+		l1 = eval_play_expr(expr.Left, num, str, timeval, engine, itplay, filename, flist, log_list, script, stat, interrupts);
+		r1 = eval_play_expr(expr.Right, num, str, timeval, engine, itplay, filename, flist, log_list, script, stat, interrupts);
+		if (isNumeric(l1) && isNumeric(r1))
+		  {
+			long a = Long.parseLong(l1);
+			long b = Long.parseLong(r1);
+			
+			if (a>b)
+				return "1";
+			else
+				return "0";
+		  }
+		else
+		  {
+			int d = l1.compareTo(r1);
+			if (d>0)
+				return "1";
+			else
+				return "0";
+		  }
+
+        case SS_play_expr.SS_EXPR_LE:
+		l1 = eval_play_expr(expr.Left, num, str, timeval, engine, itplay, filename, flist, log_list, script, stat, interrupts);
+		r1 = eval_play_expr(expr.Right, num, str, timeval, engine, itplay, filename, flist, log_list, script, stat, interrupts);
+		if (isNumeric(l1) && isNumeric(r1))
+		  {
+			long a = Long.parseLong(l1);
+			long b = Long.parseLong(r1);
+			
+			if (a<=b)
+				return "1";
+			else
+				return "0";
+		  }
+		else
+		  {
+			int d = l1.compareTo(r1);
+			if (d<1)
+				return "1";
+			else
+				return "0";
+		  }
+
+        case SS_play_expr.SS_EXPR_GE:
+		l1 = eval_play_expr(expr.Left, num, str, timeval, engine, itplay, filename, flist, log_list, script, stat, interrupts);
+		r1 = eval_play_expr(expr.Right, num, str, timeval, engine, itplay, filename, flist, log_list, script, stat, interrupts);
+		if (isNumeric(l1) && isNumeric(r1))
+		  {
+			long a = Long.parseLong(l1);
+			long b = Long.parseLong(r1);
+			
+			if (a>=b)
+				return "1";
+			else
+				return "0";
+		  }
+		else
+		  {
+			int d = l1.compareTo(r1);
+			if (d>-1)
+				return "1";
+			else
+				return "0";
+		  }
+
+        case SS_play_expr.SS_EXPR_PLUS:
+		l1 = eval_play_expr(expr.Left, num, str, timeval, engine, itplay, filename, flist, log_list, script, stat, interrupts);
+		r1 = eval_play_expr(expr.Right, num, str, timeval, engine, itplay, filename, flist, log_list, script, stat, interrupts);
+		if (isNumeric(l1) && isNumeric(r1))
+		  {
+			long a = Long.parseLong(l1);
+			long b = Long.parseLong(r1);
+
+			long c = a+b;
+			return Long.toString(c);
+		  }
+		else
+		  {
+			return l1 + r1; // Sounds slightly better than "error" in this case!
+		  }
+
+        case SS_play_expr.SS_EXPR_MINUS:
+		l1 = eval_play_expr(expr.Left, num, str, timeval, engine, itplay, filename, flist, log_list, script, stat, interrupts);
+		r1 = eval_play_expr(expr.Right, num, str, timeval, engine, itplay, filename, flist, log_list, script, stat, interrupts);
+		if (isNumeric(l1) && isNumeric(r1))
+		  {
+			long a = Long.parseLong(l1);
+			long b = Long.parseLong(r1);
+
+			long c = a-b;
+			return Long.toString(c);
+		  }
+		else
+		  {
+			return "error";
+		  }
+
+        case SS_play_expr.SS_EXPR_MULT:
+		l1 = eval_play_expr(expr.Left, num, str, timeval, engine, itplay, filename, flist, log_list, script, stat, interrupts);
+		r1 = eval_play_expr(expr.Right, num, str, timeval, engine, itplay, filename, flist, log_list, script, stat, interrupts);
+		if (isNumeric(l1) && isNumeric(r1))
+		  {
+			long a = Long.parseLong(l1);
+			long b = Long.parseLong(r1);
+
+			long c = a*b;
+			return Long.toString(c);
+		  }
+		else
+		  {
+			return "error";
+		  }
+
+        case SS_play_expr.SS_EXPR_DIV:
+		l1 = eval_play_expr(expr.Left, num, str, timeval, engine, itplay, filename, flist, log_list, script, stat, interrupts);
+		r1 = eval_play_expr(expr.Right, num, str, timeval, engine, itplay, filename, flist, log_list, script, stat, interrupts);
+		if (isNumeric(l1) && isNumeric(r1))
+		  {
+			long a = Long.parseLong(l1);
+			long b = Long.parseLong(r1);
+
+			long c = a/b;
+			return Long.toString(c);
+		  }
+		else
+		  {
+			return "error";
+		  }
+
+        case SS_play_expr.SS_EXPR_MOD:
+		l1 = eval_play_expr(expr.Left, num, str, timeval, engine, itplay, filename, flist, log_list, script, stat, interrupts);
+		r1 = eval_play_expr(expr.Right, num, str, timeval, engine, itplay, filename, flist, log_list, script, stat, interrupts);
+		if (isNumeric(l1) && isNumeric(r1))
+		  {
+			long a = Long.parseLong(l1);
+			long b = Long.parseLong(r1);
+
+			long c = a%b;
+			return Long.toString(c);
+		  }
+		else
+		  {
+			return "error";
+		  }
+
+        case SS_play_expr.SS_EXPR_NOT:
+		l1 = eval_play_expr(expr.Left, num, str, timeval, engine, itplay, filename, flist, log_list, script, stat, interrupts);
+		if ( l1 == null || l1.equals("0"))
+		  {
+			return "1";
+		  }
+		else
+		  {
+			return "0";
+		  }
+
+        case SS_play_expr.SS_EXPR_PAREN:
+		l1 = eval_play_expr(expr.Left, num, str, timeval, engine, itplay, filename, flist, log_list, script, stat, interrupts);
+		return l1;
+
+	case SS_play_expr.SS_EXPR_STR_CONST:
+		return expr.str;
+			
+	case SS_play_expr.SS_EXPR_CONCAT: /* I may remove this concept. A evolutionary left-over */
+		break;
+		
+	case SS_play_expr.SS_EXPR_LEN:
+		return Integer.toString(str.length());
+
+	case SS_play_expr.SS_EXPR_NUM:
+		if (expr.range_type == SS_play_expr.SS_EXPR_RANGE)
+		  {
+			String r1s = eval_play_expr(expr.range_start, num, str, timeval, engine, itplay, filename, flist, log_list, script, stat, interrupts);
+			String r2s = eval_play_expr(expr.range_end, num, str, timeval, engine, itplay, filename, flist, log_list, script, stat, interrupts);
+			// System.out.println("range start="+expr.range_start.type+" ("+r1s+"), and end ("+r2s+") is "+expr.range_end.type);
+			// System.out.flush();
+			int i1 = Integer.parseInt(r1s);
+			int i2 = Integer.parseInt(r2s);
+			System.out.println("substr('"+str+"'.substring("+i1+","+(i2+1)+") equeals: "+ str.substring(i1,i2+1));
+			return str.substring(i1,i2+1);
+		  }
+		else if (expr.range_type == SS_play_expr.SS_EXPR_RANGE_START)
+		  {
+			String r1s = eval_play_expr(expr.range_start, num, str, timeval, engine, itplay, filename, flist, log_list, script, stat, interrupts);
+			int ir1 = Integer.parseInt(r1s);
+			return str.substring(ir1);
+		  }
+		else
+		  {
+			return str;
+		  }
+		
+	  case SS_play_expr.SS_EXPR_OPT:
+		// System.out.print("eval EXPR_OPT "+pexp.str + "and options="+options+"\n");
+		for (int z2 = 0; z2 < expr.str.length(); z2++)
+		  {
+			char interesting_op = expr.str.charAt(z2);
+			if (options.indexOf(interesting_op) >= 0)
+			  {
+				return Character.toString(interesting_op);
+			  }
+		  }
+
+	  case SS_play_expr.SS_EXPR_TIME_SEC:
+		cal = new GregorianCalendar();
+		
+		cal.setTime(timeval);
+			
+		sec = cal.get(Calendar.SECOND);
+		return Integer.toString(sec);
+		
+	  case SS_play_expr.SS_EXPR_TIME_MIN:
+		cal = new GregorianCalendar();
+		cal.setTime(timeval);
+			
+		sec = cal.get(Calendar.MINUTE);
+		return Integer.toString(sec);
+		
+	  case SS_play_expr.SS_EXPR_TIME_12HOUR:
+		cal = new GregorianCalendar();
+		cal.setTime(timeval);
+			
+		sec = cal.get(Calendar.HOUR);
+		// System.out.println("**** 12HR Calendar.HOUR is: " + sec);
+		return Integer.toString(sec);
+		
+	  case SS_play_expr.SS_EXPR_TIME_24HOUR:
+		cal = new GregorianCalendar();
+		cal.setTime(timeval);
+			
+		sec = cal.get(Calendar.HOUR_OF_DAY);
+		// System.out.println("**** 24HR Calendar.HOUR_OF_DAY is: " + sec);
+		return Integer.toString(sec);
+		
+	  case SS_play_expr.SS_EXPR_TIME_12HOUR2D:
+		cal = new GregorianCalendar();
+		cal.setTime(timeval);
+			
+		sec = cal.get(Calendar.HOUR);
+		if (sec < 10)
+		  return "0"+Integer.toString(sec);
+		return Integer.toString(sec);
+		
+	  case SS_play_expr.SS_EXPR_TIME_24HOUR2D:
+		cal = new GregorianCalendar();
+		cal.setTime(timeval);
+			
+		sec = cal.get(Calendar.HOUR_OF_DAY);
+		if (sec < 10)
+		  return "0"+Integer.toString(sec);
+		return Integer.toString(sec);
+		
+	  case SS_play_expr.SS_EXPR_TIME_AMPM:
+		cal = new GregorianCalendar();
+		cal.setTime(timeval);
+			
+		sec = cal.get(Calendar.AM_PM);
+		if (sec == Calendar.AM)
+		  return "a-m";
+		else
+		  return "p-m";
+		
+	  case SS_play_expr.SS_EXPR_TIME_XM:
+		cal = new GregorianCalendar();
+		cal.setTime(timeval);
+			
+		sec = cal.get(Calendar.AM_PM);
+		if (sec == Calendar.AM)
+		  return "am";
+		else
+		  return "pm";
+		
+	  case SS_play_expr.SS_EXPR_TIME_CM:
+		cal = new GregorianCalendar();
+		cal.setTime(timeval);
+			
+		sec = cal.get(Calendar.AM_PM);
+		if (sec == Calendar.AM)
+		  return "A";
+		else
+		  return "P";
+		
+	  case SS_play_expr.SS_EXPR_TIME_TZ:
+		cal = new GregorianCalendar();
+		cal.setTime(timeval);
+			
+		sec = cal.get(Calendar.ZONE_OFFSET);
+		return Integer.toString(sec);
+		
+	  case SS_play_expr.SS_EXPR_DATE_DOM:
+		cal = new GregorianCalendar();
+		cal.setTime(timeval);
+			
+		sec = cal.get(Calendar.DAY_OF_MONTH);
+		return Integer.toString(sec);
+		
+	  case SS_play_expr.SS_EXPR_DATE_DOW:
+		cal = new GregorianCalendar();
+		cal.setTime(timeval);
+			
+		sec = cal.get(Calendar.DAY_OF_WEEK) - 1; /* unix & java weeks start with sunday, but java is 1-7, unix is 0-6 */
+		return Integer.toString(sec);
+		
+	  case SS_play_expr.SS_EXPR_DATE_MONTH:
+		cal = new GregorianCalendar();
+		cal.setTime(timeval);
+			
+		sec = cal.get(Calendar.MONTH);
+		return Integer.toString(sec);
+		
+	  case SS_play_expr.SS_EXPR_DATE_DOWSTR:
+		cal = new GregorianCalendar();
+		cal.setTime(timeval);
+			
+		sec = cal.get(Calendar.DAY_OF_WEEK);
+		switch(sec)
+		  {
+		  case Calendar.SUNDAY:
+			return "sun";
+		  case Calendar.MONDAY:
+			return "mon";
+		  case Calendar.TUESDAY:
+			return "tues";
+		  case Calendar.WEDNESDAY:
+			return "wed";
+		  case Calendar.THURSDAY:
+			return "thurs";
+		  case Calendar.FRIDAY:
+			return "fri";
+		  case Calendar.SATURDAY:
+			return "sat";
+		  }
+		
+	  case SS_play_expr.SS_EXPR_DATE_MONTHSTR:
+		cal = new GregorianCalendar();
+		cal.setTime(timeval);
+			
+		sec = cal.get(Calendar.MONTH);
+		switch(sec)
+		  {
+		  case Calendar.JANUARY:
+			return "jan";
+		  case Calendar.FEBRUARY:
+			return "feb";
+		  case Calendar.MARCH:
+			return "mar";
+		  case Calendar.APRIL:
+			return "apr";
+		  case Calendar.MAY:
+			return "may";
+		  case Calendar.JUNE:
+			return "june";
+		  case Calendar.JULY:
+			return "july";
+		  case Calendar.AUGUST:
+			return "aug";
+		  case Calendar.SEPTEMBER:
+			return "sep";
+		  case Calendar.OCTOBER:
+			return "oct";
+		  case Calendar.NOVEMBER:
+			return "nov";
+		  case Calendar.DECEMBER:
+			return "dec";
+		  }
+		
+	  case SS_play_expr.SS_EXPR_DATE_YEAR:
+		cal = new GregorianCalendar();
+		cal.setTime(timeval);
+			
+		sec = cal.get(Calendar.YEAR);
+		return Integer.toString(sec);
+		
+	  case SS_play_expr.SS_EXPR_DATE_CENT:
+		cal = new GregorianCalendar();
+		cal.setTime(timeval);
+			
+		sec = cal.get(Calendar.YEAR) / 100;
+		return Integer.toString(sec);
+		
+	  case SS_play_expr.SS_EXPR_DATE_DECADE:
+		cal = new GregorianCalendar();
+		cal.setTime(timeval);
+			
+		sec = cal.get(Calendar.YEAR) % 100;
+		return Integer.toString(sec);
+		
+	  case SS_play_expr.SS_EXPR_TIMEVAL:
+		cal = new GregorianCalendar();
+		cal.setTime(timeval);
+			
+		Date t = cal.getTime();
+		long t2 = t.getTime();
+		return Long.toString(t2);
+		
+	  case SS_play_expr.SS_EXPR_SUBCALL:
+		/* we could push the filename out to the flist right now? It'd be foolish
+		   to have a filename get cut in half by a subcall. On the other hand,
+		   users need to put some kind of silence between to flush the filename */
+		
+		SS_script scr = engine.find_script(pref_lang_locale, expr.subcall_script_name);
+		/* put together a new context based on this one */
+		if (level > 150)  // Highly arbitrary, but better than nothing!
+		  {
+			SS_log log1 = new SS_log(-1, -1, "Recursion too deep! (150 levels!); aborting at script "+script.names.get(0).name, ", line "+ stat.lineno);
+			log_list.add(log1);
+			break;
+		  }
+		SS_interp sub = new SS_interp(level+1);
+		/* should I copy the vardefs from this interp context into the sub-context? Do we want scripts
+              to have all the vardefs of the parent? */
+		if (options == null) options = "";
+                       /* The new str value for the new subcall should be composed of subexpr's evaluated
+                          in the current context, in a list from the subcallexprlist. */
+
+		ListIterator<SS_play_expr> itplay2 = expr.subcall_exprlist.listIterator();
+		StringBuffer filename2 = new StringBuffer();
+       		play_exprs(engine, itplay2, filename2, flist, log_list, interrupts, script, stat);
+					
+		String x = new String(filename2); /* copy of the current string; do we want the sub to hack the current str? */
+		String y = new String(options);
+		/* override options with the ones on the pexp */
+		if( expr.subcall_options != null )
+			y = expr.subcall_options;
+		Date z  = new Date(timeval.getTime());
+		// System.out.print("Creating subinterp with str="+x+" and opts="+y+" and timeval="+z+" and filename2=" +filename2+"\n");
+
+		sub.interp_SayScript(engine, pref_lang_locale, scr, x, z, y, flist, log_list, interrupts); /* go run that script */
+		break;
+		
+	  case SS_play_expr.SS_EXPR_NUM_CONST:
+		return Long.toString(expr.num);
+	}
+	return "";
+  }
   
   void play_exprs(SS_engine engine, ListIterator<SS_play_expr> itplay, StringBuffer filename, ArrayList<SS_playlist> flist, ArrayList<SS_log> log_list, String interrupts, SS_script script, SS_statement stat)
   {	
@@ -468,375 +1011,51 @@ class SS_interp
 	while (itplay.hasNext())
 	  {
 		SS_play_expr pexp = (SS_play_expr)itplay.next();
-		Calendar cal = null;
 
-		switch(pexp.type)
+		/* silence markers insert their files into the flist, and if
+		   anything's in the filename buffer, it goes first. */
+
+		if ((pexp.type == SS_play_expr.SS_EXPR_SILENCE_COMMA
+			|| pexp.type == SS_play_expr.SS_EXPR_SILENCE_COLON
+			|| pexp.type == SS_play_expr.SS_EXPR_SILENCE_PERIOD
+			// || pexp.type == SS_play_expr.SS_EXPR_SILENCE_PLUS
+			|| pexp.type == SS_play_expr.SS_EXPR_SILENCE_SEMICOLON
+			|| pexp.type == SS_play_expr.SS_EXPR_SILENCE_QUESTION))
 		  {
-		  case SS_play_expr.SS_EXPR_STR_CONST:
-			filename.append(pexp.str);
-			break;
-			
-		  case SS_play_expr.SS_EXPR_CONCAT: /* I may remove this concept. A evolutionary left-over */
-			break;
-			
-		  case SS_play_expr.SS_EXPR_NUM:
-			if (pexp.range_type == SS_play_expr.SS_EXPR_RANGE)
-			  {
-				filename.append(str.substring(pexp.range_start, pexp.range_end+1));
-			  }
-			else if (pexp.range_type == SS_play_expr.SS_EXPR_RANGE_START)
-			  {
-				filename.append(str.substring(pexp.range_start));
-			  }
-			else
-			  {
-				// System.out.println("About to append "+str+" to "+filename);
-				filename.append(str);
-				// System.out.println("filename is now "+filename);
-			  }
-			break;
-			
-		  case SS_play_expr.SS_EXPR_OPT:
-			// System.out.print("eval EXPR_OPT "+pexp.str + "and options="+options+"\n");
-			for (int z2 = 0; z2 < pexp.str.length(); z2++)
-			  {
-				char interesting_op = pexp.str.charAt(z2);
-				if (options.indexOf(interesting_op) >= 0)
-				  {
-					filename.append(interesting_op); /* the first match gets output */
-					break;
-				  }
-			  }
-			break;
-
-		  case SS_play_expr.SS_EXPR_TIME_SEC:
-			cal = new GregorianCalendar();
-			cal.setTime(timeval);
-				
-			sec = cal.get(Calendar.SECOND);
-			filename.append(sec);
-			break;
-			
-		  case SS_play_expr.SS_EXPR_TIME_MIN:
-			cal = new GregorianCalendar();
-			cal.setTime(timeval);
-				
-			sec = cal.get(Calendar.MINUTE);
-			filename.append(sec);
-			break;
-			
-		  case SS_play_expr.SS_EXPR_TIME_12HOUR:
-			cal = new GregorianCalendar();
-			cal.setTime(timeval);
-				
-			sec = cal.get(Calendar.HOUR);
-			// System.out.println("**** 12HR Calendar.HOUR is: " + sec);
-			filename.append(sec);
-			break;
-			
-		  case SS_play_expr.SS_EXPR_TIME_24HOUR:
-			cal = new GregorianCalendar();
-			cal.setTime(timeval);
-				
-			sec = cal.get(Calendar.HOUR_OF_DAY);
-			// System.out.println("**** 24HR Calendar.HOUR_OF_DAY is: " + sec);
-			filename.append(sec);
-			break;
-			
-		  case SS_play_expr.SS_EXPR_TIME_12HOUR2D:
-			cal = new GregorianCalendar();
-			cal.setTime(timeval);
-				
-			sec = cal.get(Calendar.HOUR);
-			if (sec < 10)
-			  filename.append("0");
-			filename.append(sec);
-			break;
-			
-		  case SS_play_expr.SS_EXPR_TIME_24HOUR2D:
-			cal = new GregorianCalendar();
-			cal.setTime(timeval);
-				
-			sec = cal.get(Calendar.HOUR_OF_DAY);
-			if (sec < 10)
-			  filename.append("0");
-			filename.append(sec);
-			break;
-			
-		  case SS_play_expr.SS_EXPR_TIME_AMPM:
-			cal = new GregorianCalendar();
-			cal.setTime(timeval);
-				
-			sec = cal.get(Calendar.AM_PM);
-			if (sec == Calendar.AM)
-			  filename.append("a-m");
-			else
-			  filename.append("p-m");
-			break;
-			
-		  case SS_play_expr.SS_EXPR_TIME_XM:
-			cal = new GregorianCalendar();
-			cal.setTime(timeval);
-				
-			sec = cal.get(Calendar.AM_PM);
-			if (sec == Calendar.AM)
-			  filename.append("am");
-			else
-			  filename.append("pm");
-			break;
-			
-		  case SS_play_expr.SS_EXPR_TIME_CM:
-			cal = new GregorianCalendar();
-			cal.setTime(timeval);
-				
-			sec = cal.get(Calendar.AM_PM);
-			if (sec == Calendar.AM)
-			  filename.append("A");
-			else
-			  filename.append("P");
-			break;
-			
-		  case SS_play_expr.SS_EXPR_TIME_TZ:
-			cal = new GregorianCalendar();
-			cal.setTime(timeval);
-				
-			sec = cal.get(Calendar.ZONE_OFFSET);
-			filename.append(sec);
-			break;
-			
-		  case SS_play_expr.SS_EXPR_DATE_DOM:
-			cal = new GregorianCalendar();
-			cal.setTime(timeval);
-				
-			sec = cal.get(Calendar.DAY_OF_MONTH);
-			filename.append(sec);
-			break;
-			
-		  case SS_play_expr.SS_EXPR_DATE_DOW:
-			cal = new GregorianCalendar();
-			cal.setTime(timeval);
-				
-			sec = cal.get(Calendar.DAY_OF_WEEK) - 1; /* unix & java weeks start with sunday, but java is 1-7, unix is 0-6 */
-			filename.append(sec);
-			break;
-			
-		  case SS_play_expr.SS_EXPR_DATE_MONTH:
-			cal = new GregorianCalendar();
-			cal.setTime(timeval);
-				
-			sec = cal.get(Calendar.MONTH);
-			filename.append(sec);
-			break;
-			
-		  case SS_play_expr.SS_EXPR_DATE_DOWSTR:
-			cal = new GregorianCalendar();
-			cal.setTime(timeval);
-				
-			sec = cal.get(Calendar.DAY_OF_WEEK);
-			switch(sec)
-			  {
-			  case Calendar.SUNDAY:
-				filename.append("sun");
-				break;
-			  case Calendar.MONDAY:
-				filename.append("mon");
-				break;
-			  case Calendar.TUESDAY:
-				filename.append("tues");
-				break;
-			  case Calendar.WEDNESDAY:
-				filename.append("wed");
-				break;
-			  case Calendar.THURSDAY:
-				filename.append("thurs");
-				break;
-			  case Calendar.FRIDAY:
-				filename.append("fri");
-				break;
-			  case Calendar.SATURDAY:
-				filename.append("sat");
-				break;
-			  }
-			break;
-			
-		  case SS_play_expr.SS_EXPR_DATE_MONTHSTR:
-			cal = new GregorianCalendar();
-			cal.setTime(timeval);
-				
-			sec = cal.get(Calendar.MONTH);
-			switch(sec)
-			  {
-			  case Calendar.JANUARY:
-				filename.append("jan");
-				break;
-			  case Calendar.FEBRUARY:
-				filename.append("feb");
-				break;
-			  case Calendar.MARCH:
-				filename.append("mar");
-				break;
-			  case Calendar.APRIL:
-				filename.append("apr");
-				break;
-			  case Calendar.MAY:
-				filename.append("may");
-				break;
-			  case Calendar.JUNE:
-				filename.append("june");
-				break;
-			  case Calendar.JULY:
-				filename.append("july");
-				break;
-			  case Calendar.AUGUST:
-				filename.append("aug");
-				break;
-			  case Calendar.SEPTEMBER:
-				filename.append("sep");
-				break;
-			  case Calendar.OCTOBER:
-				filename.append("oct");
-				break;
-			  case Calendar.NOVEMBER:
-				filename.append("nov");
-				break;
-			  case Calendar.DECEMBER:
-				filename.append("dec");
-				break;
-			  }
-			break;
-			
-		  case SS_play_expr.SS_EXPR_DATE_YEAR:
-			cal = new GregorianCalendar();
-			cal.setTime(timeval);
-				
-			sec = cal.get(Calendar.YEAR);
-			filename.append(sec);
-			break;
-			
-		  case SS_play_expr.SS_EXPR_DATE_CENT:
-			cal = new GregorianCalendar();
-			cal.setTime(timeval);
-				
-			sec = cal.get(Calendar.YEAR) / 100;
-			filename.append(sec);
-			break;
-			
-		  case SS_play_expr.SS_EXPR_DATE_DECADE:
-			cal = new GregorianCalendar();
-			cal.setTime(timeval);
-				
-			sec = cal.get(Calendar.YEAR) % 100;
-			filename.append(sec);
-			break;
-			
-		  case SS_play_expr.SS_EXPR_TIMEVAL:
-			cal = new GregorianCalendar();
-			cal.setTime(timeval);
-				
-			Date t = cal.getTime();
-			long t2 = t.getTime();
-			filename.append(t2);
-			break;
-			
-		  case SS_play_expr.SS_EXPR_SUBCALL:
-			/* we could push the filename out to the flist right now? It'd be foolish
-			   to have a filename get cut in half by a subcall. On the other hand,
-			   users need to put some kind of silence between to flush the filename */
-			
-			SS_script scr = engine.find_script(pref_lang_locale, pexp.subcall_script_name);
-			/* put together a new context based on this one */
-			if (level > 150)  // Highly arbitrary, but better than nothing!
-			  {
-				SS_log log1 = new SS_log(-1, -1, "Recursion too deep! (150 levels!); aborting at script "+script.names.get(0).name, ", line "+ stat.lineno);
-				log_list.add(log1);
-				break;
-			  }
-			SS_interp sub = new SS_interp(level+1);
-			/* should I copy the vardefs from this interp context into the sub-context? Do we want scripts
-               to have all the vardefs of the parent? */
-			if (options == null) options = "";
-                        /* The new str value for the new subcall should be composed of subexpr's evaluated
-                           in the current context, in a list from the subcallexprlist. */
-
-			ListIterator<SS_play_expr> itplay2 = pexp.subcall_exprlist.listIterator();
-			StringBuffer filename2 = new StringBuffer();
-        		play_exprs(engine, itplay2, filename2, flist, log_list, interrupts, script, stat);
-						
-			String x = new String(filename2); /* copy of the current string; do we want the sub to hack the current str? */
-			String y = new String(options);
-			/* override options with the ones on the pexp */
-			if( pexp.subcall_options != null )
-				y = pexp.subcall_options;
-			Date z  = new Date(timeval.getTime());
-			// System.out.print("Creating subinterp with str="+x+" and opts="+y+" and timeval="+z+" and filename2=" +filename2+"\n");
-
-			sub.interp_SayScript(engine, pref_lang_locale, scr, x, z, y, flist, log_list, interrupts); /* go run that script */
-			break;
-			
-		  case SS_play_expr.SS_EXPR_NUM_CONST:
-			filename.append(pexp.num);
-			break;
-			
-		  case SS_play_expr.SS_EXPR_SILENCE_COLON:
-			/* silence markers insert their files into the flist, and if
-			   anything's in the filename buffer, it goes first. */
-			if (filename.length() > 0 )
-			  {
+			if (filename.length() > 0)
 				move_filename_to_playlist(filename, flist, interrupts);
-			  }
-			add_silence_files(':', engine, flist, log_list);
-			break;
-			
-		  case SS_play_expr.SS_EXPR_SILENCE_COMMA:
-			/* silence markers insert their files into the flist, and if
-			   anything's in the filename buffer, it goes first. */
-			if (filename.length() > 0 )
+			switch (pexp.type)
 			  {
-				move_filename_to_playlist(filename, flist, interrupts);
-			  }
-			add_silence_files(',', engine, flist, log_list);
-			break;
+			  case SS_play_expr.SS_EXPR_SILENCE_COLON:
+				add_silence_files(':', engine, flist, log_list);
+				break;
+		
+			  case SS_play_expr.SS_EXPR_SILENCE_COMMA:
+				add_silence_files(',', engine, flist, log_list);
+				break;
 
-		  case SS_play_expr.SS_EXPR_SILENCE_PERIOD:
-			/* silence markers insert their files into the flist, and if
-			   anything's in the filename buffer, it goes first. */
-			if (filename.length() > 0 )
-			  {
-				move_filename_to_playlist(filename, flist, interrupts);
-			  }
-			add_silence_files('.', engine, flist, log_list);
-			break;
+			  case SS_play_expr.SS_EXPR_SILENCE_PERIOD:
+				add_silence_files('.', engine, flist, log_list);
+				break;
 
-		  case SS_play_expr.SS_EXPR_SILENCE_PLUS:
-			/* silence markers insert their files into the flist, and if
-			   anything's in the filename buffer, it goes first. */
-			if (filename.length() > 0 )
-			  {
-				move_filename_to_playlist(filename, flist, interrupts);
-			  }
-			add_silence_files('+', engine, flist, log_list);
-			break;
+			  case SS_play_expr.SS_EXPR_SILENCE_PLUS:
+				add_silence_files('+', engine, flist, log_list);
+				break;
 
-		  case SS_play_expr.SS_EXPR_SILENCE_SEMICOLON:
-			/* silence markers insert their files into the flist, and if
-			   anything's in the filename buffer, it goes first. */
-			if (filename.length() > 0 )
-			  {
-				move_filename_to_playlist(filename, flist, interrupts);
-			  }
-			add_silence_files(';', engine, flist, log_list);
-			break;
+			  case SS_play_expr.SS_EXPR_SILENCE_SEMICOLON:
+				add_silence_files(';', engine, flist, log_list);
+				break;
 
-		  case SS_play_expr.SS_EXPR_SILENCE_QUESTION:
-			/* silence markers insert their files into the flist, and if
-			   anything's in the filename buffer, it goes first. */
-			if (filename.length() > 0 )
-			  {
-				move_filename_to_playlist(filename, flist, interrupts);
+			  case SS_play_expr.SS_EXPR_SILENCE_QUESTION:
+				add_silence_files('?', engine, flist, log_list);
+				break;
+
 			  }
-			add_silence_files('?', engine, flist, log_list);
-			break;
+			continue;  // Nothing more to do!
 		  }
+		Date timeval = new Date(num*1000);
+		String res = eval_play_expr(pexp, num, str, timeval, engine, itplay, filename, flist, log_list, script, stat, interrupts);
+		filename.append(res);
 	  }
   }
 

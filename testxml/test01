@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <SaySentenceRequest>
-      <Lang_Locale>en_test</Lang_Locale>
+      <Lang_Locale>en_US_test</Lang_Locale>
       <InterruptKeys>01</InterruptKeys>
       <Format>&lt;you_transferred&gt; %m &lt;to_your_account&gt; %[o]d.</Format>
       <Arguments>
