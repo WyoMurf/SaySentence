@@ -135,7 +135,9 @@ returns [SS_format form]
 				   /* System.out.println("Just added file "+x.file+" to the form"); */
 				   form.elements.add(x);
 				  }
-
+		| '\n'
+		| '\t'
+		| '\r'
 		| silence[form,loglist] {/* System.out.println("Just finished silence char");*/ } 
 		| varspec[form,loglist] {/* System.out.println("Just finished varspec"); */}
 		  )+

@@ -24,7 +24,7 @@ shuffle_template : shuffle_template.c
 	gcc -g -o shuffle_template shuffle_template.c
 
 test :  
-	java test
+	java test > /tmp/testresults
 
 run:
 	java SaySentenceServer

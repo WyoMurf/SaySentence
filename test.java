@@ -252,6 +252,9 @@ public class test
   public static void main(String[] args) throws Exception 
   {
 	SS_engine eng = new SS_engine();
+
+	System.err.println("New Engine Created, Starting the update thread to read all the SayScripts and Translation files");
+	System.err.println("Giving it a couple seconds to finish loading everything...");
 	
 	try
 	  {
@@ -298,6 +301,7 @@ public class test
                   {
 			String n = fname.getName();
 			System.out.println("========================= " + n + " =================");
+			System.err.println("---" + n + "---");
 			FileInputStream istream = new FileInputStream(fname);
                         InputSource isource = new InputSource(istream);
                         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
@@ -449,6 +453,8 @@ public class test
 			System.out.print("================================================\n");
 		  }
 	  }
+
+	System.err.println("Done. The update thread will continue, so you can enter ^c now to stop the server");
 	
 	// File formatsfile = new File("./testformats");
 	// FileReader freader = new FileReader(formatsfile);
