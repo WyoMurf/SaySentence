@@ -488,7 +488,9 @@ class SS_interp
 			  }
 			else
 			  {
-				filename.append(pexp.str);
+				// System.out.println("About to append "+str+" to "+filename);
+				filename.append(str);
+				// System.out.println("filename is now "+filename);
 			  }
 			break;
 			
@@ -612,7 +614,7 @@ class SS_interp
 			cal = new GregorianCalendar();
 			cal.setTime(timeval);
 				
-			sec = cal.get(Calendar.DAY_OF_WEEK);
+			sec = cal.get(Calendar.DAY_OF_WEEK) - 1; /* unix & java weeks start with sunday, but java is 1-7, unix is 0-6 */
 			filename.append(sec);
 			break;
 			
@@ -993,7 +995,7 @@ class SS_interp
 	  {
 		if (script.statement_list != null)
 		  {
-	  		System.out.println("Scanning for ATBEGIN");
+	  		// System.out.println("Scanning for ATBEGIN");
 			ListIterator<SS_statement> stat_it = script.statement_list.listIterator();
 			while (stat_it.hasNext())
 			  {
@@ -1007,7 +1009,7 @@ class SS_interp
 						ArrayList<SS_op> xx = make_copy(stat.oplist);
 						if (ops_are_true(stat, xx, log_list) )
 						  {
-							System.out.println("line:"+stat.lineno+" executing.");
+							System.out.println("line: "+stat.lineno+" executing.");
 							int ret = execute_the_statement(engine, stat, flist, log_list, interrupts);
 							switch( ret )
 							  {
@@ -1055,7 +1057,7 @@ class SS_interp
 						  {
 							lastline = stat.lineno;
 							executed = true;
-							System.out.println("line:"+stat.lineno+" executing. str="+str+" num="+num);
+							System.out.println("line: "+stat.lineno+" executing. str="+str+" num="+num);
 							int ret = execute_the_statement(engine, stat, flist, log_list, interrupts);
 							switch( ret )
 							  {
@@ -1076,7 +1078,6 @@ class SS_interp
 						else
                                                   {
 							// System.out.println("line:"+stat.lineno+" NOT executing. str="+str+" num="+num);
-
 						  }
 					  }
 				  }
@@ -1119,7 +1120,7 @@ class SS_interp
 						ArrayList<SS_op> xx = make_copy(stat.oplist);
 						if (ops_are_true(stat, xx, log_list) )
 						  {
-							System.out.println("line:"+stat.lineno+" executing.");
+							System.out.println("line: "+stat.lineno+" executing.");
 							int ret = execute_the_statement(engine, stat, flist, log_list, interrupts);
 							switch( ret )
 							  {

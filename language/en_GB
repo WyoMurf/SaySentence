@@ -264,12 +264,12 @@ ATBEGIN,LESS     0         digits/minus                            -          NE
 PATTERN  "^0[0-9]"                 -                               -          CUT(1)  ;; get rid of leading zeroes!
 
 
-PATTERN "^[0-9]$"                    digits/{num}                                        - DONE
-PATTERN "^1[0-9]$"                   digits/{num}                                        - DONE
+PATTERN "^X$"                        digits/{num}                                        - DONE
+PATTERN "^1X$"                       digits/{num}                                        - DONE
 PATTERN "^[2-9]0$"                   digits/{num}                                        - DONE
-PATTERN "^[2-9][1-9]$"               digits/{num[0:0]}0,digits/{num[1:1]}                - DONE
+PATTERN "^[2-9][1-9]$"               digits/{num[0:0]}0,<<number:{num[1:1]}>>            - DONE
 PATTERN "^[1-9]00$"                  digits/{num[0:0]},digits/hundred                    - DONE
-PATTERN "^[1-9][0-9][0-9]$"          digits/{num[0:0]},digits/hundred,<<number:{num[1]}>>  - DONE
+PATTERN "^[1-9][1-9][1-9]$"          digits/{num[0:0]},digits/hundred,<<number:{num[1]}>>  - DONE
 
 PATTERN "^[1-9]000$"                         digits/{num[0:0]},digits/thousand                            - DONE
 PATTERN "^[1-9][0-9][0-9][0-9]$"             digits/{num[0:0]},digits/thousand,<<number:{num[1]}>>        - DONE
@@ -281,9 +281,9 @@ PATTERN "^[1-9][0-9][0-9][0-9][0-9][0-9]$"   <<number:{num[0:2]}>>,digits/thousa
 PATTERN "^[1-9]000000$"                                     digits/{num[0:0]},digits/million                           - DONE
 PATTERN "^[1-9][0-9][0-9][0-9][0-9][0-9][0-9]$"             digits/{num[0:0]},digits/million,<<number:{num[1]}>>       - DONE 
 PATTERN "^[1-9][0-9]000000$"                                <<number:{num[0:1]}>>,digits/million                       - DONE
-PATTERN "^[1-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]$"        <<number:{num[0:1]}>>,digits/million,<<number:{num[2]}>>   - DONE
-PATTERN "^[1-9][0-9][0-9]000000$"                           <<number:{num[0:2]}>>,digits/million                       - DONE
-PATTERN "^[1-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]$"   <<number:{num[0:2]}>>,digits/million,<<number:{num[3]}>>   - DONE
+PATTERN "^[1-9][0-9][1-9][1-9][1-9][1-9][1-9][1-9]$"        <<number:{num[0:1]}>>,digits/million,<<number:{num[2]}>>   - DONE
+PATTERN "^[1-9][0-9][1-9]000000$"                           <<number:{num[0:2]}>>,digits/million                       - DONE
+PATTERN "^[1-9][0-9][1-9][1-9][1-9][1-9][1-9][1-9][1-9]$"   <<number:{num[0:2]}>>,digits/million,<<number:{num[3]}>>   - DONE
 
 PATTERN "^[1-9]000000000$"                                                digits/{num[0:0]},digits/billion                         - DONE
 PATTERN "^[1-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]$"            digits/{num[0:0]},digits/billion,<<number:{num[1]}>>     - DONE
@@ -297,39 +297,40 @@ PATTERN "^[1-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]$"  <<numb
 ;; and RESTART (always how CUT() ends) will end the script. 
 ;; So, we have to make sure that the "million" or "thousand" gets said before we exit....
 ;; But we have to do this before we see 0 and say 'zero'.
-;;
-;;VAR,PATTERN  SAYTHOW,"^0+$"            digits/thousand                  SAYTHOW=0   DONE ;; only one of these could be set...
-;;VAR,PATTERN  SAYMIL,"^0+$"             digits/million                   SAYMIL=0    DONE
-;;VAR,PATTERN  SAYBIL,"^0+$"             digits/billion                   SAYBIL=0    DONE
-;;
+;
+;VAR,PATTERN  SAYTHOW,"^0+$"            digits/thousand                  SAYTHOW=0   DONE ;; only one of these could be set...
+;VAR,PATTERN  SAYMIL,"^0+$"             digits/million                   SAYMIL=0    DONE
+;VAR,PATTERN  SAYBIL,"^0+$"             digits/billion                   SAYBIL=0    DONE
+;
 ;;; handle BILLIONS   hundreds/tens/ones, followed by "billion"
-;;RANGE 100000000000,999999999999  digits/{num[0:0]},digits/hundred   SAYBIL=1   CUT(1)
-;;RANGE 20000000000,99999999999    digits/{num[0:0]}0                 SAYBIL=1   CUT(1)
-;;RANGE 10000000000,19999999999    digits/{num[0:1]}                SAYBIL=1   CUT(2)
-;;RANGE 1000000000,9999999999      digits/{num[0:0]}                  SAYBIL=1   CUT(1)
-;;VAR,PATTERN   SAYBIL,"[1-9]"     digits/billion			    SAYBIL=0   RESTART   ;; pronounce the "billion" -- but only if there is more to say afterwards
-;;
-;;; handle MILLIONS   hundreds/tens/ones, followed by "million"
-;;RANGE 100000000,999999999  digits/{num[0:0]},digits/hundred   SAYMIL=1   CUT(1)
-;;RANGE 20000000,99999999    digits/{num[0:0]}0                 SAYMIL=1   CUT(1)
-;;RANGE 10000000,19999999    digits/{num[0:1]}                  SAYMIL=1   CUT(2)
-;;RANGE 1000000,9999999      digits/{num[0:0]}                  SAYMIL=1   CUT(1)
-;;VAR,PATTERN   SAYMIL,"[1-9]"   digits/million		      SAYMIL=0   RESTART
+;RANGE 100000000000,999999999999  digits/{num[0:0]},digits/hundred   SAYBIL=1   CUT(1)
+;RANGE 20000000000,99999999999    digits/{num[0:0]}0                 SAYBIL=1   CUT(1)
+;RANGE 10000000000,19999999999    digits/{num[0:1]}                SAYBIL=1   CUT(2)
+;RANGE 1000000000,9999999999      digits/{num[0:0]}                  SAYBIL=1   CUT(1)
+;VAR,PATTERN   SAYBIL,"[1-9]"     digits/billion			    SAYBIL=0   RESTART   ;; pronounce the "billion" -- but only if there is more to say afterwards
+;
+;; handle MILLIONS   hundreds/tens/ones, followed by "million"
+;RANGE 100000000,999999999  digits/{num[0:0]},digits/hundred   SAYMIL=1   CUT(1)
+;RANGE 20000000,99999999    digits/{num[0:0]}0                 SAYMIL=1   CUT(1)
+;RANGE 10000000,19999999    digits/{num[0:1]}                  SAYMIL=1   CUT(2)
+;RANGE 1000000,9999999      digits/{num[0:0]}                  SAYMIL=1   CUT(1)
+;VAR,PATTERN   SAYMIL,"[1-9]"   digits/million		      SAYMIL=0   RESTART
 
 
-;;; handle THOUSANDS  hundreds/tens/ones, followed by "thousand"
-;;RANGE 100000,999999        digits/{num[0:0]},digits/hundred   SAYTHOW=1   CUT(1)  ;; x "hundred"
-;;RANGE 20000,99999          digits/{num[0:0]}0                 SAYTHOW=1   CUT(1)  ;; twenty/thirty/forty/etc
-;;RANGE 10000,19999          digits/{num[0:1]}                  SAYTHOW=1   CUT(2)  ;; ten thru nineteen
-;;RANGE 1000,9999            digits/{num[0:0]}                  SAYTHOW=1   CUT(1)  ;; one thru 9
-;;VAR,PATTERN   SAYTHOW,"[1-9]"   digits/thousand		      SAYTHOW=0   RESTART
+;; handle THOUSANDS  hundreds/tens/ones, followed by "thousand"
+;RANGE 100000,999999        digits/{num[0:0]},digits/hundred   SAYTHOW=1   CUT(1)  ;; x "hundred"
+;RANGE 20000,99999          digits/{num[0:0]}0                 SAYTHOW=1   CUT(1)  ;; twenty/thirty/forty/etc
+;RANGE 10000,19999          digits/{num[0:1]}                  SAYTHOW=1   CUT(2)  ;; ten thru nineteen
+;RANGE 1000,9999            digits/{num[0:0]}                  SAYTHOW=1   CUT(1)  ;; one thru 9
+;VAR,PATTERN   SAYTHOW,"[1-9]"   digits/thousand		      SAYTHOW=0   RESTART
 
-;;RANGE    0,9               digits/{num[0:0]}                - DONE
-;;RANGE    10,19		   digits/{num[0:1]}                - DONE
-;;PATTERN  "^[1-9]0$"	   digits/{num[0:1]}		    - DONE
-;;RANGE    20,99             digits/{num[0:0]}0                 - CUT(1)
-;;RANGE    100,999           digits/{num[0:0]},digits/hundred   - CUT(1)
-;;
+;RANGE    0,9               digits/{num[0:0]}                - DONE
+;RANGE    10,19		   digits/{num[0:1]}                - DONE
+;PATTERN  "^[1-9]0$"	   digits/{num[0:1]}		    - DONE
+;RANGE    20,99             digits/{num[0:0]}0                 - CUT(1)
+;RANGE    100,999           digits/{num[0:0]},digits/hundred   - CUT(1)
+;
+
 
 [alphanum_str] ;; just a copy of the char_str;; it will say all the alphas and nums, and so much more!
 PATTERN  "^[*]"       digits/star                            - CUT(1)
@@ -394,8 +395,8 @@ ATBEGIN,GREATER     999999999999                 -                     - RANGE_E
 
 PATTERN  "^0[0-9]"  -                 -          CUT(1)  ;; get rid of leading zeroes!
 
-PATTERN "^[0-9]$"                        digits/h-{num}                                        - DONE
-PATTERN "^1[0-9]$"                       digits/h-{num}                                        - DONE
+PATTERN "^X$"                        digits/h-{num}                                        - DONE
+PATTERN "^1X$"                       digits/h-{num}                                        - DONE
 PATTERN "^[2-9]0$"                   digits/h-{num}                                        - DONE
 PATTERN "^[2-9][1-9]$"               digits/{num[0:0]}0,digits/h-{num[1:1]}                - DONE
 PATTERN "^[1-9]00$"                  digits/{num[0:0]},digits/h-hundred                    - DONE
@@ -427,42 +428,43 @@ PATTERN "^[1-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]$"  <<numb
 ;; it doesn't use h-hundred, h-thousand, h-million, or h-billion...  you need
 ;; to use these to say stuff like ´that was the 161-thousandth cat...´
 ;; NOT ´that was the 161st thousand cat' or like nonsense.
-
-;;VAR,PATTERN  SAYTHOW,"^0+$"            digits/h-thousand              SAYTHOW=0   DONE ;; only one of these could be set... 'thousandth'
-;;VAR,PATTERN  SAYMIL,"^0+$"             digits/h-million               SAYMIL=0    DONE  ;; 'millionth'
-;;VAR,PATTERN  SAYBIL,"^0+$"             digits/h-billion               SAYBIL=0    DONE  ;; 'billionth'
-
+;
+;VAR,PATTERN  SAYTHOW,"^0+$"            digits/h-thousand              SAYTHOW=0   DONE ;; only one of these could be set... 'thousandth'
+;VAR,PATTERN  SAYMIL,"^0+$"             digits/h-million               SAYMIL=0    DONE  ;; 'millionth'
+;VAR,PATTERN  SAYBIL,"^0+$"             digits/h-billion               SAYBIL=0    DONE  ;; 'billionth'
+;
 ;;; handle BILLIONS   hundreds/tens/ones, followed by "billion"
-;;RANGE 100000000000,999999999999  digits/{num[0:0]},digits/hundred  SAYBIL=1   CUT(1)
-;;RANGE 20000000000,99999999999    digits/{num[0:0]}0                      SAYBIL=1   CUT(1)
-;;RANGE 10000000000,19999999999    digits/{num[0:1]}                       SAYBIL=1   CUT(2)
-;;RANGE 1000000000,9999999999      digits/{num[0:0]}                       SAYBIL=1   CUT(1)
-;;VAR,PATTERN   SAYBIL,"[1-9]"   digits/billion			   SAYBIL=0   RESTART
-;;
+;RANGE 100000000000,999999999999  digits/{num[0:0]},digits/hundred  SAYBIL=1   CUT(1)
+;RANGE 20000000000,99999999999    digits/{num[0:0]}0                      SAYBIL=1   CUT(1)
+;RANGE 10000000000,19999999999    digits/{num[0:1]}                       SAYBIL=1   CUT(2)
+;RANGE 1000000000,9999999999      digits/{num[0:0]}                       SAYBIL=1   CUT(1)
+;VAR,PATTERN   SAYBIL,"[1-9]"   digits/billion			   SAYBIL=0   RESTART
+;
 ;;; handle MILLIONS   hundreds/tens/ones, followed by "million"
-;;RANGE 100000000,999999999  digits/{num[0:0]},digits/hundred   SAYMIL=1   CUT(1)
-;;RANGE 20000000,99999999    digits/{num[0:0]}0                 SAYMIL=1   CUT(1)
-;;RANGE 10000000,19999999    digits/{num[0:1]}                  SAYMIL=1   CUT(2)
-;;RANGE 1000000,9999999      digits/{num[0:0]}                  SAYMIL=1   CUT(1)
-;;VAR,PATTERN   SAYMIL,"[1-9]"  digits/million		      SAYMIL=0   RESTART
-;;
+;RANGE 100000000,999999999  digits/{num[0:0]},digits/hundred   SAYMIL=1   CUT(1)
+;RANGE 20000000,99999999    digits/{num[0:0]}0                 SAYMIL=1   CUT(1)
+;RANGE 10000000,19999999    digits/{num[0:1]}                  SAYMIL=1   CUT(2)
+;RANGE 1000000,9999999      digits/{num[0:0]}                  SAYMIL=1   CUT(1)
+;VAR,PATTERN   SAYMIL,"[1-9]"  digits/million		      SAYMIL=0   RESTART
+;
+;
 ;;; handle THOUSANDS  hundreds/tens/ones, followed by "thousand"
-;;RANGE 100000,999999            digits/{num[0:0]},digits/hundred   SAYTHOW=1   CUT(1)  ;; x "hundred"
-;;RANGE 20000,99999              digits/{num[0:0]}0                 SAYTHOW=1   CUT(1)  ;; twenty/thirty/forty/etc
-;;RANGE 10000,19999              digits/{num[0:1]}                  SAYTHOW=1   CUT(2)  ;; ten thru nineteen
-;;RANGE 1000,9999                digits/{num[0:0]}                  SAYTHOW=1   CUT(1)  ;; one thru 9
-;;VAR,PATTERN   SAYTHOW,"[1-9]"  digits/thousand		          SAYTHOW=0   RESTART
-;;
-;;
-;;RANGE    10,19                digits/h-{num[0:1]}        - DONE
-;;RANGE    0,9                  digits/h-{num[0:0]}        - DONE
-;;PATTERN   "^[2-9]0$"           digits/h-{num[0:1]}        - DONE  ;; tenth, twentieth, thirtieth, fourtieth, etc.
-;;RANGE    20,99                digits/{num[0:0]}0         - CUT(1)  ;; twenty, thirty, etc, followed by ´first, ´second', etc,
-;;
-;;;                                                                       via the previous rule after the restart
-;;PATTERN   "^[1-9]00$"       digits/{num[0:0]},digits/h-hundred - DONE  ;; three hundredth car... Get the even hundredths with this one.
-;;RANGE    100,999           digits/{num[0:0]},digits/hundred   - CUT(1)
-;;
+;RANGE 100000,999999            digits/{num[0:0]},digits/hundred   SAYTHOW=1   CUT(1)  ;; x "hundred"
+;RANGE 20000,99999              digits/{num[0:0]}0                 SAYTHOW=1   CUT(1)  ;; twenty/thirty/forty/etc
+;RANGE 10000,19999              digits/{num[0:1]}                  SAYTHOW=1   CUT(2)  ;; ten thru nineteen
+;RANGE 1000,9999                digits/{num[0:0]}                  SAYTHOW=1   CUT(1)  ;; one thru 9
+;VAR,PATTERN   SAYTHOW,"[1-9]"  digits/thousand		          SAYTHOW=0   RESTART
+;
+;
+;RANGE    10,19                digits/h-{num[0:1]}        - DONE
+;RANGE    0,9                  digits/h-{num[0:0]}        - DONE
+;PATTERN   "^[2-9]0$"           digits/h-{num[0:1]}        - DONE  ;; tenth, twentieth, thirtieth, fourtieth, etc.
+;RANGE    20,99                digits/{num[0:0]}0         - CUT(1)  ;; twenty, thirty, etc, followed by ´first, ´second', etc,
+;
+;;                                                                       via the previous rule after the restart
+;PATTERN   "^[1-9]00$"       digits/{num[0:0]},digits/h-hundred - DONE  ;; three hundredth car... Get the even hundredths with this one.
+;RANGE    100,999           digits/{num[0:0]},digits/hundred   - CUT(1)
+;
 ;; For numbers like 102,000, after the "one" "hundred" "two", we'll get 'num' set to zero, 
 ;; and RESTART (always how CUT() ends) will end the script. 
 ;; So, we have to make sure that the "million" or "thousand" or whatever gets said before we exit....

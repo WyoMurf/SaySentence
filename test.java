@@ -252,14 +252,15 @@ public class test
   public static void main(String[] args) throws Exception 
   {
 	SS_engine eng = new SS_engine();
-//	try
-//	  {
-//		Thread.currentThread().sleep(1000); /* sleep for 1 seconds! */
-//	  }
-//	catch (InterruptedException iexc)
-//	  {
-//		System.out.print("Got the InterruptedException " + iexc + "\n");
-//	  }
+	
+	try
+	  {
+		Thread.currentThread().sleep(2000); /* sleep for 1 seconds! */
+	  }
+	catch (InterruptedException iexc)
+	  {
+		System.out.print("Got the InterruptedException " + iexc + "\n");
+	  }
 	/* now, let's test out a bunch of say_sentence formats */
 //	int ConnCount = 0;
 //	try

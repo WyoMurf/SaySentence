@@ -230,9 +230,10 @@ class SS_update_thread extends Thread
 		try
 		{
 		clear_scriptset_marks();
-		
+		// System.out.println("There are " + files.length + " in " + libpath + "/language");
 		for (File fname: files)
                   {
+			// System.out.println("Looking at script file: " +  fname.getName() + ".");
 			if (fname.isFile())
 			  {
                                
@@ -246,8 +247,10 @@ class SS_update_thread extends Thread
 					  {
 						/* need to update! */
 						// System.out.printf("Update!\n");
+						// System.out.println("About to (re?)parse "+n+ "!");
 						ss = parse_SayScript(fname);
 						/* LOCKING? */
+						// ss.print();
 						engine.scriptsets_by_lang.remove(n);
 						engine.scriptsets_by_lang.put(n,ss);
 						ss.marked = true;
@@ -259,11 +262,17 @@ class SS_update_thread extends Thread
 				  {
 					// System.out.printf("New! name="+n+"\n");
 					/* no ss in the table! */
+					// System.out.println("About to parse "+n+ "!");
 					ss = parse_SayScript(fname);
+					// ss.print();
 					/* LOCKING? */
 					engine.scriptsets_by_lang.put(n,ss);
 					ss.marked = true;
 				  }
+			  }
+			else
+			  {
+				System.out.println("Fname not a file? (" + fname.getName() + ")");
 			  }
 		  }
 		Enumeration<SS_scriptset> scriptsets = engine.scriptsets_by_lang.elements();

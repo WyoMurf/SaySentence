@@ -1,5 +1,8 @@
 #!/bin/bash
 
-grep -n --exclude-dir=doc --exclude-dir=.git --exclude=\*.o --exclude=\*.so --exclude=\*.h --exclude=file.c --exclude=xx\* --exclude=asterisk --exclude=app_saysentence.c --exclude=\*.recov --exclude-dir=.svn -r ast_say_sentence . > /tmp/saysent.txt
+grep -n --exclude-dir=doc --exclude-dir=.git --exclude=\*.o --exclude=\*.so --exclude=\*.h --exclude=file.c --exclude=xx\* --exclude=asterisk --exclude=template-sed-script --exclude=mod1.script --exclude=mod2.script --exclude=app_saysentence.c --exclude=\*.recov --exclude-dir=.svn -r ast_say_sentence . > /tmp/saysent.txt
 
-sed -f template-sed-script /tmp/saysent.txt > en.template
+sed -e 's/^\([^:]\+\):\([0-9]\+\):\(.*\)ast_say_sentence[^,]\+,[^,]\+,[^"]*"\([^"]*\).*$/# \1 line \2:\n\[\4\]\n\n\n/'  /tmp/saysent.txt > /tmp/en.template.proto
+
+## now, gather the formats that are identical into signle uniuque entries, with their comments.
+./shuffle_template /tmp/en.template.proto en.template

@@ -84,6 +84,14 @@ with all the possible format strings, and provide the value based mappings (eg, 
 in the asterisk code where different output is generated based on the value of a pronounced number; these
 need to be removed from the code, and put in the translation file instead. Someday real soon!).
 
+Also, if you wish to do a translation to a new language, you can form a new template by using
+the extract_language_template_from_asterisk_source  script. Create links pointing to the
+extract_language_template_from_asterisk_source script and to the shuffle_template program in this dir,
+and run the extract script from the top level of your asterisk directory. (Or, if you have no mods
+to the Asterisk directory, then you can just use the en.template file included in this repository.
+The result will be the file "en.template", which you can rename to your lang_locale, provide translations/
+transformations to this file, and make sure it ends up in the translation directory for your asterisk.
+The corresponding sayscripts should also be placed in the language/ directory.
 
 The .g files are the input to antlr3, a yacc/bison sort of tool. Antlr will generate the working
 parser code based on the contents of the .g files. So, if you wish to play with the interpreter, you will

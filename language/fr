@@ -1,0 +1,49 @@
+[number]
+
+PATTERN "^0.$"               <<number:{num[1]}>>                                         - DONE
+PATTERN "^[0-9]$"            digits/{num[0]}                                             - DONE
+PATTERN "^1[0-9]$"           digits/{num[0]}                                             - DONE
+PATTERN "^[2-9]0$"           digits/{num[0]}                                             - DONE
+PATTERN "^[2-6]1$"           digits/num[0:0]}0,vm-and,digits/{num[1]}                   - DONE
+PATTERN "^71$"               digits/60,vm-and,num:1{num[1]}                              - DONE
+PATTERN "^7[0-9]$"           digits/60,num:1{num[1]}                                     - DONE
+PATTERN "^9[0-9]$"           digits/80,num:1{num[1]}                                     - DONE
+PATTERN "^[2-9][1-9]$"       digits/num[0:0]}0,<<number:{num[1]}>>                      - DONE
+PATTERN "^100$"              digits/hundred                                              - DONE
+PATTERN "^1[0-9][0-9]$"      digits/hundred,<<number:{num[1]}>>                          - DONE
+PATTERN "^[2-9]00$"          <<number:{num[0:0]}>>,digits/hundred                       - DONE
+PATTERN "^[2-9][0-9][0-9]$"  <<number:{num[0:0]}>>,digits/hundred,<<number:{num[1]}>>   - DONE
+    
+PATTERN "^1000$"                             digits/thousand                                             - DONE
+PATTERN "^1[0-9][0-9][0-9]$"                 digits/thousand,<<number:{num[1]}>>                         - DONE
+PATTERN "^[2-9]000$"                         <<number:{num[0:0]}>>,digits/thousand                      - DONE
+PATTERN "^[2-9][0-9][0-9][0-9]$"             <<number:{num[0:0]}>>,digits/thousand,<<number:{num[1]}>>  - DONE
+PATTERN "^[0-9][0-9]000$"                    <<number:{num[0:1]}>>,digits/thousand                      - DONE
+PATTERN "^[0-9][0-9][0-9][0-9][0-9]$"        <<number:{num[0:1]}>>,digits/thousand,<<number:{num[2]}>>  - DONE
+PATTERN "^[0-9][0-9][0-9]000$"               <<number:{num[0:2]}>>,digits/thousand                      - DONE
+PATTERN "^[0-9][0-9][0-9][0-9][0-9][0-9]$"   <<number:{num[0:2]}>>,digits/thousand,<<number:{num[3]}>>  - DONE
+    
+PATTERN "^1000000$"                                          <<number:{num[0:0]}>>,digits/million                       - DONE
+PATTERN "^1[0-9][0-9][0-9][0-9][0-9][0-9]$"                  <<number:{num[0:0]}>>,digits/million,<<number:{num[1]}>>   - DONE
+PATTERN "^[2-9]000000$"                                      <<number:{num[0:0]}>>,digits/million                       - DONE
+PATTERN "^[2-9][0-9][0-9][0-9][0-9][0-9][0-9]$"              <<number:{num[0:0]}>>,digits/million,<<number:{num[1]}>>   - DONE
+PATTERN "^[0-9][0-9]000000$"                                 <<number:{num[0:1]}>>,digits/million                       - DONE
+PATTERN "^[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]$"         <<number:{num[0:1]}>>,digits/million,<<number:{num[2]}>>   - DONE
+PATTERN "^[0-9][0-9][0-9]000000$"                            <<number:{num[0:2]}>>,digits/million                       - DONE
+PATTERN "^[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]$"    <<number:{num[0:2]}>>,digits/million,<<number:{num[3]}>>   - DONE
+    
+    _datetime::.$"         date:AdBY 'digits/at' H 'hours' M 'perc':{num[0]}  
+    _date::.$"         date:AdBY:{num[0]}
+    _time::.$"         date:H 'hours' M 'perc':{num[0]}
+
+[enumeration]
+
+[money]
+
+
+
+## stuff for phone numbers     
+PATTERN    "^[0-9][0-9][0-9][0-9]$"                             <<number:{num[0:1]}>>,<<number:{num[2:3]}>>
+PATTERN    "^0[1-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]$"   <<number:{num[0:0]}>>,<<number:{num[1:1]}>>,<<number:{num[2:3]}>>,<<number:{num[4:5]}>>,<<number:{num[6:7]}>>,<<number:{num[8:9]}>>
+PATTERN    "^[0-9]+$"                                           digit:{num[0]}
+

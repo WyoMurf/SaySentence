@@ -69,7 +69,7 @@ class SS_engine
          Map.Entry entry = (Map.Entry) it.next();
          SS_scriptset scriptset = (SS_scriptset) entry.getValue();
          System.out.print("ScriptSet " + entry.getKey() + ":\n");
-         scriptset.print();
+         // scriptset.print();
       }
 
   }
@@ -277,7 +277,7 @@ class SS_engine
 		   }      
 		else
 		   {
-			System.out.println("== No matching translation found!");
+			// System.out.println("== No matching translation found!");
 		   }
 		byte[] bts = null;
 		try 
@@ -293,7 +293,7 @@ class SS_engine
 
 		SS_format form = parse_format(bts, log);
 		if (form==null) System.out.print("**parse_format returns null!**\n");
-		System.out.println("parser has "+ form.elements.size() + " elements.");
+		// System.out.println("parser has "+ form.elements.size() + " elements.");
 		form.interpret_sentence(this, argsx, pl, log, interrupts, langlocale);
 	  }
 	finally

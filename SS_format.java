@@ -212,11 +212,11 @@ class SS_format
 				// System.out.println("about to call sayscript interp, lang="+pref_lang_locale+" name="+sayscript_name);
 				
 				SS_script script = engine.find_script(pref_lang_locale, sayscript_name);
-				System.out.println("find_script returns "+script);
+				// System.out.println("find_script (looking for " + sayscript_name + " in locale: " + pref_lang_locale + ") returns "+script);
 				
-				System.out.println("about to call interp, str="+interp.str+" num="+interp.num+" timeval="+interp.timeval);
+				// System.out.println("about to call interp, str="+interp.str+" num="+interp.num+" timeval="+interp.timeval);
 				interp.interp_SayScript_core(engine, script, pl, log_list, interrupts);
-				System.out.println("returned from Sayscript_core");
+				// System.out.println("returned from Sayscript_core");
 				
 			  }
 			break;
