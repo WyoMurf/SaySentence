@@ -220,7 +220,7 @@ class SS_engine
 	return y;
   }
   
-  SS_format parse_format(byte[] bytes, ArrayList<SS_log> log)
+  SS_format parse_format(byte[] bytes, ArrayList<SS_log> log_list)
   {
 	String in = null;
 	
@@ -230,7 +230,8 @@ class SS_engine
 	  }
 	catch (UnsupportedEncodingException uexc)
 	  {
-		System.out.print("UnsupportedEncoding="+uexc+"\n");
+		SS_log log1 = new SS_log(1, -1, "UnsupportedEncoding: "+uexc,"");
+		log_list.add(log1);
 	  }
 	
 	SS_format formstruct = null;
@@ -241,12 +242,13 @@ class SS_engine
 		formatLexer lexer = new formatLexer(input);
 		CommonTokenStream tokens = new CommonTokenStream(lexer);
 		formatParser parser = new formatParser(tokens);
-		formstruct = parser.format(log);
+		formstruct = parser.format(log_list);
 		formstruct.format = in;
 	  }
 	catch (RecognitionException rexc)
 	  {
-		System.out.print("RecogExcept="+rexc+"\n");
+		SS_log log1 = new SS_log(1, -1, "RecognitionException Error thrown during format parsing: "+rexc,"");
+		log_list.add(log1);
 	  }
 	return formstruct;
   }

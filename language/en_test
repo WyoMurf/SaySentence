@@ -1,6 +1,15 @@
 [P,phonenumbers] ;; use this with %P to pronounce phone numbers, just for testing
 ;; stuff for phone numbers
 PATTERN    "^[0-9][0-9][0-9][0-9]$"                             <<number:{num[0:1]}>>,<<number:{num[2:3]}>>  - DONE
-PATTERN    "^0[1-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]$"   <<number:{num[0:0]}>>,<<number:{num[1:1]}>>,<<number:{num[2:3]}>>,<<number:{num[4:5]}>>,<<number:{num[6
+PATTERN    "^0[1-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]$"   <<number:{num[0:0]}>>,<<number:{num[1:1]}>>,<<number:{num[2:3]}>>,<<number:{num[4:5]}>>,<<number:{num[6:7]}>>,<<number:{num[8:9]}>> - DONE
 PATTERN    "^[0-9]+$"                                           digit:{num[0]} - DONE
+
+[Q,infinity]
+PATTERN    "^1$"	<<Q:{num}>> - DONE
+
+[R,xfinity]
+PATTERN    "^1$"	<<zfinity:{num}>> - DONE
+
+[S,zfinity]
+PATTERN    "^1$"	<<xfinity:{num}>> - DONE
 

@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<SaySentenceRequest>
+      <Lang_Locale>en_test</Lang_Locale>
+      <InterruptKeys>01</InterruptKeys>
+      <Format>&lt;Your-phone-number-is&gt; %Q &lt;today-all-day&gt;.</Format>
+      <Arguments>
+          <arg>1</arg>
+      </Arguments>
+</SaySentenceRequest>
+

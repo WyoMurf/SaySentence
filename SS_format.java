@@ -67,7 +67,7 @@ class SS_format
 			
 			/* call out the SayScript interpreter, who will populate the playlist */
 			String sayscript_name = null;
-			SS_interp interp = new SS_interp();
+			SS_interp interp = new SS_interp(0);
 			interp.options = fe.opt;
 			interp.pref_lang_locale = pref_lang_locale;
 			String sayscipt_name = null;
@@ -110,9 +110,17 @@ class SS_format
 				int dotat = interp.str.indexOf(".");
 				if (dotat == -1)
 				  {
-					SS_log log1 = new SS_log(-1, -1, "say_sentence argument for [money] does not have a decimal point!", interp.str);
-					log_list.add(log1);
 					interp.num = Long.parseLong(interp.str);
+					dotat = interp.str.indexOf(",");
+					if (dotat != -1)
+					  {
+						String justint = interp.str.substring(0,dotat);
+						interp.num = Long.parseLong(justint);
+					  }
+					else
+					  {
+						interp.num = Long.parseLong(interp.str);
+					  }
 				  }
 				else
 				  {

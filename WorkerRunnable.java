@@ -254,7 +254,7 @@ public class WorkerRunnable implements Runnable
 			InputStream istream = clientSocket.getInputStream();
 			OutputStream ostream = clientSocket.getOutputStream();
 			String reqstr = convertStreamToString(istream, clientSocket);
-			System.out.println("Got: " + reqstr);
+			// System.out.println("Got: " + reqstr);
 			InputStream i2str = new ByteArrayInputStream(reqstr.getBytes("UTF-8"));
 			InputSource isource = new InputSource(i2str);
 			DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
@@ -305,7 +305,7 @@ public class WorkerRunnable implements Runnable
 				ArrayList<SS_log> log = new ArrayList<SS_log>();
 				ArrayList<SS_playlist> pl = new ArrayList<SS_playlist>();
 	
-				System.out.println("Format is: " + x);
+				// System.out.println("Format is: " + x);
 				eng.transParseInterp(langlocale, x, z2, log, pl, argsx, y);  /* the results will be in the log and pl arrays */
 
 				/* generate XML output */

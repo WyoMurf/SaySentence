@@ -24,6 +24,7 @@ import java.util.GregorianCalendar;
 class SS_interp
 {
   ArrayList<SS_vardef> vars; /* var defs for a script are here. */
+  long level;
 
   /* these two are the current value of the num, if the sayscript is
 	 pronouncing them */
@@ -38,10 +39,11 @@ class SS_interp
   /* the current time? */
   Date timeval; /* the time for date/time related sayscripts */
   
-  SS_interp()
+  SS_interp(long depth)
   {
 	vars = new ArrayList<SS_vardef>();
 	timeval = new Date();
+	level = depth;
   }
   
   boolean ops_are_true(SS_statement statement, ArrayList<SS_op> oplist, ArrayList<SS_log> log_list)
@@ -459,7 +461,7 @@ class SS_interp
 	flist.add(play);
   }
   
-  void play_exprs(SS_engine engine, ListIterator<SS_play_expr> itplay, StringBuffer filename, ArrayList<SS_playlist> flist, ArrayList<SS_log> log_list, String interrupts)
+  void play_exprs(SS_engine engine, ListIterator<SS_play_expr> itplay, StringBuffer filename, ArrayList<SS_playlist> flist, ArrayList<SS_log> log_list, String interrupts, SS_script script, SS_statement stat)
   {	
         int sec;
 
@@ -743,7 +745,13 @@ class SS_interp
 			
 			SS_script scr = engine.find_script(pref_lang_locale, pexp.subcall_script_name);
 			/* put together a new context based on this one */
-			SS_interp sub = new SS_interp();
+			if (level > 150)  // Highly arbitrary, but better than nothing!
+			  {
+				SS_log log1 = new SS_log(-1, -1, "Recursion too deep! (150 levels!); aborting at script "+script.names.get(0).name, ", line "+ stat.lineno);
+				log_list.add(log1);
+				break;
+			  }
+			SS_interp sub = new SS_interp(level+1);
 			/* should I copy the vardefs from this interp context into the sub-context? Do we want scripts
                to have all the vardefs of the parent? */
 			if (options == null) options = "";
@@ -752,7 +760,7 @@ class SS_interp
 
 			ListIterator<SS_play_expr> itplay2 = pexp.subcall_exprlist.listIterator();
 			StringBuffer filename2 = new StringBuffer();
-        		play_exprs(engine, itplay2, filename2, flist, log_list, interrupts);
+        		play_exprs(engine, itplay2, filename2, flist, log_list, interrupts, script, stat);
 						
 			String x = new String(filename2); /* copy of the current string; do we want the sub to hack the current str? */
 			String y = new String(options);
@@ -832,7 +840,7 @@ class SS_interp
 	  }
   }
 
-  int execute_the_statement(SS_engine engine, SS_statement statement, ArrayList<SS_playlist> flist, ArrayList<SS_log> log_list, String interrupts)
+  int execute_the_statement(SS_engine engine, SS_statement statement, ArrayList<SS_playlist> flist, ArrayList<SS_log> log_list, String interrupts, SS_script script)
   {
 	/* it is assumed that we checked the OPs and args, and they came out TRUE, so now, all we have to do is
 	   evaluate the file elements and add them one by one to the flist, and do any varsets, and then 
@@ -845,7 +853,7 @@ class SS_interp
 	int sec;
 
 
-        play_exprs(engine, itplay, filename, flist, log_list, interrupts);
+        play_exprs(engine, itplay, filename, flist, log_list, interrupts, script, statement);
 	if (filename.length() > 0 ) /* There might not be a trailing silence char... so what's left must be a trailing file name */
 	  {
 		move_filename_to_playlist(filename, flist, interrupts);
@@ -1013,7 +1021,7 @@ class SS_interp
 						if (ops_are_true(stat, xx, log_list) )
 						  {
 							System.out.println("line: "+stat.lineno+" executing.");
-							int ret = execute_the_statement(engine, stat, flist, log_list, interrupts);
+							int ret = execute_the_statement(engine, stat, flist, log_list, interrupts, script);
 							switch( ret )
 							  {
 							  case SS_action.SS_ACTION_RANGE_ERROR:
@@ -1061,7 +1069,7 @@ class SS_interp
 							lastline = stat.lineno;
 							executed = true;
 							System.out.println("line: "+stat.lineno+" executing. str="+str+" num="+num);
-							int ret = execute_the_statement(engine, stat, flist, log_list, interrupts);
+							int ret = execute_the_statement(engine, stat, flist, log_list, interrupts, script);
 							switch( ret )
 							  {
 							  case SS_action.SS_ACTION_RANGE_ERROR:
@@ -1097,9 +1105,16 @@ class SS_interp
 			if (cycleCount > 5)
 			  {
 				if (executed == true)
-					System.out.println("ABORT: Script is not making progress! line:"+lastline+"; String: "+str);
+				  {
+					SS_log log1 = new SS_log(lastline, -1, "ABORT: Script is not making progress! String: ",str);
+					log_list.add(log1);
+
+				  }
 				else
-					System.out.println("ABORT: Script is not making progress! <NO statements met conditionals!> String: "+str);
+				  {
+					SS_log log1 = new SS_log(lastline, -1, "ABORT: Script is not making progress! <No statements met conditionals!> String: ",str);
+					log_list.add(log1);
+				  }
 				break;
 			  }
 		  }
@@ -1124,7 +1139,7 @@ class SS_interp
 						if (ops_are_true(stat, xx, log_list) )
 						  {
 							System.out.println("line: "+stat.lineno+" executing.");
-							int ret = execute_the_statement(engine, stat, flist, log_list, interrupts);
+							int ret = execute_the_statement(engine, stat, flist, log_list, interrupts, script);
 							switch( ret )
 							  {
 							  case SS_action.SS_ACTION_RANGE_ERROR:
