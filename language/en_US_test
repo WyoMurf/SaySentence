@@ -1,0 +1,17 @@
+
+
+[money]
+;; the string fed to say_money should be in the format xxxx.xx   -- always!
+;; for the sake of RANGE, the .xx is removed before calculation.
+;; using a say_money is smart for translation purposes. It might help
+;; fix the gender and other variables that would affect reading off the numbers,
+;; allows you to use the local currency name, etc.
+ATBEGIN,GREATER   999999999999            -       - RANGE_ERROR
+
+PATTERN           "^0[0-9]"            -       -  CUT(1)   ;; leading zero removal
+
+
+PATTERN "^\.01$"                                                                             digits/1,digits/cent   - DONE
+PATTERN "^\.[0-9][0-9]$"                                                                     <<number:{num[1:2]}>>,digits/cents   - DONE
+PATTERN "^[0-9]+\.[0-9][0-9]$"		<<number:{num[0:{len}-4]}>>,digits/dollars,vm-and({len}+12)({len}==5?YES:NO),<<number:{num[{len}-2:{len}-1]}>>,digits/cents	- 	DONE
+

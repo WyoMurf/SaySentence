@@ -532,6 +532,7 @@ String eval_play_expr(SS_play_expr expr, long num, String str, Date timeval, SS_
         case SS_play_expr.SS_EXPR_EQ:
 		l1 = eval_play_expr(expr.Left, num, str, timeval, engine, itplay, filename, flist, log_list, script, stat, interrupts);
 		r1 = eval_play_expr(expr.Right, num, str, timeval, engine, itplay, filename, flist, log_list, script, stat, interrupts);
+		System.out.println("EQEQ: L="+l1+"   R="+r1+" and lr eq r1 = "+l1.equals(r1));
 		if (l1.equals(r1))
 			return "1";
 		else
@@ -642,10 +643,12 @@ String eval_play_expr(SS_play_expr expr, long num, String str, Date timeval, SS_
 			long b = Long.parseLong(r1);
 
 			long c = a+b;
+			System.out.println("PLUS: L="+l1+"("+a+")  R="+r1+"("+b+") => "+Long.toString(c)+"("+c+")");
 			return Long.toString(c);
 		  }
 		else
 		  {
+			System.out.println("PLUS: L="+l1+"  R="+r1+ " => "+ l1+r1);
 			return l1 + r1; // Sounds slightly better than "error" in this case!
 		  }
 
@@ -726,6 +729,8 @@ String eval_play_expr(SS_play_expr expr, long num, String str, Date timeval, SS_
 
         case SS_play_expr.SS_EXPR_PAREN:
 		l1 = eval_play_expr(expr.Left, num, str, timeval, engine, itplay, filename, flist, log_list, script, stat, interrupts);
+		System.out.println("PAREN: evaled: "+l1);
+		if( expr.Left != null) System.out.println("PAREN: Left type="+expr.Left.type);
 		return l1;
 
 	case SS_play_expr.SS_EXPR_STR_CONST:

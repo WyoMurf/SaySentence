@@ -259,7 +259,7 @@ returns[SS_play_expr expr]
 
 equalityExpr[SS_statement stat]
 returns[SS_play_expr expr]
-		: a=relationalExpr[stat] (e=(EQEQ | NOTEQ) b=relationalExpr[stat]  {expr = new SS_play_expr(); if($e.text.equals("EQEQ")) expr.type=SS_play_expr.SS_EXPR_EQ; else expr.type=SS_play_expr.SS_EXPR_NEQ; expr.Left = $a.expr; expr.Right = $b.expr;  })? { if ($b.expr==null) expr=$a.expr; }
+		: a=relationalExpr[stat] (e=(EQEQ | NOTEQ) b=relationalExpr[stat]  {expr = new SS_play_expr(); if($e.text.equals("==")) expr.type=SS_play_expr.SS_EXPR_EQ; else expr.type=SS_play_expr.SS_EXPR_NEQ; expr.Left = $a.expr; expr.Right = $b.expr;  })? { if ($b.expr==null) expr=$a.expr; }
 /* 		| c=relationalExpr[stat] NOTEQ d=relationalExpr[stat]  {expr = new SS_play_expr(); expr.type=SS_play_expr.SS_EXPR_NEQ; expr.Left = $c.expr; expr.Right = $d.expr;  } */
 		;
 
@@ -282,7 +282,7 @@ returns[SS_play_expr expr]
 
 additiveExpr[SS_statement stat]
 returns[SS_play_expr expr]
-		: a=multiplyExpr[stat] (j=(PLUS|DASH) b=multiplyExpr[stat]  {expr = new SS_play_expr(); if($j.text.equals("PLUS"))expr.type=SS_play_expr.SS_EXPR_PLUS; else expr.type=SS_play_expr.SS_EXPR_MINUS; expr.Left = $a.expr; expr.Right = $b.expr; })? { if ($b.expr==null) expr=$a.expr; }
+		: a=multiplyExpr[stat] (j=(PLUS|DASH) b=multiplyExpr[stat]  {expr = new SS_play_expr(); if($j.text.equals("+"))expr.type=SS_play_expr.SS_EXPR_PLUS; else expr.type=SS_play_expr.SS_EXPR_MINUS; expr.Left = $a.expr; expr.Right = $b.expr; })? { if ($b.expr==null) expr=$a.expr; }
 	
 /*
 		| c=multiplyExpr[stat] DASH d=multiplyExpr[stat]  {expr = new SS_play_expr(); expr.type=SS_play_expr.SS_EXPR_MINUS; expr.Left = $c.expr; expr.Right = $d.expr;  } */

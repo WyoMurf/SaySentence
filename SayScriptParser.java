@@ -1,4 +1,4 @@
-// $ANTLR 3.5.1 SayScript.g 2059-12-25 00:39:10
+// $ANTLR 3.5.1 SayScript.g 2059-12-25 23:45:49
 
 import java.util.regex.*;
 
@@ -1505,7 +1505,7 @@ public class SayScriptParser extends Parser {
 					b=relationalExpr(stat);
 					state._fsp--;
 
-					expr = new SS_play_expr(); if((e!=null?e.getText():null).equals("EQEQ")) expr.type=SS_play_expr.SS_EXPR_EQ; else expr.type=SS_play_expr.SS_EXPR_NEQ; expr.Left = a; expr.Right = b;  
+					expr = new SS_play_expr(); if((e!=null?e.getText():null).equals("==")) expr.type=SS_play_expr.SS_EXPR_EQ; else expr.type=SS_play_expr.SS_EXPR_NEQ; expr.Left = a; expr.Right = b;  
 					}
 					break;
 
@@ -1641,7 +1641,7 @@ public class SayScriptParser extends Parser {
 					b=multiplyExpr(stat);
 					state._fsp--;
 
-					expr = new SS_play_expr(); if((j!=null?j.getText():null).equals("PLUS"))expr.type=SS_play_expr.SS_EXPR_PLUS; else expr.type=SS_play_expr.SS_EXPR_MINUS; expr.Left = a; expr.Right = b; 
+					expr = new SS_play_expr(); if((j!=null?j.getText():null).equals("+"))expr.type=SS_play_expr.SS_EXPR_PLUS; else expr.type=SS_play_expr.SS_EXPR_MINUS; expr.Left = a; expr.Right = b; 
 					}
 					break;
 
