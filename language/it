@@ -1,7 +1,10 @@
 [number]
 
+ATBEGIN,GREATER  999999999999        -                             -         RANGE_ERROR
+ATBEGIN,LESS     0         digits/minus                            -          NEGATE  ;; turn the num positive and say "minus"
 
-PATTERN "^0.$"                <<number:{num[1]}>>     - DONE
+PATTERN  "^0[0-9]"                 -                               -          CUT(1)  ;; get rid of leading zeroes!
+
 PATTERN "^[0-9]$"             digits/{num[0]}     - DONE
 PATTERN "^1[0-9]$"            digits/{num[0]}     - DONE
 PATTERN "^[2-9]0$"            digits/{num[0]}     - DONE
@@ -37,17 +40,23 @@ PATTERN "^[0-9][0-9][0-9]000000000$"                                        <<nu
 PATTERN "^[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]$"    <<number:{num[0:3]}>>,digits/billion,<<number:{num[3]}>>     - DONE
 
 
+[enumeration]
+ATBEGIN,LESS     0                 digits/minus      - NEGATE  ;; turn the num positive and say "minus"
+ATBEGIN,GREATER     999999999999                 -                     - RANGE_ERROR
+
+PATTERN  "^0[0-9]"  -                 -          CUT(1)  ;; get rid of leading zeroes!
+
 
 
 
 [date_time]
-ANYDATE  -  <<date_format_A:{timeval}>>,<<date_format_d:{timeval}>>,<<date_format_B:{timeval}>>,<<date_format_Y:{timeval}>>,digits/at,<<date_format_I:{timeval}>>,<<date_format_M:{timeval}>>,<<date_format_p:{timeval}>>
+ANYDATE  -  <<date_format_A:{timeval}>>,<<date_format_d:{timeval}>>,<<date_format_B:{timeval}>>,<<date_format_Y:{timeval}>>,digits/at,<<date_format_I:{timeval}>>,<<date_format_M:{timeval}>>,<<date_format_p:{timeval}>> - DONE
 
 [date]
-ANYDATE  -  <<date_format_A:{timeval}>>,<<date_format_d:{timeval}>>,<<date_format_B:{timeval}>>,<<date_format_Y:{timeval}>>
+ANYDATE  -  <<date_format_A:{timeval}>>,<<date_format_d:{timeval}>>,<<date_format_B:{timeval}>>,<<date_format_Y:{timeval}>> - DONE
 
 
 [time]
-ANYDATE -  <<date_format_I:{timeval}>>,<<date_format_M:{timeval}>>,<<date_format_p:{timeval}>>
+ANYDATE -  <<date_format_I:{timeval}>>,<<date_format_M:{timeval}>>,<<date_format_p:{timeval}>>  - DONE
 
 

@@ -1,6 +1,11 @@
+
 [number]
 
-PATTERN "^0.$"               <<number:{num[1]}>>                                       - DONE
+ATBEGIN,GREATER  999999999999        -                             -         RANGE_ERROR
+ATBEGIN,LESS     0         digits/minus                            -          NEGATE  ;; turn the num positive and say "minus"
+
+PATTERN  "^0[0-9]"                 -                               -          CUT(1)  ;; get rid of leading zeroes!
+
 PATTERN "^[0-9]$"            digits/{num[0]}                                           - DONE
 PATTERN "^1[1-9]$"           digits/10en,digits/{num[1]}                               - DONE
 PATTERN "^2[1-9]$"           digits/20on,digits/{num[1]}                               - DONE
@@ -31,19 +36,24 @@ PATTERN "^[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]$"   <<num
 
 
 [date_time]
-ANYDATE  -  <<date_format_Y:{timeval}>>,<<date_format_B:{timeval}>>,<<date_format_d:{timeval}>>,<<date_format_A:{timeval}>>,ora,<<date_format_M:{timeval}>>,perc
+ANYDATE  -  <<date_format_Y:{timeval}>>,<<date_format_B:{timeval}>>,<<date_format_d:{timeval}>>,<<date_format_A:{timeval}>>,ora,<<date_format_M:{timeval}>>,perc - DONE
 
 [date]
-ANYDATE  -  <<date_format_Y:{timeval}>>,<<date_format_B:{timeval}>>,<<date_format_d:{timeval}>>,<<date_format_A:{timeval}>>
+ANYDATE  -  <<date_format_Y:{timeval}>>,<<date_format_B:{timeval}>>,<<date_format_d:{timeval}>>,<<date_format_A:{timeval}>> - DONE
 
 
 [time]
-ANYDATE -  <<date_format_k:{timeval}>>,ora,<<date_format_M:{timeval}>>,perc
+ANYDATE -  <<date_format_k:{timeval}>>,ora,<<date_format_M:{timeval}>>,perc  - DONE
 
 
 
 
 [enumeration]
+ATBEGIN,LESS     0                 digits/minus      - NEGATE  ;; turn the num positive and say "minus"
+ATBEGIN,GREATER     999999999999                 -                     - RANGE_ERROR
+
+PATTERN  "^0[0-9]"  -                 -          CUT(1)  ;; get rid of leading zeroes!
+
 
 [money]
 

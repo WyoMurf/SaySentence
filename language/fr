@@ -1,6 +1,10 @@
 [number]
 
-PATTERN "^0.$"               <<number:{num[1]}>>                                         - DONE
+ATBEGIN,GREATER  999999999999        -                             -         RANGE_ERROR
+ATBEGIN,LESS     0         digits/minus                            -          NEGATE  ;; turn the num positive and say "minus"
+
+PATTERN  "^0[0-9]"                 -                               -          CUT(1)  ;; get rid of leading zeroes!
+
 PATTERN "^[0-9]$"            digits/{num[0]}                                             - DONE
 PATTERN "^1[0-9]$"           digits/{num[0]}                                             - DONE
 PATTERN "^[2-9]0$"           digits/{num[0]}                                             - DONE
@@ -34,25 +38,30 @@ PATTERN "^[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]$"    <<number:{num[0:2]}
 
 
 [date_time]
-ANYDATE  -  <<date_format_A:{timeval}>>,<<date_format_d:{timeval}>>,<<date_format_B:{timeval}>>,<<date_format_Y:{timeval}>>,digits/at,<<date_format_H:{timeval}>>,hours,<<date_format_M:{timeval}>>
+ANYDATE  -  <<date_format_A:{timeval}>>,<<date_format_d:{timeval}>>,<<date_format_B:{timeval}>>,<<date_format_Y:{timeval}>>,digits/at,<<date_format_H:{timeval}>>,hours,<<date_format_M:{timeval}>>  - DONE
 
 [date]
-ANYDATE  -  <<date_format_A:{timeval}>>,<<date_format_d:{timeval}>>,<<date_format_B:{timeval}>>,<<date_format_Y:{timeval}>>
+ANYDATE  -  <<date_format_A:{timeval}>>,<<date_format_d:{timeval}>>,<<date_format_B:{timeval}>>,<<date_format_Y:{timeval}>> - DONE
 
 
 [time]
-ANYDATE -  <<date_format_H:{timeval}>>,hours,<<date_format_M:{timeval}>>,perc
+ANYDATE -  <<date_format_H:{timeval}>>,hours,<<date_format_M:{timeval}>>,perc -DONE
 
 
     
 [enumeration]
+ATBEGIN,LESS     0                 digits/minus      - NEGATE  ;; turn the num positive and say "minus"
+ATBEGIN,GREATER     999999999999                 -                     - RANGE_ERROR
+
+PATTERN  "^0[0-9]"  -                 -          CUT(1)  ;; get rid of leading zeroes!
+
 
 [money]
 
 
 
 ## stuff for phone numbers     
-PATTERN    "^[0-9][0-9][0-9][0-9]$"                             <<number:{num[0:1]}>>,<<number:{num[2:3]}>>
-PATTERN    "^0[1-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]$"   <<number:{num[0:0]}>>,<<number:{num[1:1]}>>,<<number:{num[2:3]}>>,<<number:{num[4:5]}>>,<<number:{num[6:7]}>>,<<number:{num[8:9]}>>
-PATTERN    "^[0-9]+$"                                           digit:{num[0]}
+PATTERN    "^[0-9][0-9][0-9][0-9]$"                             <<number:{num[0:1]}>>,<<number:{num[2:3]}>>  - DONE
+PATTERN    "^0[1-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]$"   <<number:{num[0:0]}>>,<<number:{num[1:1]}>>,<<number:{num[2:3]}>>,<<number:{num[4:5]}>>,<<number:{num[6:7]}>>,<<number:{num[8:9]}>> - DONE
+PATTERN    "^[0-9]+$"                                           digit:{num[0]} - DONE
 
