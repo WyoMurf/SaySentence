@@ -1,1070 +1,1441 @@
+
+
 # ./channels/sig_analog.c line 2057:
+# ./channels/chan_dahdi.c line 9546:
+# ./asterisk-trunk-diffs line 1310:
+# ./asterisk-trunk-diffs line 1331:
 [<ss-noservice>]
 
 
-
+#inary file ./res/parking/.parking_applications.c.swp matches
 # ./apps/app_dial.c line 1754:
+# ./asterisk-trunk-diffs line 6059:
 [<priv-callpending>]
 
 
-
 # ./apps/app_dial.c line 1773:
+# ./asterisk-trunk-diffs line 6077:
 [<priv-callee-options>]
 
 
-
 # ./apps/app_dial.c line 1780:
+# ./asterisk-trunk-diffs line 6084:
 [<screen-callee-options>]
 
 
-
-# ./apps/app_dial.c line 1971:
-# ./apps/app_voicemail.c line 12116:
-[<vm-dialout>]
-
-
-
-# ./apps/app_dictate.c line 166:
-[<dictate/forhelp>]
-
-
-
-# ./apps/app_dictate.c line 240:
-[<dictate/pause>]
-
-
-
-# ./apps/app_dictate.c line 243:
-[<dictate/playback>]
-
-
-
-# ./apps/app_dictate.c line 245:
-[<dictate/record>]
-
-
-
-# ./apps/app_dictate.c line 258:
-[<dictate/paused>]
-
-
-
-# ./apps/app_dictate.c line 265:
-[<dictate/play_help>]
-
-
-
-# ./apps/app_dictate.c line 272:
-[<dictate/record_help>]
-
-
-
-# ./apps/app_dictate.c line 280:
-[<dictate/both_help>]
-
-
-
-# ./apps/app_dictate.c line 344:
-[<dictate/record_mode>]
-
-
-
-# ./apps/app_dictate.c line 363:
-[<dictate/truncating_audio>]
-
-
-
-# ./apps/app_voicemail.c line 2486:
-# ./apps/app_voicemail.c line 2500:
-# ./apps/app_voicemail.c line 6639:
-# ./apps/app_voicemail.c line 6657:
-# ./apps/app_voicemail.c line 8126:
-# ./apps/app_voicemail.c line 8302:
-# ./apps/app_voicemail.c line 11538:
-# ./apps/app_voicemail.c line 11547:
-# ./apps/app_voicemail.c line 12017:
-[<vm-mailboxfull>]
-
-
-
-# ./apps/app_voicemail.c line 5472:
-[%z<vm-isonphone>]
-
-
-
-# ./apps/app_voicemail.c line 5474:
-[%z<vm-isunavail>]
-
-
-
-# ./apps/app_voicemail.c line 5484:
-[<vm-theperson>%i<vm-isonphone>]
-
-
-
-# ./apps/app_voicemail.c line 5486:
-[<vm-theperson>%i<vm-isunavail>]
-
-
-
-# ./apps/app_voicemail.c line 6531:
-[<vm-intro>]
-
-
-
-# ./apps/app_voicemail.c line 6569:
-# ./apps/app_minivm.c line 2491:
-[<transfer>]
-
-
-
-# ./apps/app_voicemail.c line 7546:
-[<vm-press>%n<vm-for>%z.]
-
-
-
-# ./apps/app_voicemail.c line 7548:
-[<vm-press><digits/0><vm-for><vm-INBOX>.]
-
-
-
-# ./apps/app_voicemail.c line 7552:
-[<vm-press><digits/1><vm-for><vm-Old>.]
-
-
-
-# ./apps/app_voicemail.c line 7555:
-[<vm-press><digits/2><vm-for><vm-Work>.]
-
-
-
-# ./apps/app_voicemail.c line 7558:
-[<vm-press><digits/3><vm-for><vm-Family>.]
-
-
-
-# ./apps/app_voicemail.c line 7561:
-[<vm-press><digits/4><vm-for><vm-Friends>.]
-
-
-
-# ./apps/app_voicemail.c line 7604:
-[<vm-tocancel>]
-
-
-
-# ./apps/app_voicemail.c line 7710:
-# ./apps/app_voicemail.c line 15377:
-[<vm-intro><beep>]
-
-
-
-# ./apps/app_voicemail.c line 7796:
-[<vm-forwardoptions>]
-
-
-
-# ./apps/app_voicemail.c line 7803:
-# ./apps/app_voicemail.c line 11742:
-[<vm-starmain>]
-
-
-
-# ./apps/app_voicemail.c line 8037:
-[<vm-forward>]
-
-
-
-# ./apps/app_voicemail.c line 8115:
-# ./apps/app_voicemail.c line 8151:
-[<pbx-invalid>]
-
-
-
-# ./apps/app_voicemail.c line 8164:
-# ./apps/app_voicemail.c line 8362:
-# ./apps/app_voicemail.c line 8503:
-# ./apps/app_meetme.c line 3095:
-# ./apps/app_meetme.c line 3642:
-# ./apps/app_meetme.c line 4009:
-# ./apps/app_confbridge.c line 1997:
-# ./apps/app_confbridge.c line 2034:
-[%z]
-
-
-
-# ./apps/app_voicemail.c line 8174:
-# ./apps/app_voicemail.c line 8517:
-# ./apps/app_voicemail.c line 8553:
-[%i]
-
-
-
-# ./apps/app_voicemail.c line 8272:
-# ./apps/app_voicemail.c line 12000:
-[<vm-message>]
-
-
-
-# ./apps/app_voicemail.c line 8278:
-[<vm-messages>]
-
-
-
-# ./apps/app_voicemail.c line 8284:
-[<vm-saved>]
-
-
-
-# ./apps/app_voicemail.c line 8293:
-[<vm-msgforwarded>]
-
-
-
-# ./apps/app_voicemail.c line 8425:
-[<vm-recieved>%[q]d<digits/at>%[IMp]d]
-
-
-
-# ./apps/app_voicemail.c line 8501:
-# ./apps/app_voicemail.c line 8536:
-[<vm-from>%z]
-
-
-
-# ./apps/app_voicemail.c line 8515:
-[<vm-from-extension>%i]
-
-
-
-# ./apps/app_voicemail.c line 8545:
-[<vm-from-phonenumber>%i]
-
-
-
-# ./apps/app_voicemail.c line 8564:
-[<vm-unknown-caller>]
-
-
-
-# ./apps/app_voicemail.c line 8622:
-[<vm-duration>%n<vm-minutes>]
-
-
-
-# ./apps/app_voicemail.c line 8652:
-[<vm-first><vm-Urgent><vm-message>]
-
-
-
-# ./apps/app_voicemail.c line 8654:
-[<vm-first><vm-message>]
-
-
-
-# ./apps/app_voicemail.c line 8658:
-[<vm-last><vm-Urgent><vm-message>]
-
-
-
-# ./apps/app_voicemail.c line 8660:
-[<vm-last><vm-message>]
-
-
-
-# ./apps/app_voicemail.c line 8665:
-[<vm-Urgent><vm-message>%n]
-
-
-
-# ./apps/app_voicemail.c line 8667:
-[<vm-message>%n]
-
-
-
-# ./apps/app_voicemail.c line 9099:
-[%z<vm-messages]
-
-
-
-# ./apps/app_voicemail.c line 9358:
-[<vm-youhave>%n<vm-Urgent><vm-messages>]
-
-
-
-# ./apps/app_voicemail.c line 9367:
-# ./apps/app_voicemail.c line 9376:
-[<vm-and>%n<vm-INBOX><vm-messages>]
-
-
-
-# ./apps/app_voicemail.c line 9369:
-# ./apps/app_voicemail.c line 9378:
-[<vm-youhave>%n<vm-INBOX><vm-messages>]
-
-
-
-# ./apps/app_voicemail.c line 9383:
-[<vm-youhave><vm-no><vm-messages>]
-
-
-
-# ./apps/app_voicemail.c line 10081:
-[<vm-tempgreetactive>]
-
-
-
-# ./apps/app_voicemail.c line 10151:
-[<vm-onefor-full>%z.<vm-opts-full>.]
-
-
-
-# ./apps/app_voicemail.c line 10153:
-[<vm-onefor>%z.<vm-opts>.]
-
-
-
-# ./apps/app_voicemail.c line 10158:
-[<vm-onefor-full>%z<vm-opts-full>.]
-
-
-
-# ./apps/app_voicemail.c line 10167:
-[<vm-prev>]
-
-
-
-# ./apps/app_voicemail.c line 10170:
-[<vm-advopts>]
-
-
-
-# ./apps/app_voicemail.c line 10172:
-[<vm-repeat>]
-
-
-
-# ./apps/app_voicemail.c line 10181:
-[<vm-next>]
-
-
-
-# ./apps/app_voicemail.c line 10193:
-[<vm-delete>]
-
-
-
-# ./apps/app_voicemail.c line 10195:
-[<vm-undelete>]
-
-
-
-# ./apps/app_voicemail.c line 10198:
-[<vm-toforward>]
-
-
-
-# ./apps/app_voicemail.c line 10201:
-[<vm-savemessage>]
-
-
-
-# ./apps/app_voicemail.c line 10206:
-[<vm-helpexit>]
-
-
-
-# ./apps/app_voicemail.c line 10388:
-# ./apps/app_voicemail.c line 10505:
-[<vm-newpassword>]
-
-
-
-# ./apps/app_voicemail.c line 10403:
-[<vm-invalid-password>]
-
-
-
-# ./apps/app_voicemail.c line 10410:
-# ./apps/app_voicemail.c line 10533:
-[<vm_reenterpassword>]
-
-
-
-# ./apps/app_voicemail.c line 10425:
-[<vm-mismatch>]
-
-
-
-# ./apps/app_voicemail.c line 10434:
-[<vm-pls-try-again>]
-
-
-
-# ./apps/app_voicemail.c line 10447:
-# ./apps/app_voicemail.c line 10571:
-[<vm-passchanged>]
-
-
-
-# ./apps/app_voicemail.c line 10497:
-[<vm-no>]
-
-
-
-# ./apps/app_voicemail.c line 10522:
-[<vm-invalid-password><vm-pls-try-again>]
-
-
-# ./apps/app_voicemail.c line 10551:
-[<vm-mismatch><vm-pls-try-again>]
-
-
-
-# ./apps/app_voicemail.c line 10585:
-[<vm-tmpexists>]
-
-
-
-# ./apps/app_voicemail.c line 10593:
-[<vm-options>]
-
-
-
-# ./apps/app_voicemail.c line 10669:
-[<vm-tempremoved>]
-
-
-
-# ./apps/app_voicemail.c line 10681:
-[<vm-tempgreeting2>]
-
-
-
-# ./apps/app_voicemail.c line 10683:
-[<vm-tempgreeting>]
-
-
-
-# ./apps/app_voicemail.c line 10726:
-[<vm-youhave><vm-no><vm-INBOX><vm-messages>]
-
-
-
-# ./apps/app_voicemail.c line 10728:
-[<vm-youhave><vm-no><vm-Old><vm-messages>]
-
-
-
-# ./apps/app_voicemail.c line 10730:
-[<vm-youhave><vm-no><vm-Urgent><vm-messages>]
-
-
-
-# ./apps/app_voicemail.c line 10732:
-[<vm-youhave><vm-no><vm-Work><vm-messages>]
-
-
-
-# ./apps/app_voicemail.c line 10734:
-[<vm-youhave><vm-no><vm-Friends><vm-messages>]
-
-
-
-# ./apps/app_voicemail.c line 10736:
-[<vm-youhave><vm-no><vm-Family><vm-messages>]
-
-
-
-# ./apps/app_voicemail.c line 10738:
-[<vm-youhave><vm-no><vm-Cust1><vm-messages>]
-
-
-
-# ./apps/app_voicemail.c line 10740:
-[<vm-youhave><vm-no><vm-Cust2><vm-messages>]
-
-
-
-# ./apps/app_voicemail.c line 10742:
-[<vm-youhave><vm-no><vm-Cust3><vm-messages>]
-
-
-
-# ./apps/app_voicemail.c line 10744:
-[<vm-youhave><vm-no><vm-Cust4><vm-messages>]
-
-
-
-# ./apps/app_voicemail.c line 10994:
-[<vm-login>]
-
-
-
-# ./apps/app_voicemail.c line 11049:
-[<vm-password>]
-
-
-
-# ./apps/app_voicemail.c line 11093:
-[<vm-incorrect>]
-
-
-
-# ./apps/app_voicemail.c line 11109:
-[<vm-incorrect-mailbox>]
-
-
-
-# ./apps/app_voicemail.c line 11129:
-# ./apps/app_voicemail.c line 12122:
-# ./apps/app_voicemail.c line 12243:
-# ./apps/app_voicemail.c line 15631:
-# ./apps/app_authenticate.c line 291:
-# ./apps/app_minivm.c line 1825:
-[<vm-goodbye>]
-
-
-
-# ./apps/app_voicemail.c line 11514:
-[<vm-newuser>]
-
-
-
 # ./apps/app_dial.c line 1807:
-# ./apps/app_voicemail.c line 11621:
-# ./apps/app_voicemail.c line 11642:
 # ./apps/app_voicemail.c line 11658:
-# ./apps/app_voicemail.c line 11674:
-# ./apps/app_voicemail.c line 11691:
-# ./apps/app_voicemail.c line 15150:
-# ./apps/app_voicemail.c line 15170:
-# ./apps/app_voicemail.c line 15472:
-# ./apps/app_voicemail.c line 15464:
-# ./apps/app_voicemail.c line 15486:
-# ./apps/app_voicemail.c line 15512:
+# ./apps/app_voicemail.c line 11679:
+# ./apps/app_voicemail.c line 11695:
+# ./apps/app_voicemail.c line 11711:
+# ./apps/app_voicemail.c line 11728:
+# ./apps/app_voicemail.c line 15202:
+# ./apps/app_voicemail.c line 15222:
+# ./apps/app_voicemail.c line 15516:
+# ./apps/app_voicemail.c line 15524:
+# ./apps/app_voicemail.c line 15538:
+# ./apps/app_voicemail.c line 15564:
 # ./apps/app_minivm.c line 1742:
 # ./apps/app_minivm.c line 1750:
-# ./main/app.c line 2165:
+#/asterisk-trunk-diffs:1245:+		ast_say_sentence(chan, AST_DIGIT_ANY, buf1);
+# ./asterisk-trunk-diffs line 1282:
+# ./asterisk-trunk-diffs line 3430:
+# ./asterisk-trunk-diffs line 3443:
+# ./asterisk-trunk-diffs line 3456:
+# ./asterisk-trunk-diffs line 3469:
+# ./asterisk-trunk-diffs line 3482:
+# ./asterisk-trunk-diffs line 3849:
+# ./asterisk-trunk-diffs line 3862:
+# ./asterisk-trunk-diffs line 4033:
+# ./asterisk-trunk-diffs line 4042:
+# ./asterisk-trunk-diffs line 4055:
+# ./asterisk-trunk-diffs line 4080:
+# ./asterisk-trunk-diffs line 5905:
+# ./asterisk-trunk-diffs line 5914:
+# ./asterisk-trunk-diffs line 6098:
+#/main/app.c:1081:		ast_say_sentence(chan, AST_DIGIT_ANY, buf1);
+# ./main/app.c line 2157:
 [<vm-sorry>]
 
 
+# ./apps/app_dial.c line 1971:
+# ./apps/app_voicemail.c line 12153:
+# ./asterisk-trunk-diffs line 3754:
+# ./asterisk-trunk-diffs line 6112:
+[<vm-dialout>]
 
-# ./apps/app_voicemail.c line 11707:
+
+# ./apps/app_dictate.c line 166:
+# ./asterisk-trunk-diffs line 6151:
+[<dictate/forhelp>]
+
+
+# ./apps/app_dictate.c line 240:
+# ./asterisk-trunk-diffs line 6166:
+[<dictate/pause>]
+
+
+# ./apps/app_dictate.c line 243:
+# ./asterisk-trunk-diffs line 6169:
+[<dictate/playback>]
+
+
+# ./apps/app_dictate.c line 245:
+# ./asterisk-trunk-diffs line 6171:
+[<dictate/record>]
+
+
+# ./apps/app_dictate.c line 258:
+# ./asterisk-trunk-diffs line 6186:
+[<dictate/paused>]
+
+
+# ./apps/app_dictate.c line 265:
+# ./asterisk-trunk-diffs line 6194:
+[<dictate/play_help>]
+
+
+# ./apps/app_dictate.c line 272:
+# ./asterisk-trunk-diffs line 6202:
+[<dictate/record_help>]
+
+
+# ./apps/app_dictate.c line 280:
+# ./asterisk-trunk-diffs line 6211:
+[<dictate/both_help>]
+
+
+# ./apps/app_dictate.c line 344:
+# ./asterisk-trunk-diffs line 6243:
+[<dictate/record_mode>]
+
+
+# ./apps/app_dictate.c line 363:
+# ./asterisk-trunk-diffs line 6263:
+[<dictate/truncating_audio>]
+
+
+# ./apps/app_queue.c line 3569:
+# ./asterisk-trunk-diffs line 4575:
+[<queue-youarenext>]
+
+
+# ./apps/app_queue.c line 3581:
+# ./asterisk-trunk-diffs line 4590:
+[<queue-quantity1>%n<queue-quantity2>]
+
+
+# ./apps/app_queue.c line 3599:
+# ./asterisk-trunk-diffs line 4612:
+[<queue-thereare>%n<queue-callswaiting>]
+
+
+# ./apps/app_queue.c line 3637:
+# ./asterisk-trunk-diffs line 4657:
+[<queue-holdtime>%n<queue-minutes>%n<queue-seconds>]
+
+
+# ./apps/app_queue.c line 3639:
+# ./asterisk-trunk-diffs line 4659:
+[<queue-holdtime>%n<queue-minutes>]
+
+
+# ./apps/app_queue.c line 3641:
+# ./asterisk-trunk-diffs line 4661:
+[<queue-holdtime>%n<queue-seconds>]
+
+
+# ./apps/app_queue.c line 3691:
+# ./asterisk-trunk-diffs line 4724:
+[<queue-thankyou>]
+
+
+# ./apps/app_queue.c line 6464:
+# ./apps/app_voicemail.c line 8210:
+# ./apps/app_voicemail.c line 8408:
+# ./apps/app_voicemail.c line 8549:
+# ./apps/app_meetme.c line 3097:
+# ./apps/app_meetme.c line 3644:
+# ./apps/app_meetme.c line 4011:
+# ./apps/app_meetme.c line 4064:
+# ./apps/app_confbridge.c line 2000:
+#/apps/app_confbridge.c:2007:										  /* SO, Now, unless some other application uses this file in an ast_say_sentence() call, the
+# ./apps/app_confbridge.c line 2037:
+# ./asterisk-trunk-diffs line 1893:
+# ./asterisk-trunk-diffs line 1977:
+# ./asterisk-trunk-diffs line 2067:
+# ./asterisk-trunk-diffs line 4508:
+#/asterisk-trunk-diffs:4515:+										  /* SO, Now, unless some other application uses this file in an ast_say_sentence() call, the
+# ./asterisk-trunk-diffs line 4534:
+# ./asterisk-trunk-diffs line 4747:
+# ./asterisk-trunk-diffs line 5101:
+# ./asterisk-trunk-diffs line 5252:
+# ./asterisk-trunk-diffs line 5393:
+# ./asterisk-trunk-diffs line 5440:
+[%z]
+
+
+# ./apps/app_queue.c line 6481:
+# ./asterisk-trunk-diffs line 4770:
+[<queue-reporthold>%n<queue-minutes>%n<queue-seconds>]
+
+
+# ./apps/app_queue.c line 6483:
+# ./asterisk-trunk-diffs line 4772:
+[<queue-reporthold>%n<queue-minutes>]
+
+
+# ./apps/app_queue.c line 6485:
+# ./asterisk-trunk-diffs line 4774:
+[<queue-reporthold>%n<queue-seconds>]
+
+
+# ./apps/app_voicemail.c line 2514:
+# ./apps/app_voicemail.c line 2528:
+# ./apps/app_voicemail.c line 6687:
+# ./apps/app_voicemail.c line 6705:
+# ./apps/app_voicemail.c line 8172:
+# ./apps/app_voicemail.c line 8348:
+# ./apps/app_voicemail.c line 11575:
+# ./apps/app_voicemail.c line 11584:
+# ./apps/app_voicemail.c line 12054:
+# ./asterisk-trunk-diffs line 1540:
+# ./asterisk-trunk-diffs line 1553:
+# ./asterisk-trunk-diffs line 1663:
+# ./asterisk-trunk-diffs line 1680:
+# ./asterisk-trunk-diffs line 1867:
+# ./asterisk-trunk-diffs line 1951:
+# ./asterisk-trunk-diffs line 3407:
+# ./asterisk-trunk-diffs line 3417:
+# ./asterisk-trunk-diffs line 3684:
+[<vm-mailboxfull>]
+
+
+# ./apps/app_voicemail.c line 5510:
+# ./asterisk-trunk-diffs line 1571:
+[%z<vm-isonphone>]
+
+
+# ./apps/app_voicemail.c line 5512:
+# ./asterisk-trunk-diffs line 1573:
+[%z<vm-isunavail>]
+
+
+# ./apps/app_voicemail.c line 5522:
+# ./asterisk-trunk-diffs line 1584:
+[<vm-theperson>%i<vm-isonphone>]
+
+
+# ./apps/app_voicemail.c line 5524:
+# ./asterisk-trunk-diffs line 1586:
+[<vm-theperson>%i<vm-isunavail>]
+
+
+# ./apps/app_voicemail.c line 6579:
+# ./asterisk-trunk-diffs line 1627:
+[<vm-intro>]
+
+
+# ./apps/app_voicemail.c line 6617:
+# ./apps/app_minivm.c line 2491:
+# ./asterisk-trunk-diffs line 1648:
+# ./asterisk-trunk-diffs line 6040:
+[<transfer>]
+
+
+# ./apps/app_voicemail.c line 7594:
+# ./asterisk-trunk-diffs line 1707:
+[<vm-press>%n<vm-for>%z.]
+
+
+# ./apps/app_voicemail.c line 7596:
+# ./asterisk-trunk-diffs line 1709:
+[<vm-press><digits/0><vm-for><vm-INBOX>.]
+
+
+# ./apps/app_voicemail.c line 7600:
+# ./asterisk-trunk-diffs line 1713:
+[<vm-press><digits/1><vm-for><vm-Old>.]
+
+
+# ./apps/app_voicemail.c line 7603:
+# ./asterisk-trunk-diffs line 1716:
+[<vm-press><digits/2><vm-for><vm-Work>.]
+
+
+# ./apps/app_voicemail.c line 7606:
+# ./asterisk-trunk-diffs line 1719:
+[<vm-press><digits/3><vm-for><vm-Family>.]
+
+
+# ./apps/app_voicemail.c line 7609:
+# ./asterisk-trunk-diffs line 1722:
+[<vm-press><digits/4><vm-for><vm-Friends>.]
+
+
+# ./apps/app_voicemail.c line 7652:
+# ./asterisk-trunk-diffs line 1785:
+[<vm-tocancel>]
+
+
+# ./apps/app_voicemail.c line 7758:
+# ./apps/app_voicemail.c line 15429:
+# ./asterisk-trunk-diffs line 1807:
+# ./asterisk-trunk-diffs line 3965:
+[<vm-intro><beep>]
+
+
+# ./apps/app_voicemail.c line 7844:
+# ./asterisk-trunk-diffs line 1821:
+[<vm-forwardoptions>]
+
+
+# ./apps/app_voicemail.c line 7851:
+# ./apps/app_voicemail.c line 11779:
+# ./asterisk-trunk-diffs line 1829:
+# ./asterisk-trunk-diffs line 3535:
+[<vm-starmain>]
+
+
+# ./apps/app_voicemail.c line 8083:
+# ./asterisk-trunk-diffs line 1842:
+[<vm-forward>]
+
+
+# ./apps/app_voicemail.c line 8161:
+# ./apps/app_voicemail.c line 8197:
+# ./asterisk-trunk-diffs line 1129:
+# ./asterisk-trunk-diffs line 1855:
+# ./asterisk-trunk-diffs line 1880:
+# ./main/bridge_basic.c line 2902:
+[<pbx-invalid>]
+
+
+# ./apps/app_voicemail.c line 8220:
+# ./apps/app_voicemail.c line 8563:
+# ./apps/app_voicemail.c line 8599:
+# ./asterisk-trunk-diffs line 1904:
+# ./asterisk-trunk-diffs line 2084:
+# ./asterisk-trunk-diffs line 2119:
+[%i]
+
+
+# ./apps/app_voicemail.c line 8318:
+# ./apps/app_voicemail.c line 12037:
+# ./asterisk-trunk-diffs line 1917:
+# ./asterisk-trunk-diffs line 3664:
+[<vm-message>]
+
+
+# ./apps/app_voicemail.c line 8324:
+# ./asterisk-trunk-diffs line 1924:
+[<vm-messages>]
+
+
+# ./apps/app_voicemail.c line 8330:
+# ./asterisk-trunk-diffs line 1931:
+[<vm-saved>]
+
+
+# ./apps/app_voicemail.c line 8339:
+# ./asterisk-trunk-diffs line 1941:
+[<vm-msgforwarded>]
+
+
+# ./apps/app_voicemail.c line 8471:
+# ./asterisk-trunk-diffs line 2023:
+[<vm-recieved>%[q]d<digits/at>%[IMp]d]
+
+
+# ./apps/app_voicemail.c line 8547:
+# ./apps/app_voicemail.c line 8582:
+# ./asterisk-trunk-diffs line 2065:
+# ./asterisk-trunk-diffs line 2101:
+[<vm-from>%z]
+
+
+# ./apps/app_voicemail.c line 8561:
+# ./asterisk-trunk-diffs line 2082:
+[<vm-from-extension>%i]
+
+
+# ./apps/app_voicemail.c line 8591:
+# ./asterisk-trunk-diffs line 2111:
+[<vm-from-phonenumber>%i]
+
+
+# ./apps/app_voicemail.c line 8610:
+# ./asterisk-trunk-diffs line 2133:
+[<vm-unknown-caller>]
+
+
+# ./apps/app_voicemail.c line 8668:
+# ./asterisk-trunk-diffs line 2197:
+[<vm-duration>%n<vm-minutes>]
+
+
+# ./apps/app_voicemail.c line 8698:
+# ./asterisk-trunk-diffs line 2259:
+[<vm-first><vm-Urgent><vm-message>]
+
+
+# ./apps/app_voicemail.c line 8700:
+# ./asterisk-trunk-diffs line 2264:
+[<vm-first><vm-message>]
+
+
+# ./apps/app_voicemail.c line 8704:
+# ./asterisk-trunk-diffs line 2276:
+[<vm-last><vm-Urgent><vm-message>]
+
+
+# ./apps/app_voicemail.c line 8706:
+# ./asterisk-trunk-diffs line 2281:
+[<vm-last><vm-message>]
+
+
+# ./apps/app_voicemail.c line 8711:
+# ./asterisk-trunk-diffs line 2290:
+[<vm-Urgent><vm-message>%n]
+
+
+# ./apps/app_voicemail.c line 8713:
+# ./asterisk-trunk-diffs line 2292:
+[<vm-message>%n]
+
+
+# ./apps/app_voicemail.c line 9145:
+# ./asterisk-trunk-diffs line 2410:
+[%z<vm-messages]
+
+
+# ./apps/app_voicemail.c line 9392:
+# ./asterisk-trunk-diffs line 2475:
+[<vm-youhave>%n<vm-Urgent><vm-messages>]
+
+
+# ./apps/app_voicemail.c line 9401:
+# ./apps/app_voicemail.c line 9410:
+# ./asterisk-trunk-diffs line 2494:
+# ./asterisk-trunk-diffs line 2513:
+[<vm-and>%n<vm-INBOX><vm-messages>]
+
+
+# ./apps/app_voicemail.c line 9403:
+# ./apps/app_voicemail.c line 9412:
+# ./asterisk-trunk-diffs line 2496:
+# ./asterisk-trunk-diffs line 2515:
+[<vm-youhave>%n<vm-INBOX><vm-messages>]
+
+
+# ./apps/app_voicemail.c line 9417:
+# ./asterisk-trunk-diffs line 2520:
+[<vm-youhave><vm-no><vm-messages>]
+
+
+# ./apps/app_voicemail.c line 10115:
+# ./asterisk-trunk-diffs line 2620:
+[<vm-tempgreetactive>]
+
+
+# ./apps/app_voicemail.c line 10185:
+# ./asterisk-trunk-diffs line 2736:
+[<vm-onefor-full>%z.<vm-opts-full>.]
+
+
+# ./apps/app_voicemail.c line 10187:
+# ./asterisk-trunk-diffs line 2738:
+[<vm-onefor>%z.<vm-opts>.]
+
+
+# ./apps/app_voicemail.c line 10192:
+# ./asterisk-trunk-diffs line 2743:
+[<vm-onefor-full>%z<vm-opts-full>.]
+
+
+# ./apps/app_voicemail.c line 10201:
+# ./asterisk-trunk-diffs line 2752:
+[<vm-prev>]
+
+
+# ./apps/app_voicemail.c line 10204:
+# ./asterisk-trunk-diffs line 2755:
+[<vm-advopts>]
+
+
+# ./apps/app_voicemail.c line 10206:
+# ./asterisk-trunk-diffs line 2758:
+[<vm-repeat>]
+
+
+# ./apps/app_voicemail.c line 10215:
+# ./asterisk-trunk-diffs line 2767:
+[<vm-next>]
+
+
+# ./apps/app_voicemail.c line 10227:
+# ./asterisk-trunk-diffs line 2779:
+[<vm-delete>]
+
+
+# ./apps/app_voicemail.c line 10229:
+# ./asterisk-trunk-diffs line 2781:
+[<vm-undelete>]
+
+
+# ./apps/app_voicemail.c line 10232:
+# ./asterisk-trunk-diffs line 2784:
+[<vm-toforward>]
+
+
+# ./apps/app_voicemail.c line 10235:
+# ./asterisk-trunk-diffs line 2787:
+[<vm-savemessage>]
+
+
+# ./apps/app_voicemail.c line 10240:
+# ./asterisk-trunk-diffs line 2796:
+[<vm-helpexit>]
+
+
+# ./apps/app_voicemail.c line 10422:
+# ./apps/app_voicemail.c line 10539:
+# ./asterisk-trunk-diffs line 2948:
+# ./asterisk-trunk-diffs line 3027:
+[<vm-newpassword>]
+
+
+# ./apps/app_voicemail.c line 10437:
+# ./asterisk-trunk-diffs line 2961:
+[<vm-invalid-password>]
+
+
+# ./apps/app_voicemail.c line 10444:
+# ./asterisk-trunk-diffs line 2969:
+[<vm_reenterpassword>]
+
+
+# ./apps/app_voicemail.c line 10459:
+# ./asterisk-trunk-diffs line 2982:
+[<vm-mismatch>]
+
+
+# ./apps/app_voicemail.c line 10468:
+# ./asterisk-trunk-diffs line 2992:
+[<vm-pls-try-again>]
+
+
+# ./apps/app_voicemail.c line 10481:
+# ./apps/app_voicemail.c line 10605:
+# ./asterisk-trunk-diffs line 3005:
+# ./asterisk-trunk-diffs line 3085:
+[<vm-passchanged>]
+
+
+# ./apps/app_voicemail.c line 10531:
+# ./asterisk-trunk-diffs line 3018:
+[<vm-no>]
+
+
+# ./apps/app_voicemail.c line 10556:
+# ./asterisk-trunk-diffs line 3042:
+[<vm-invalid-password><vm-pls-try-again>]
+
+
+# ./apps/app_voicemail.c line 10567:
+# ./asterisk-trunk-diffs line 3054:
+[<vm-reenterpassword>]
+
+
+# ./apps/app_voicemail.c line 10585:
+# ./asterisk-trunk-diffs line 3070:
+[<vm-mismatch><vm-pls-try-again>]
+
+
+# ./apps/app_voicemail.c line 10619:
+# ./asterisk-trunk-diffs line 3098:
+[<vm-tmpexists>]
+
+
+# ./apps/app_voicemail.c line 10627:
+# ./asterisk-trunk-diffs line 3107:
+[<vm-options>]
+
+
+# ./apps/app_voicemail.c line 10703:
+# ./asterisk-trunk-diffs line 3120:
+[<vm-tempremoved>]
+
+
+# ./apps/app_voicemail.c line 10715:
+# ./asterisk-trunk-diffs line 3135:
+[<vm-tempgreeting2>]
+
+
+# ./apps/app_voicemail.c line 10717:
+# ./asterisk-trunk-diffs line 3137:
+[<vm-tempgreeting>]
+
+
+# ./apps/app_voicemail.c line 10760:
+# ./asterisk-trunk-diffs line 3168:
+[<vm-youhave><vm-no><vm-INBOX><vm-messages>]
+
+
+# ./apps/app_voicemail.c line 10762:
+# ./asterisk-trunk-diffs line 3170:
+[<vm-youhave><vm-no><vm-Old><vm-messages>]
+
+
+# ./apps/app_voicemail.c line 10764:
+# ./asterisk-trunk-diffs line 3172:
+[<vm-youhave><vm-no><vm-Urgent><vm-messages>]
+
+
+# ./apps/app_voicemail.c line 10766:
+# ./asterisk-trunk-diffs line 3174:
+[<vm-youhave><vm-no><vm-Work><vm-messages>]
+
+
+# ./apps/app_voicemail.c line 10768:
+# ./asterisk-trunk-diffs line 3176:
+[<vm-youhave><vm-no><vm-Friends><vm-messages>]
+
+
+# ./apps/app_voicemail.c line 10770:
+# ./asterisk-trunk-diffs line 3178:
+[<vm-youhave><vm-no><vm-Family><vm-messages>]
+
+
+# ./apps/app_voicemail.c line 10772:
+# ./asterisk-trunk-diffs line 3180:
+[<vm-youhave><vm-no><vm-Cust1><vm-messages>]
+
+
+# ./apps/app_voicemail.c line 10774:
+# ./asterisk-trunk-diffs line 3182:
+[<vm-youhave><vm-no><vm-Cust2><vm-messages>]
+
+
+# ./apps/app_voicemail.c line 10776:
+# ./asterisk-trunk-diffs line 3184:
+[<vm-youhave><vm-no><vm-Cust3><vm-messages>]
+
+
+# ./apps/app_voicemail.c line 10778:
+# ./asterisk-trunk-diffs line 3186:
+[<vm-youhave><vm-no><vm-Cust4><vm-messages>]
+
+
+# ./apps/app_voicemail.c line 11028:
+# ./asterisk-trunk-diffs line 3297:
+[<vm-login>]
+
+
+# ./apps/app_voicemail.c line 11083:
+# ./asterisk-trunk-diffs line 3317:
+[<vm-password>]
+
+
+# ./apps/app_voicemail.c line 11127:
+# ./asterisk-trunk-diffs line 3337:
+[<vm-incorrect>]
+
+
+# ./apps/app_voicemail.c line 11143:
+# ./asterisk-trunk-diffs line 3356:
+[<vm-incorrect-mailbox>]
+
+
+# ./apps/app_voicemail.c line 11163:
+# ./apps/app_voicemail.c line 12159:
+# ./apps/app_voicemail.c line 12280:
+# ./apps/app_voicemail.c line 15683:
+# ./apps/app_minivm.c line 1825:
+# ./asterisk-trunk-diffs line 3380:
+# ./asterisk-trunk-diffs line 3760:
+# ./asterisk-trunk-diffs line 3802:
+# ./asterisk-trunk-diffs line 4199:
+# ./asterisk-trunk-diffs line 5986:
+[<vm-goodbye>]
+
+
+# ./apps/app_voicemail.c line 11551:
+# ./asterisk-trunk-diffs line 3393:
+[<vm-newuser>]
+
+
+# ./apps/app_voicemail.c line 11744:
+# ./asterisk-trunk-diffs line 3495:
 [<vm-toreply>]
 
 
-
-# ./apps/app_voicemail.c line 11714:
+# ./apps/app_voicemail.c line 11751:
+# ./asterisk-trunk-diffs line 3503:
 [<vm-tocallback>]
 
 
-
-# ./apps/app_voicemail.c line 11721:
+# ./apps/app_voicemail.c line 11758:
+# ./asterisk-trunk-diffs line 3511:
 [<vm-tohearenv>]
 
 
-
-# ./apps/app_voicemail.c line 11728:
+# ./apps/app_voicemail.c line 11765:
+# ./asterisk-trunk-diffs line 3519:
 [<vm-tomakecall>]
 
 
-
-# ./apps/app_voicemail.c line 11735:
+# ./apps/app_voicemail.c line 11772:
+# ./asterisk-trunk-diffs line 3527:
 [<vm-leavemsg>]
 
 
-
-# ./apps/app_voicemail.c line 11859:
-# ./apps/app_voicemail.c line 15497:
-# ./apps/app_voicemail.c line 15551:
-# ./apps/app_minivm.c line 1773:
-[<vm-deleted>]
-
-
-
-# ./apps/app_voicemail.c line 11874:
-[<vm-undeleted>]
-
-
-
-# ./apps/app_voicemail.c line 11787:
-# ./apps/app_voicemail.c line 11797:
-# ./apps/app_voicemail.c line 11826:
-# ./apps/app_voicemail.c line 11836:
-# ./apps/app_voicemail.c line 11904:
-# ./apps/app_voicemail.c line 11911:
-# ./apps/app_voicemail.c line 11950:
-# ./apps/app_voicemail.c line 11957:
-# ./apps/app_voicemail.c line 12047:
-# ./apps/app_voicemail.c line 12054:
+# ./apps/app_voicemail.c line 11824:
+# ./apps/app_voicemail.c line 11834:
+# ./apps/app_voicemail.c line 11863:
+# ./apps/app_voicemail.c line 11873:
+# ./apps/app_voicemail.c line 11941:
+# ./apps/app_voicemail.c line 11948:
+# ./apps/app_voicemail.c line 11987:
+# ./apps/app_voicemail.c line 11994:
+# ./apps/app_voicemail.c line 12084:
+# ./apps/app_voicemail.c line 12091:
+# ./asterisk-trunk-diffs line 3548:
+# ./asterisk-trunk-diffs line 3559:
+# ./asterisk-trunk-diffs line 3572:
+# ./asterisk-trunk-diffs line 3583:
+# ./asterisk-trunk-diffs line 3621:
+# ./asterisk-trunk-diffs line 3628:
+# ./asterisk-trunk-diffs line 3642:
+# ./asterisk-trunk-diffs line 3649:
+# ./asterisk-trunk-diffs line 3696:
+# ./asterisk-trunk-diffs line 3703:
 [<vm-nomore>]
 
 
+# ./apps/app_voicemail.c line 11896:
+# ./apps/app_voicemail.c line 15549:
+# ./apps/app_voicemail.c line 15603:
+# ./apps/app_minivm.c line 1773:
+# ./asterisk-trunk-diffs line 3596:
+# ./asterisk-trunk-diffs line 4067:
+# ./asterisk-trunk-diffs line 4124:
+# ./asterisk-trunk-diffs line 5940:
+[<vm-deleted>]
 
-# ./apps/app_voicemail.c line 12008:
+
+# ./apps/app_voicemail.c line 11911:
+# ./asterisk-trunk-diffs line 3609:
+[<vm-undeleted>]
+
+
+# ./apps/app_voicemail.c line 12045:
+# ./asterisk-trunk-diffs line 3672:
 [<vm-savedto>]
 
 
-
-# ./apps/app_voicemail.c line 12065:
+# ./apps/app_voicemail.c line 12102:
+# ./asterisk-trunk-diffs line 3717:
 [<vm-onefor>]
 
 
-
-# ./apps/app_voicemail.c line 12071:
+# ./apps/app_voicemail.c line 12108:
+# ./asterisk-trunk-diffs line 3724:
 [<vm-for>]
 
 
-
-# ./apps/app_voicemail.c line 12080:
+# ./apps/app_voicemail.c line 12117:
+# ./asterisk-trunk-diffs line 3733:
 [<vm-opts>]
 
 
-
-# ./apps/app_voicemail.c line 12214:
+# ./apps/app_voicemail.c line 12251:
+# ./asterisk-trunk-diffs line 3774:
 [<vm-whichbox>]
 
 
-
-# ./apps/app_voicemail.c line 12757:
-# ./apps/app_authenticate.c line 284:
+# ./apps/app_voicemail.c line 12795:
+# ./asterisk-trunk-diffs line 3815:
 [<auth-thankyou>]
 
 
-
-# ./apps/app_voicemail.c line 15007:
+# ./apps/app_voicemail.c line 15059:
+# ./asterisk-trunk-diffs line 3832:
 [<vm-enter-num-to-call><vm-then-pound><vm-star-cancel>]
 
 
-
-# ./apps/app_voicemail.c line 15180:
+# ./apps/app_voicemail.c line 15232:
+# ./asterisk-trunk-diffs line 3873:
 [<vm-num-i-have>]
 
 
-
-# ./apps/app_voicemail.c line 15188:
+# ./apps/app_voicemail.c line 15240:
+# ./asterisk-trunk-diffs line 3883:
 [<vm-tocallnum>]
 
 
-
-# ./apps/app_voicemail.c line 15197:
+# ./apps/app_voicemail.c line 15249:
+# ./asterisk-trunk-diffs line 3894:
 [<vm-calldiffnum>]
 
 
-
-# ./apps/app_voicemail.c line 15205:
-# ./apps/app_voicemail.c line 15256:
+# ./apps/app_voicemail.c line 15257:
+# ./apps/app_voicemail.c line 15308:
+# ./asterisk-trunk-diffs line 3903:
+# ./asterisk-trunk-diffs line 3937:
 [<vm-nonumber>]
 
 
-
-# ./apps/app_voicemail.c line 15212:
+# ./apps/app_voicemail.c line 15264:
+# ./asterisk-trunk-diffs line 3912:
 [<vm-toenternumber>]
 
 
-
-# ./apps/app_voicemail.c line 15221:
+# ./apps/app_voicemail.c line 15273:
+# ./asterisk-trunk-diffs line 3922:
 [<vm-star-cancel>]
 
 
-
-# ./apps/app_voicemail.c line 15283:
+# ./apps/app_voicemail.c line 15335:
+# ./asterisk-trunk-diffs line 3951:
 [<vm-nobox>]
 
 
-
-# ./apps/app_voicemail.c line 15414:
+# ./apps/app_voicemail.c line 15466:
+# ./asterisk-trunk-diffs line 3984:
 [<vm-tooshort>]
 
 
-
-# ./apps/app_voicemail.c line 15425:
+# ./apps/app_voicemail.c line 15477:
+# ./asterisk-trunk-diffs line 3996:
 [<vm-nothingrecorded>]
 
 
-
-# ./apps/app_voicemail.c line 15431:
+# ./apps/app_voicemail.c line 15483:
+# ./asterisk-trunk-diffs line 4003:
 [<vm-speakup>]
 
 
-
-# ./apps/app_voicemail.c line 15449:
-# ./apps/app_voicemail.c line 15537:
+# ./apps/app_voicemail.c line 15501:
+# ./apps/app_voicemail.c line 15589:
+# ./asterisk-trunk-diffs line 4016:
+# ./asterisk-trunk-diffs line 4108:
 [<vm-marked-urgent>]
 
 
-
-# ./apps/app_voicemail.c line 15457:
+# ./apps/app_voicemail.c line 15509:
+# ./asterisk-trunk-diffs line 4025:
 [<vm-marked-nonurgent>]
 
 
-
-# ./apps/app_voicemail.c line 15520:
+# ./apps/app_voicemail.c line 15572:
 # ./apps/app_minivm.c line 1758:
+# ./asterisk-trunk-diffs line 4089:
+# ./asterisk-trunk-diffs line 5923:
 [<vm-saveoper>]
 
 
-
-# ./apps/app_voicemail.c line 15529:
-# ./apps/app_voicemail.c line 15544:
+# ./apps/app_voicemail.c line 15581:
+# ./apps/app_voicemail.c line 15596:
 # ./apps/app_minivm.c line 1766:
+# ./asterisk-trunk-diffs line 4099:
+# ./asterisk-trunk-diffs line 4116:
+# ./asterisk-trunk-diffs line 5932:
 [<vm-msgsaved>]
 
 
-
-# ./apps/app_voicemail.c line 15568:
+# ./apps/app_voicemail.c line 15620:
 # ./apps/app_minivm.c line 1790:
-# ./main/app.c line 2173:
+# ./asterisk-trunk-diffs line 1291:
+# ./asterisk-trunk-diffs line 4137:
+# ./asterisk-trunk-diffs line 5953:
+# ./main/app.c line 2165:
 [<vm-review>]
 
 
-
-# ./apps/app_voicemail.c line 15575:
+# ./apps/app_voicemail.c line 15627:
+# ./asterisk-trunk-diffs line 4145:
 [<vm-review-urgent>]
 
 
-
-# ./apps/app_voicemail.c line 15581:
+# ./apps/app_voicemail.c line 15633:
+# ./asterisk-trunk-diffs line 4152:
 [<vm-review-nonurgent>]
 
 
-
-# ./apps/app_voicemail.c line 15589:
+# ./apps/app_voicemail.c line 15641:
 # ./apps/app_minivm.c line 1796:
+# ./asterisk-trunk-diffs line 4161:
+# ./asterisk-trunk-diffs line 5960:
 [<vm-torerecord>]
 
 
-
-# ./apps/app_voicemail.c line 15599:
+# ./apps/app_voicemail.c line 15651:
 # ./apps/app_minivm.c line 1806:
+# ./asterisk-trunk-diffs line 4172:
+# ./asterisk-trunk-diffs line 5971:
 [<vm-reachoper>]
 
 
-
-# ./apps/app_voicemail.c line 15609:
+# ./apps/app_voicemail.c line 15661:
+# ./asterisk-trunk-diffs line 4183:
 [<vm-tocancelmsg>]
 
 
-
 # ./apps/app_authenticate.c line 167:
+# ./asterisk-trunk-diffs line 5705:
 [<agent-pass>.]
 
 
-
 # ./apps/app_authenticate.c line 169:
+# ./asterisk-trunk-diffs line 5707:
 [<auth-incorrect>.]
 
 
-
 # ./apps/app_authenticate.c line 171:
+# ./asterisk-trunk-diffs line 5709:
 [%z.]
 
 
+# ./apps/app_authenticate.c line 284:
+# ./asterisk-trunk-diffs line 5741:
+[<auth-thankyou>.]
+
+
+# ./apps/app_authenticate.c line 291:
+# ./asterisk-trunk-diffs line 5750:
+[<vm-goodbye>.]
+
 
 # ./apps/app_directory.c line 375:
+# ./asterisk-trunk-diffs line 6529:
 [%c<vm-extension>%c<dir-instr>.]
 
 
-
 # ./apps/app_directory.c line 377:
+# ./asterisk-trunk-diffs line 6531:
 [%c<dir-instr>.]
 
 
-
 # ./apps/app_directory.c line 381:
+# ./asterisk-trunk-diffs line 6535:
 [%z<vm-extension>%c<dir-instr>.]
 
 
-
 # ./apps/app_directory.c line 383:
+# ./asterisk-trunk-diffs line 6537:
 [%z<dir-instr>.]
 
 
-
 # ./apps/app_directory.c line 445:
+# ./asterisk-trunk-diffs line 6568:
 [<dir-multi1>%n<dir-multi2>%c<vm-extension>%c]
 
 
-
 # ./apps/app_directory.c line 447:
+# ./asterisk-trunk-diffs line 6570:
 [<dir-multi1>%n<dir-multi2>%c]
 
 
-
 # ./apps/app_directory.c line 451:
+# ./asterisk-trunk-diffs line 6574:
 [<dir-multi1>%n<dir-multi2>%z<vm-extension>%c]
 
 
-
 # ./apps/app_directory.c line 453:
+# ./asterisk-trunk-diffs line 6576:
 [<dir-multi1>%n<dir-multi2>%z]
 
 
-
 # ./apps/app_directory.c line 482:
+# ./asterisk-trunk-diffs line 6622:
 [<dir-multi9>.]
 
 
-
 # ./apps/app_directory.c line 840:
+# ./asterisk-trunk-diffs line 6637:
 [<dir-nomatch>.]
 
 
-
 # ./apps/app_directory.c line 876:
+# ./asterisk-trunk-diffs line 6650:
 [<dir-nomore>.]
 
 
-
-# ./apps/app_meetme.c line 2771:
-# ./apps/app_meetme.c line 2869:
+# ./apps/app_meetme.c line 2773:
+# ./apps/app_meetme.c line 2871:
+# ./asterisk-trunk-diffs line 4822:
+# ./asterisk-trunk-diffs line 4877:
 [<conf-muted>]
 
 
-
-# ./apps/app_meetme.c line 2779:
-# ./apps/app_meetme.c line 2877:
+# ./apps/app_meetme.c line 2781:
+# ./apps/app_meetme.c line 2879:
+# ./asterisk-trunk-diffs line 4832:
+# ./asterisk-trunk-diffs line 4887:
 [<conf-unmuted>]
 
 
-
-# ./apps/app_meetme.c line 2796:
+# ./apps/app_meetme.c line 2798:
+# ./apps/app_page.c line 388:
 # ./apps/app_minivm.c line 1707:
+# ./asterisk-trunk-diffs line 4847:
+# ./asterisk-trunk-diffs line 5891:
+# ./asterisk-trunk-diffs line 6132:
 [<beep>]
 
 
-
-# ./apps/app_meetme.c line 2835:
-# ./apps/app_meetme.c line 2918:
-# ./apps/app_meetme.c line 2941:
-# ./apps/app_meetme.c line 2949:
-# ./apps/app_meetme.c line 2989:
-# ./apps/app_meetme.c line 3137:
-# ./apps/app_meetme.c line 3236:
+# ./apps/app_meetme.c line 2837:
+# ./apps/app_meetme.c line 2920:
+# ./apps/app_meetme.c line 2943:
+# ./apps/app_meetme.c line 2951:
+# ./apps/app_meetme.c line 2991:
+# ./apps/app_meetme.c line 3139:
+# ./apps/app_meetme.c line 3238:
+# ./asterisk-trunk-diffs line 4862:
+# ./asterisk-trunk-diffs line 4928:
+# ./asterisk-trunk-diffs line 4943:
+# ./asterisk-trunk-diffs line 4953:
+# ./asterisk-trunk-diffs line 4987:
+# ./asterisk-trunk-diffs line 5150:
+# ./asterisk-trunk-diffs line 5207:
 [<conf-errormenu>]
 
 
-
-# ./apps/app_meetme.c line 2891:
+# ./apps/app_meetme.c line 2893:
+# ./asterisk-trunk-diffs line 4902:
 [<conf-unlockednow>]
 
 
-
-# ./apps/app_meetme.c line 2900:
+# ./apps/app_meetme.c line 2902:
+# ./asterisk-trunk-diffs line 4913:
 [<conf-lockednow>]
 
 
-
-# ./apps/app_meetme.c line 2971:
+# ./apps/app_meetme.c line 2973:
+# ./asterisk-trunk-diffs line 4970:
 [<conf-adminmenu-menu8>]
 
 
-
-# ./apps/app_meetme.c line 3027:
-# ./apps/app_meetme.c line 3653:
-# ./apps/app_meetme.c line 4123:
+# ./apps/app_meetme.c line 3029:
+# ./apps/app_meetme.c line 3655:
+# ./apps/app_meetme.c line 4125:
+# ./asterisk-trunk-diffs line 5006:
+# ./asterisk-trunk-diffs line 5269:
+# ./asterisk-trunk-diffs line 5482:
 [<conf-onlyperson>]
 
 
-
-# ./apps/app_meetme.c line 3044:
-# ./apps/app_meetme.c line 3676:
+# ./apps/app_meetme.c line 3046:
+# ./apps/app_meetme.c line 3678:
 # ./apps/app_confbridge.c line 774:
 # ./apps/app_confbridge.c line 787:
+# ./asterisk-trunk-diffs line 4236:
+# ./asterisk-trunk-diffs line 4250:
+# ./asterisk-trunk-diffs line 5028:
+# ./asterisk-trunk-diffs line 5295:
 [<conf-onlyone>]
 
 
-
-# ./apps/app_meetme.c line 3061:
-# ./apps/app_meetme.c line 3693:
+# ./apps/app_meetme.c line 3063:
+# ./apps/app_meetme.c line 3695:
 # ./apps/app_confbridge.c line 797:
 # ./apps/app_confbridge.c line 818:
+# ./asterisk-trunk-diffs line 4264:
+# ./asterisk-trunk-diffs line 4287:
+# ./asterisk-trunk-diffs line 5050:
+# ./asterisk-trunk-diffs line 5315:
 [<conf-thereare>%n<conf-otherinparty>]
 
 
-
-# ./apps/app_meetme.c line 3116:
+# ./apps/app_meetme.c line 3118:
+# ./asterisk-trunk-diffs line 5127:
 [<conf-roll-callcomplete>]
 
 
-
-# ./apps/app_meetme.c line 3155:
-# ./apps/app_confbridge.c line 1968:
+# ./apps/app_meetme.c line 3157:
+# ./apps/app_confbridge.c line 1971:
+# ./asterisk-trunk-diffs line 4473:
+# ./asterisk-trunk-diffs line 5165:
 [<conf-now-unmuted>]
 
 
-
-# ./apps/app_meetme.c line 3165:
-# ./apps/app_confbridge.c line 1960:
-# ./apps/app_confbridge.c line 1964:
-# ./apps/app_confbridge.c line 1972:
+# ./apps/app_meetme.c line 3167:
+# ./apps/app_confbridge.c line 1963:
+# ./apps/app_confbridge.c line 1967:
+# ./apps/app_confbridge.c line 1975:
+# ./asterisk-trunk-diffs line 4465:
+# ./asterisk-trunk-diffs line 4469:
+# ./asterisk-trunk-diffs line 4477:
+# ./asterisk-trunk-diffs line 5177:
 [<conf-now-muted>]
 
 
-
-# ./apps/app_meetme.c line 3217:
+# ./apps/app_meetme.c line 3219:
+# ./asterisk-trunk-diffs line 5192:
 [<conf-now-recording>]
 
 
-
-# ./apps/app_meetme.c line 3513:
+# ./apps/app_meetme.c line 3515:
+# ./asterisk-trunk-diffs line 5222:
 [<conf-locked>]
 
 
-
-# ./apps/app_meetme.c line 3527:
+# ./apps/app_meetme.c line 3529:
+# ./asterisk-trunk-diffs line 5237:
 [<conf-full>]
 
 
-
-# ./apps/app_meetme.c line 3662:
+# ./apps/app_meetme.c line 3664:
+# ./asterisk-trunk-diffs line 5278:
 [<conf-waitforleader>]
 
 
-
-# ./apps/app_meetme.c line 3958:
+# ./apps/app_meetme.c line 3960:
+# ./asterisk-trunk-diffs line 5373:
 [<conf-will-end-in>%n<minutes>]
 
 
-
-# ./apps/app_meetme.c line 4039:
+# ./apps/app_meetme.c line 4041:
+# ./asterisk-trunk-diffs line 5413:
 [<vm-youhave>%n<queue-minutes><vm-and>%n<queue-seconds>]
 
 
-
-# ./apps/app_meetme.c line 4041:
+# ./apps/app_meetme.c line 4043:
+# ./asterisk-trunk-diffs line 760:
+# ./asterisk-trunk-diffs line 5415:
+# ./bridges/bridge_builtin_interval_features.c line 92:
 [<vm-youhave>%n<queue-minutes>]
 
 
-
-# ./apps/app_meetme.c line 4043:
+# ./apps/app_meetme.c line 4045:
+# ./asterisk-trunk-diffs line 763:
+# ./asterisk-trunk-diffs line 5417:
+# ./bridges/bridge_builtin_interval_features.c line 95:
 [<vm-youhave>%n<queue-seconds>]
 
 
-
-# ./apps/app_meetme.c line 4062:
-["%z"]
-
-
-# ./apps/app_meetme.c line 4107:
+# ./apps/app_meetme.c line 4109:
+# ./asterisk-trunk-diffs line 5462:
 [%n<conf-userswilljoin>]
 
 
-# ./apps/app_meetme.c line 4140:
+# ./apps/app_meetme.c line 4142:
+# ./asterisk-trunk-diffs line 5497:
 [<conf-leaderhasleft>]
 
 
-
-# ./apps/app_meetme.c line 4187:
+# ./apps/app_meetme.c line 4189:
+# ./asterisk-trunk-diffs line 5512:
 [<conf-placeintoconf>]
 
 
-
-# ./apps/app_meetme.c line 4288:
-# ./apps/app_confbridge.c line 1878:
+# ./apps/app_meetme.c line 4290:
+# ./apps/app_confbridge.c line 1881:
+# ./asterisk-trunk-diffs line 4445:
+# ./asterisk-trunk-diffs line 5529:
 [<conf-kicked>]
 
 
-
-# ./apps/app_meetme.c line 4394:
+# ./apps/app_meetme.c line 4396:
+# ./asterisk-trunk-diffs line 5544:
 [<conf-adminmenu-18>]
 
 
-
-# ./apps/app_meetme.c line 4401:
+# ./apps/app_meetme.c line 4403:
+# ./asterisk-trunk-diffs line 5552:
 [<conf-usermenu-162>]
 
 
-
-# ./apps/app_meetme.c line 4775:
+# ./apps/app_meetme.c line 4777:
+# ./asterisk-trunk-diffs line 5580:
 [<conf-has-not-started>]
 
 
-
-# ./apps/app_meetme.c line 5193:
+# ./apps/app_meetme.c line 5195:
+# ./asterisk-trunk-diffs line 5597:
 [<conf-noempty>]
 
 
-
-# ./apps/app_meetme.c line 5203:
+# ./apps/app_meetme.c line 5205:
+# ./asterisk-trunk-diffs line 5611:
 [<conf-enteringno>%n]
 
 
-
-# ./apps/app_meetme.c line 5245:
+# ./apps/app_meetme.c line 5247:
+# ./asterisk-trunk-diffs line 5629:
 [<conf-invalid>]
 
 
-
-# ./apps/app_meetme.c line 5316:
+# ./apps/app_meetme.c line 5318:
+# ./asterisk-trunk-diffs line 5646:
 [<conf-invalidpin>]
 
 
+# ./apps/app_agent_pool.c line 2045:
+# ./asterisk-trunk-diffs line 5682:
+[<agent-loginok>]
 
-# ./apps/app_confbridge.c line 1539:
+
+# ./apps/app_privacy.c line 140:
+# ./asterisk-trunk-diffs line 6677:
+[<privacy-unident>]
+
+
+# ./apps/app_privacy.c line 155:
+# ./asterisk-trunk-diffs line 6692:
+[<privacy-prompt>]
+
+
+# ./apps/app_privacy.c line 180:
+# ./apps/app_privacy.c line 195:
+# ./asterisk-trunk-diffs line 6714:
+# ./asterisk-trunk-diffs line 6731:
+[<privacy-incorrect>]
+
+
+# ./apps/app_privacy.c line 208:
+# ./asterisk-trunk-diffs line 6747:
+[<privacy-thankyou>]
+
+
+# ./apps/app_confbridge.c line 1542:
+# ./asterisk-trunk-diffs line 4347:
 [<conf-invalid-pin>]
 
 
-
-# ./apps/app_confbridge.c line 1783:
+# ./apps/app_confbridge.c line 1786:
+# ./asterisk-trunk-diffs line 4366:
 [%z<conf-hasjoin>]
 
 
-
-# ./apps/app_confbridge.c line 1796:
 # ./apps/app_confbridge.c line 1799:
+# ./apps/app_confbridge.c line 1802:
+# ./asterisk-trunk-diffs line 4385:
+# ./asterisk-trunk-diffs line 4388:
 [<confbridge-join>]
 
 
-
-# ./apps/app_confbridge.c line 1847:
+# ./apps/app_confbridge.c line 1850:
+# ./asterisk-trunk-diffs line 4411:
 [%z<conf-hasleft>]
 
 
-
-# ./apps/app_confbridge.c line 1862:
+# ./apps/app_confbridge.c line 1865:
+# ./asterisk-trunk-diffs line 4428:
 [<confbridge-leave>]
 
 
+#/apps/app_chanspy.c:868:			res = ast_streamfile(chan, "beep", ast_channel_language(chan)); // no need to get ast_say_sentence for a beep
+# ./apps/app_chanspy.c line 1046:
+#/asterisk-trunk-diffs:1349:+			res = ast_streamfile(chan, "beep", ast_channel_language(chan)); // no need to get ast_say_sentence for a beep
+# ./asterisk-trunk-diffs line 1397:
+[<spy-agent>]
+
+
+# ./apps/app_chanspy.c line 1048:
+# ./asterisk-trunk-diffs line 1399:
+[<spy-console>]
+
+
+# ./apps/app_chanspy.c line 1050:
+# ./asterisk-trunk-diffs line 1401:
+[<spy-dahdi>]
+
+
+# ./apps/app_chanspy.c line 1052:
+# ./asterisk-trunk-diffs line 1403:
+[<spy-h323>]
+
+
+# ./apps/app_chanspy.c line 1054:
+# ./asterisk-trunk-diffs line 1405:
+[<spy-iax2>]
+
+
+# ./apps/app_chanspy.c line 1056:
+# ./asterisk-trunk-diffs line 1407:
+[<spy-iax>]
+
+
+# ./apps/app_chanspy.c line 1058:
+# ./asterisk-trunk-diffs line 1409:
+[<spy-jingle>]
+
+
+# ./apps/app_chanspy.c line 1060:
+# ./asterisk-trunk-diffs line 1411:
+[<spy-local>]
+
+
+# ./apps/app_chanspy.c line 1062:
+# ./asterisk-trunk-diffs line 1413:
+[<spy-mgcp>]
+
+
+# ./apps/app_chanspy.c line 1064:
+# ./asterisk-trunk-diffs line 1415:
+[<spy-misdn>]
+
+
+# ./apps/app_chanspy.c line 1066:
+# ./asterisk-trunk-diffs line 1417:
+[<spy-mobile>]
+
+
+# ./apps/app_chanspy.c line 1068:
+# ./asterisk-trunk-diffs line 1419:
+[<spy-nbs>]
+
+
+# ./apps/app_chanspy.c line 1070:
+# ./asterisk-trunk-diffs line 1421:
+[<spy-sip>]
+
+
+# ./apps/app_chanspy.c line 1072:
+# ./asterisk-trunk-diffs line 1423:
+[<spy-pjsip>]
+
+
+# ./apps/app_chanspy.c line 1074:
+# ./asterisk-trunk-diffs line 1425:
+[<spy-skinny>]
+
+
+# ./apps/app_chanspy.c line 1076:
+# ./asterisk-trunk-diffs line 1427:
+[<spy-unistim>]
+
+
+# ./apps/app_chanspy.c line 1078:
+# ./asterisk-trunk-diffs line 1429:
+[<spy-usbradio>]
+
+
+# ./apps/app_chanspy.c line 1080:
+# ./asterisk-trunk-diffs line 1431:
+[<spy-zap>]
+
+
+# ./apps/app_chanspy.c line 1088:
+# ./asterisk-trunk-diffs line 1439:
+[%c]
+
+
+# ./apps/app_chanspy.c line 1092:
+# ./asterisk-trunk-diffs line 1443:
+[%n]
+
+
+# ./apps/app_followme.c line 656:
+# ./apps/app_followme.c line 830:
+# ./asterisk-trunk-diffs line 6282:
+# ./asterisk-trunk-diffs line 6399:
+[<followme/call-from>]
+
+
+# ./apps/app_followme.c line 676:
+# ./asterisk-trunk-diffs line 6311:
+[<followme/no-recording>]
+
+
+# ./apps/app_followme.c line 713:
+# ./apps/app_followme.c line 737:
+# ./asterisk-trunk-diffs line 6348:
+# ./asterisk-trunk-diffs line 6373:
+[<followme/options>]
+
+
+# ./apps/app_followme.c line 849:
+# ./asterisk-trunk-diffs line 6425:
+[followme/no-recording]
+
+
+# ./apps/app_followme.c line 1463:
+# ./asterisk-trunk-diffs line 6447:
+[<followme/status>]
+
+
+# ./apps/app_followme.c line 1485:
+# ./asterisk-trunk-diffs line 6461:
+[<followme/pls-hold-while-try>]
+
+
+# ./apps/app_followme.c line 1514:
+# ./asterisk-trunk-diffs line 6483:
+[<followme/sorry>]
+
 
 # ./apps/app_minivm.c line 1567:
+# ./asterisk-trunk-diffs line 5787:
 [%z<vm-isonphone>.]
 
 
-
 # ./apps/app_minivm.c line 1569:
+# ./asterisk-trunk-diffs line 5789:
 [%z<vm-isunavail>.]
 
 
-
 # ./apps/app_minivm.c line 1587:
+# ./asterisk-trunk-diffs line 5808:
 [<vm-theperson>%i<vm-isonphone>.]
 
 
-
 # ./apps/app_minivm.c line 1589:
+# ./asterisk-trunk-diffs line 5810:
 [<vm-theperson>%i<vm-isunavail>.]
 
 
-
 # ./apps/app_minivm.c line 1592:
+# ./asterisk-trunk-diffs line 5813:
 [<vm-theextensionis><vm-isonphone>.]
 
 
-
 # ./apps/app_minivm.c line 1594:
+# ./asterisk-trunk-diffs line 5815:
 [<vm-theextensionis><vm-isunavail>.]
 
 
-
 # ./apps/app_minivm.c line 2024:
+# ./asterisk-trunk-diffs line 6002:
 [<vm-mailboxfull>.]
 
 
-
 # ./apps/app_minivm.c line 2457:
+# ./asterisk-trunk-diffs line 6022:
 [<vm-intro>.]
 
+
+#/en.template:1336:./apps/app_confbridge.c:2004:										  /* SO, Now, unless some other application uses this file in an ast_say_sentence() call, the
+#/en.template:1437:./asterisk-trunk-diffs:20:+		ast_say_sentence(chan, AST_DIGIT_ANY, buf1);
+#/en.template:1448:./asterisk-trunk-diffs:128:+int ast_say_sentence(struct ast_channel *chan, const char *ecodes, const char *format, ...)
+#/en.template:1449:./asterisk-trunk-diffs:296:+		ast_say_sentence(chan, digits, buf1);
+#/en.template:2855:./asterisk-trunk-diffs:4866:+										  /* SO, Now, unless some other application uses this file in an ast_say_sentence() call, the
+#/en.template:2886:./asterisk-trunk-diffs:5001:+int ast_say_sentence(struct ast_channel *chan, const char *ecodes, const char *format, ...);
+#/en.template:2892:./main/app.c:1089:		ast_say_sentence(chan, AST_DIGIT_ANY, buf1);
+# ./asterisk-trunk-diffs line 758:
+# ./bridges/bridge_builtin_interval_features.c line 90:
+[<vm-youhave>%n<queue-minutes><vm-and>%n<vm-seconds>]
+
+
+#/asterisk-trunk-diffs:820:+int ast_say_sentence(struct ast_channel *chan, const char *ecodes, const char *format, ...);
+#/asterisk-trunk-diffs:826:+ *  to a user. This version is the same as ast_say_sentence, but after starting the
+#/asterisk-trunk-diffs:834:+int ast_say_sentence_nowait(struct ast_channel *chan, const char *ecodes, const char *format, ...);
+#/asterisk-trunk-diffs:863:+int ast_say_sentence_core(struct ast_channel *chan, const char *ecodes, int wait, const char *format, va_list ap);
+#/asterisk-trunk-diffs:911:+int ast_say_sentence_core(struct ast_channel *chan, const char *ecodes, int wait, const char *format, va_list ap)
+#/asterisk-trunk-diffs:1056:+int ast_say_sentence_nowait(struct ast_channel *chan, const char *ecodes, const char *format, ...)
+#/asterisk-trunk-diffs:1060:+	return ast_say_sentence_core(chan, ecodes, 0, format, ap);
+#/asterisk-trunk-diffs:1063:+int ast_say_sentence(struct ast_channel *chan, const char *ecodes, const char *format, ...)
+#/asterisk-trunk-diffs:1067:+	return ast_say_sentence_core(chan, ecodes, 1, format, ap);
+#/asterisk-trunk-diffs:1093:+		ast_say_sentence(chan, digits, buf1);
+# ./asterisk-trunk-diffs line 1115:
+# ./main/bridge_basic.c line 2874:
+[<pbx-transfer>]
+
+
+#/find_play:7:grep -r -l -e "ast_say_sentence"  --exclude-dir=.svn --exclude=\*script --exclude-dir=doc --exclude=\*.so --exclude=\*.o . | sort
+# ./getdata_replace.txt line 2:
+[<vm-whichbox]
 
 

@@ -95,7 +95,7 @@ The corresponding sayscripts should also be placed in the language/ directory.
 
 The .g files are the input to antlr3, a yacc/bison sort of tool. Antlr will generate the working
 parser code based on the contents of the .g files. So, if you wish to play with the interpreter, you will
-most likely need to find and install sable. I am using antlrworks-1.4.3. It's Java based. So, you may need to also install the
+most likely need to find and install Antlr v3. I am using antlrworks-1.4.3. It's Java based. So, you may need to also install the
 latest java-7-openjdk release.
 
 In my .bi script, I compile the .g files with "antlr3" which is a shell script that does this:
