@@ -1,0 +1,14 @@
+#! /bin/bash
+
+
+echo Compiling SayScriptLexer, SayScriptParser,  and the rest into a server...
+javac -g -Xlint:unchecked SS_interp.java SS_update_thread.java translationLexer.java translationParser.java SayScriptLexer.java SayScriptParser.java formatParser.java formatLexer.java SayScriptSession.java SayScriptServer.java
+echo Compiling the test client....
+javac -g -Xlint:unchecked SayScriptClientTest.java
+echo Running the Server...
+java -Xms130m -Xmx130m SayScriptServer &
+echo Sleeping...
+sleep 2
+echo Running the test Client
+java -Xms130m -Xmx130m SayScriptClientTest
+

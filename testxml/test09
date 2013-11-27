@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<SaySentenceRequest>
+      <Lang_Locale>en_test</Lang_Locale>
+      <InterruptKeys>01</InterruptKeys>
+      <Format>&lt;you_made&gt; %n &lt;products-today&gt;.</Format>
+      <Arguments>
+          <arg>43700021</arg>
+      </Arguments>
+</SaySentenceRequest>
+

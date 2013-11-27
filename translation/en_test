@@ -1,0 +1,9 @@
+version: "1.0"
+
+
+["<you-saved> %m."]
+
+["<you-are> %n <years-old>."]
+{0} "<you-are> <a-newborn>."
+{1} "<you-are> %n <year-old>."
+{2} "<you-are> %n <years-old>."

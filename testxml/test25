@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<SaySentenceRequest>
+      <Lang_Locale>en_test</Lang_Locale>
+      <InterruptKeys>01</InterruptKeys>
+      <Format>&lt;you_have&gt; %m. &lt;in_your_account&gt;</Format>
+      <Arguments>
+          <arg>345678901000123.39</arg>
+      </Arguments>
+</SaySentenceRequest>
+

@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<SaySentenceRequest>
+      <Lang_Locale>en_test</Lang_Locale>
+      <InterruptKeys>01</InterruptKeys>
+      <Format>&lt;you_were_born&gt; %[f]d.</Format>
+      <Arguments>
+          <arg>300000000</arg>
+      </Arguments>
+</SaySentenceRequest>
+

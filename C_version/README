@@ -1,0 +1,15 @@
+This directory contains the beginnings of a translation of the java SaySentence Engine into C.
+I will be using Sable (It can generate both Java and C). Hopefully, when all is finished,
+the sable stuff will generate .c and .h files that can be used to create the engine (parser+interpreter)
+that composes the saysentence/sayscript mechanism.
+
+It's quite raw and young and totally and unnervingly incomplete.
+
+TODO:
+
+convert all the actions in the .g files to C from Java. Should be real easy (pardon my sarcasm).
+  -- don't forget to introduce memory allocation/destruction code!
+
+flesh out the C structures to match the classes. It might be nice to preserve the naming.
+
+
