@@ -1,0 +1,211 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<SaySentenceRequest>
+      <Lang_Locale>en_test</Lang_Locale>
+      <InterruptKeys>*#</InterruptKeys>
+      <Format>
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+	&lt;ntb&gt; %n &lt;nte&gt;
+      </Format>
+      <Arguments>
+          <arg>0</arg>
+          <arg>1</arg>
+          <arg>2</arg>
+          <arg>3</arg>
+          <arg>4</arg>
+          <arg>5</arg>
+          <arg>6</arg>
+          <arg>7</arg>
+          <arg>8</arg>
+          <arg>9</arg>
+          <arg>10</arg>
+          <arg>11</arg>
+          <arg>12</arg>
+          <arg>13</arg>
+          <arg>14</arg>
+          <arg>15</arg>
+          <arg>16</arg>
+          <arg>17</arg>
+          <arg>18</arg>
+          <arg>19</arg>
+          <arg>20</arg>
+          <arg>21</arg>
+          <arg>22</arg>
+          <arg>23</arg>
+          <arg>24</arg>
+          <arg>25</arg>
+          <arg>26</arg>
+          <arg>27</arg>
+          <arg>28</arg>
+          <arg>29</arg>
+          <arg>30</arg>
+          <arg>31</arg>
+          <arg>32</arg>
+          <arg>33</arg>
+          <arg>34</arg>
+          <arg>35</arg>
+          <arg>36</arg>
+          <arg>37</arg>
+          <arg>38</arg>
+          <arg>39</arg>
+          <arg>40</arg>
+          <arg>41</arg>
+          <arg>42</arg>
+          <arg>43</arg>
+          <arg>44</arg>
+          <arg>45</arg>
+          <arg>46</arg>
+          <arg>47</arg>
+          <arg>48</arg>
+          <arg>49</arg>
+          <arg>50</arg>
+          <arg>51</arg>
+          <arg>52</arg>
+          <arg>53</arg>
+          <arg>54</arg>
+          <arg>55</arg>
+          <arg>56</arg>
+          <arg>57</arg>
+          <arg>58</arg>
+          <arg>59</arg>
+          <arg>60</arg>
+          <arg>61</arg>
+          <arg>62</arg>
+          <arg>63</arg>
+          <arg>64</arg>
+          <arg>65</arg>
+          <arg>66</arg>
+          <arg>67</arg>
+          <arg>68</arg>
+          <arg>69</arg>
+          <arg>70</arg>
+          <arg>71</arg>
+          <arg>72</arg>
+          <arg>73</arg>
+          <arg>74</arg>
+          <arg>75</arg>
+          <arg>76</arg>
+          <arg>77</arg>
+          <arg>78</arg>
+          <arg>79</arg>
+          <arg>80</arg>
+          <arg>81</arg>
+          <arg>82</arg>
+          <arg>83</arg>
+          <arg>84</arg>
+          <arg>85</arg>
+          <arg>86</arg>
+          <arg>87</arg>
+          <arg>88</arg>
+          <arg>89</arg>
+          <arg>90</arg>
+          <arg>91</arg>
+          <arg>92</arg>
+          <arg>93</arg>
+          <arg>94</arg>
+          <arg>95</arg>
+          <arg>96</arg>
+          <arg>97</arg>
+          <arg>98</arg>
+          <arg>99</arg>
+          <arg>100</arg>
+      </Arguments>
+</SaySentenceRequest>
+
