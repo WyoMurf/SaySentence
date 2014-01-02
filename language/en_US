@@ -13,7 +13,7 @@ PATTERN           "^0[0-9]"            -       -  CUT(1)   ;; leading zero remov
 
 PATTERN "^\.01$"                                                                             digits/1,digits/cent                               - DONE
 PATTERN "^\.[0-9][0-9]$"                                                                     <<number:{num[1:2]}>>,digits/cents                 - DONE
-PATTERN "^[0-9]+\.00			<<number:{num[0:{len}-4]}>>,digits/dollars                                                              - DONE
-PATTERN "^[0-9]+\.01			<<number:{num[0:{len}-4]}>>,digits/dollars,vm-and,digits/1,digits/cent                                  - DONE
+PATTERN "^[0-9]+\.00"			<<number:{num[0:{len}-4]}>>,digits/dollars                                                              - DONE
+PATTERN "^[0-9]+\.01"			<<number:{num[0:{len}-4]}>>,digits/dollars,vm-and,digits/1,digits/cent                                  - DONE
 PATTERN "^[0-9]+\.[0-9][0-9]$"		<<number:{num[0:{len}-4]}>>,digits/dollars,vm-and,<<number:{num[{len}-2:{len}-1]}>>,digits/cents	- DONE
 
