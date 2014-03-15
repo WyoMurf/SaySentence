@@ -10,6 +10,8 @@
  * at the top of the source tree.
  */
 
+
+
 enum SS_action_type
 {
 	SS_ACTION_CUT = 1,
@@ -52,7 +54,7 @@ enum SS_op_type
 	SS_OP_TYPE_DATEPAST_GREATER = 10,
 	SS_OP_TYPE_DATEFUT_RANGE = 11,
 	SS_OP_TYPE_DATEFUT_GREATER = 12,
-	SS_OP_TYPE_ANYDATE = 13
+	SS_OP_TYPE_ANYDATE = 13,
 	SS_OP_TYPE_SECOND_RANGE = 21,
 	SS_OP_TYPE_MINUTE_RANGE = 14,
 	SS_OP_TYPE_HOUR_RANGE = 15,
@@ -123,7 +125,10 @@ enum SS_script_type
 	SS_S_TYPE_FILE = 13,
 };
 
-
+#include <time.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
 #include "SS_log.h"
 #include "SS_format_element.h"
 #include "SS_translationstring.h"
@@ -131,18 +136,17 @@ enum SS_script_type
 #include "SS_action.h"
 #include "SS_op_arg.h"
 #include "SS_op.h"
+#include "SS_arglist.h"
 #include "SS_play_expr.h"
 #include "SS_playlist.h"
 #include "SS_format.h"
 #include "SS_statement.h"
-#include "SS_playlist.h"
 #include "SS_translation.h"
 #include "SS_silence_def.h"
 #include "SS_script_name.h"
 #include "SS_script.h"
 #include "SS_translationset.h"
 #include "SS_scriptset.h"
-#include "SS_update_thread.h"
 #include "SS_engine.h"
 
 #include "hashtab.h"
@@ -150,7 +154,7 @@ enum SS_script_type
 
 struct SS_engine *SS_engine_new(void);
 
-void SS_engine_print(struct SS_engine *eng)
+void SS_engine_print(struct SS_engine *eng);
 
 struct SS_script *SS_engine_find_script(struct SS_engine *eng, char *pref_lang_locale, char *script_name);
 
@@ -160,7 +164,7 @@ struct SS_silence_def *SS_engine_find_silence(struct SS_engine *eng, char *pref_
 
 char *strip_locale(char *lang_locale);
 
-struct SS_format SS_engine_parse_format(struct SS_engine *eng, char *bytes, SS_log *loglist);
+struct SS_format SS_engine_parse_format(struct SS_engine *eng, char *bytes, struct SS_log *loglist);
 
 void SS_engine_transParseInterp(struct SS_engine *eng, char *langlocale, char *format, char *interrupts, struct SS_log *loglist, struct SS_playlist *playlist, struct SS_arglist *argsx, char *transcount);
 
@@ -168,9 +172,9 @@ void SS_engine_transParseInterp(struct SS_engine *eng, char *langlocale, char *f
 
 
 
-void SS_format_element_print(SS_format_element *fe);
+void SS_format_element_print(struct SS_format_element *fe);
 
-struct SS_format_element_new(void);
+struct SS_format_element *SS_format_element_new(void);
 
 
 struct SS_format *SS_format_w_string(char *format);
@@ -179,7 +183,7 @@ struct SS_format *SS_format_new(void);
 
 void SS_format_print(struct SS_format *form);
 
-void SS_format_interpret_sentence(SS_format *form, SS_engine *engine, struct SS_arglist *args, struct SS_playlist *pl, struct SS_log *log_list, char *interrupts, char * pref_lang_locale);
+void SS_format_interpret_sentence(struct SS_format *form, struct SS_engine *engine, struct SS_arglist *args, struct SS_playlist *pl, struct SS_log *log_list, char *interrupts, char * pref_lang_locale);
 
 
 
@@ -206,7 +210,6 @@ void interp_SayScript(struct SS_interp *interp, struct SS_engine *engine, char *
 
 
 
-struct SS_log *SS_log_new(int line, int p, char *what, char *errmsg);
 
 
 void SS_op_arg_print(void);
@@ -215,9 +218,8 @@ void SS_op_arg_print(void);
 
 void SS_op_print(struct SS_op *op);
 
-struct SS_op_new(struct SS_op *op);
 
-struct SS_op_new_type(struct SS_op *op, enum SS_op_type type);
+struct SS_op *SS_op_new_type(struct SS_op *op, enum SS_op_type type);
 
 char *SS_op_get_name_for_type(enum SS_op_type type);
 
@@ -236,14 +238,11 @@ void SS_playlist_print(struct SS_playlist *pl);
 
 void SS_script_print(struct SS_script *script);
 
-struct SS_script *SS_script_new(void);
 
 char *SS_script_get_name_for_type(struct SS_script *script);
 
 enum SS_script_type SS_script_get_type_for_name(char *name);
 
-
-struct SS_script_name *SS_script_name_new(char *n);
 
 void SS_script_name_print(struct SS_script_name *sn);
 
@@ -251,13 +250,10 @@ void SS_script_name_print(struct SS_script_name *sn);
 
 struct SS_silence_def *findsilence(struct SS_scriptset *this, char sent, char script);
 
-struct SS_scriptset *SS_scriptset_new(void);
 
 void SS_scriptset_print(struct SS_scriptset *this);
 
 
-
-struct SS_silence_def *SS_silence_def_new(void);
 
 void SS_silence_def_set_fields(int line, char sentence_rep, char script_rep);
 
@@ -265,21 +261,15 @@ void SS_silence_def_print(struct SS_silence_def *this);
 
 void SS_statment_print(struct SS_statement *this);
 
-struct SS_statement *SS_statment_new(void);
-
 struct SS_statement *SS_statement_new_w_line(int line);
 
 
 
 
-char *SS_translation_get_by_number(struct SS_translation *this, int x)
+char *SS_translation_get_by_number(struct SS_translation *this, int x);
 
-
-struct SS_translationset *SS_translationset_new(void);
 
 struct SS_translationset *SS_translationset_new_with_log(struct SS_log *log2);
-
-struct SS_translationstring *SS_translationstring_new(char *zzz);
 
 struct SS_translationstring *SS_translationstring_new_w_count(char *zzz, int count);
 
@@ -287,13 +277,7 @@ struct SS_translationstring *SS_translationstring_new_w_line(char *zzz, int coun
 
 char *SS_translationstring_get_string(struct SS_translationstring *this);
 
-int SS_translationstring_get_lineno(struct SS_translationstring *this);
-
-int SS_translationstring_get_num(struct SS_translationstring *this);
-
 void SS_translationstring_print(struct SS_translationstring *this);
 
 void SS_vardef_print(struct SS_vardef *this);
-
-struct SS_vardef *SS_vardef_new(char *name, char *val);
 
