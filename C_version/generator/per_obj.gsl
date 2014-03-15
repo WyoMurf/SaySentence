@@ -1,0 +1,308 @@
+/*
+ * SaySentence Engine -- An open source SayScript Interpreter and Environment.
+ *
+ * Copyright (C) 2014, ParseTree Corporation.
+ *
+ * Steve Murphy <murf@parsetree.com>
+ *
+ * This program is free software, distributed under the terms of
+ * the Lesser GNU General Public License Version 2.1. See the LICENSE file
+ * at the top of the source tree.
+ */
+
+ignorecase = 0
+
+/* figure out if this object is part of an objlist of another object */
+
+myname=object.name
+myfilec=myname+".c"
+myfileh=myname+".h"
+inlist = 0
+
+for objs.object
+ for attr
+   if attr.attr_type="objlist" & attr.attr_type_ref = myname
+     inlist = 1
+     echo "wow, $(myname) is in one of $(object.name)'s objlists via field: $(attr.name)..."
+   endif
+ endfor
+endfor
+
+output "$(myfileh)"
+
+template 1
+/* Dot-H file for $(myname) object */
+/*
+ * SaySentence Engine -- An open source SayScript Interpreter and Environment.
+ *
+ * Copyright (C) 2014, ParseTree Corporation.
+ *
+ * Steve Murphy <murf@parsetree.com>
+ *
+ * This program is free software, distributed under the terms of
+ * the Lesser GNU General Public License Version 2.1. See the LICENSE file
+ * at the top of the source tree.
+ */
+
+
+struct $(myname)
+{
+. for attr
+.   if attr.attr_type = "int"
+	int $(attr.name);
+.   elsif attr.attr_type = "string"
+	char *$(attr.name);
+.   elsif attr.attr_type = "long"
+	long $(attr.name);
+.   elsif attr.attr_type = "char"
+	char $(attr.name);
+.   elsif attr.attr_type = "objlist"
+	struct $(attr.attr_type_ref) *$(attr.name);
+.   elsif attr.attr_type = "objref"
+	struct $(attr.attr_type_ref) *$(attr.name);
+.   elsif attr.attr_type = "hashtab" | attr.attr_type="hashtabnamelist"
+	struct ast_hashtab *$(attr.name);
+.   endif
+. endfor
+. if inlist
+	struct $(myname) *next;
+. endif
+};
+
+/* declare the "fixed" routines */
+
+struct $(myname) *$(myname)_new(void);
+void $(myname)_destroy(struct $(myname) *);
+.for objs.object
+. for attr
+.   if (attr.attr_type="hashtab") & attr.attr_hash_value_type = myname
+int $(myname)_compare_$(attr.attr_hash_key_field)(const void *a, const void *b);
+.   elsif (attr.attr_type="hashtabnamelist") & attr.attr_hash_value_type = myname
+int $(myname)_compare_$(attr.attr_hash_key_field)(const void *a, const void *b);
+.   endif
+. endfor
+.endfor
+
+. for attr
+.   if attr.attr_type = "int"
+	int $(myname)_get_$(attr.name)(struct $(myname)*,int *);
+	int $(myname)_set_$(attr.name)(struct $(myname)*,int);
+.   elsif attr.attr_type = "string"
+	int $(myname)_get_$(attr.name)(struct $(myname)*,char **);
+	int $(myname)_set_$(attr.name)(struct $(myname)*,char *);
+.   elsif attr.attr_type = "long"
+	int $(myname)_get_$(attr.name)(struct $(myname)*,long *);
+	int $(myname)_set_$(attr.name)(struct $(myname)*,long);
+.   elsif attr.attr_type = "char"
+	int $(myname)_get_$(attr.name)(struct $(myname)*,char *);
+	int $(myname)_set_$(attr.name)(struct $(myname)*,char);
+.   elsif attr.attr_type = "objlist"
+	int $(myname)_add_$(attr.name)(struct $(myname)*, struct $(attr.attr_type_ref)*);
+	int $(myname)_remove_$(attr.name)(struct $(myname)*, struct $(attr.attr_type_ref)*);
+	struct $(attr.attr_type_ref) *$(myname)_getfirst_$(attr.name)(struct $(myname)*);
+.   elsif attr.attr_type = "objref"
+	int $(myname)_get_$(attr.name)(struct $(myname)*,struct $(attr.attr_type_ref) **);
+	int $(myname)_set_$(attr.name)(struct $(myname)*,struct $(attr.attr_type_ref) *);
+.   elsif attr.attr_type = "hashtab" | attr.attr_type = "hashtabnamelist"
+	struct $(attr.attr_hash_value_type) *$(myname)_lookup_$(attr.name)(struct $(myname)*, char *);
+	int $(myname)_add_$(attr.name)(struct $(myname)*, struct $(attr.attr_hash_value_type) *);
+	int $(myname)_remove_$(attr.name)(struct $(myname)*, struct $(attr.attr_hash_value_type) *);
+.   endif
+. endfor
+
+
+
+/* that's it! */
+
+
+.output "$(myfilec)"
+
+/* C source file for $(myname) object */
+/* This file is generated. Don't muck! */
+/*
+ * SaySentence Engine -- An open source SayScript Interpreter and Environment.
+ *
+ * Copyright (C) 2014, ParseTree Corporation.
+ *
+ * Steve Murphy <murf@parsetree.com>
+ *
+ * This program is free software, distributed under the terms of
+ * the Lesser GNU General Public License Version 2.1. See the LICENSE file
+ * at the top of the source tree.
+ */
+
+
+#include "globdefs.h"
+
+struct $(myname) *$(myname)_new(void)
+{
+	struct $(myname) *x = calloc(sizeof(struct $(myname)),1);
+. for attr
+.   if attr.attr_type = "hashtab"
+.      x=attr.attr_hash_value_type+"_compare_"+attr.attr_hash_key_field
+.      y=attr.attr_hash_value_type+"_hash_"+attr.attr_hash_key_field
+	x->$(attr.name) = ast_hashtab_create(13, $(x), ast_hashtab_resize_java, ast_hashtab_newsize_java, $(y), 0);
+.    elsif attr.attr_type = "hashtabnamelist"
+.   endif
+. endfor
+	return x;
+}
+
+void $(myname)_destroy(struct $(myname) *self)
+{
+	/* free up each attr here if necessary, then free self */
+. for attr
+.   if attr.attr_type = "hashtab"
+	ast_hashtab_destroy(self->$(attr.name), $(attr.attr_hash_value_type)_destroy);
+.   elsif attr.attr_type = "objref"
+	$(attr.attr_type_ref)_destroy(self->$(attr.name));
+.   elsif attr.attr_type = "objlist"
+	struct $(attr.attr_type_ref)_ptr *x = self->$(attr.name);
+	struct $(attr.attr_type_ref)_ptr *y;
+	/* TODO: put the below into a loop to destroy the whole list */
+	while (x) {
+		y = x->next;
+		$(attr.attr_type_ref)_destroy(x);
+		x = y;
+	}
+.   endif
+. endfor
+
+	free(self);
+}
+
+.for objs.object
+. for attr
+.   if attr.attr_type="hashtab" & attr.attr_hash_value_type = myname
+int $(myname)_compare_$(attr.attr_hash_key_field)(const void *a, const void *b)
+{
+	struct $(myname) *a1 = a;
+	struct $(myname) *b1 = b;
+	return strcmp(a1->$(attr.attr_hash_key_field), b1->$(attr.attr_hash_key_field));
+}
+unsigned int $(myname)_hash_$(attr.attr_hash_key_field)(const void *obj)
+{
+	struct $(myname) *obj1 = obj;
+	return ast_hashtab_hash_string(obj1->$(attr_hash_key_field));
+}
+.   elsif attr.attr_type="hashtabnamelist" & attr.attr_hash_value_type = myname
+int $(myname)_compare_$(attr.attr_hash_key_field)(const void *a, const void *b)
+{
+	struct $(myname) *a1 = a;
+	struct $(myname) *b1 = b;
+	return strcmp(a1->$(attr.attr_hash_key_field), b1->$(attr.attr_hash_key_field));
+}
+unsigned int $(myname)_hash_$(attr.attr_hash_key_field)(const void *obj)
+{
+	struct $(myname) *obj1 = obj;
+	return ast_hashtab_hash_string(obj1->$(attr_hash_key_field));
+}
+.   endif
+. endfor
+.endfor
+
+
+/* per-attr functions */
+
+. for attr
+.   if attr.attr_type = "int"
+int $(myname)_get_$(attr.name)(struct $(myname) *self, int *a_$(attr.name))
+{
+	*a_$(attr.name) = self->$(attr.name);
+	return 0;
+}
+
+int $(myname)_set_$(attr.name)(struct $(myname) *self ,int a_$(attr.name))
+{
+	self->$(attr.name) = a_$(attr.name);
+	return 0;
+}
+.   elsif attr.attr_type = "string"
+int $(myname)_get_$(attr.name)(struct $(myname) *self, char **a_$(attr.name))
+{
+	*a_$(attr.name) = self->$(attr.name);
+	return 0;
+}
+
+int $(myname)_set_$(attr.name)(struct $(myname) *self, char *a_$(attr.name))
+{
+	self->$(attr.name) = a_$(attr.name);
+	return 0;
+}
+
+.   elsif attr.attr_type = "long"
+int $(myname)_get_$(attr.name)(struct $(myname) *self, long *a_$(attr.name))
+{
+	*a_$(attr.name) = self->$(attr.name);
+	return 0;
+}
+
+int $(myname)_set_$(attr.name)(struct $(myname) *self, long a_$(attr.name))
+{
+	self->$(attr.name) = a_$(attr.name);
+	return 0;
+}
+
+.   elsif attr.attr_type = "char"
+int $(myname)_get_$(attr.name)(struct $(myname) *self, char *a_$(attr.name))
+{
+	*a_$(attr.name) = self->$(attr.name);
+	return 0;
+}
+
+int $(myname)_set_$(attr.name)(struct $(myname) *self, char a_$(attr.name))
+{
+	self->$(attr.name) = a_$(attr.name);
+	return 0;
+}
+
+.   elsif attr.attr_type = "objlist"
+int $(myname)_add_$(attr.name)(struct $(myname) *self, struct $(attr.attr_type_ref)*)
+{
+
+}
+
+int $(myname)_remove_$(attr.name)(struct $(myname) *self, struct $(attr.attr_type_ref)*)
+{
+
+}
+
+struct $(attr.attr_type_ref) *$(myname)_getfirst_$(attr.name)(struct $(myname)*self)
+{
+
+}
+
+.   elsif attr.attr_type = "objref"
+int $(myname)_get_$(attr.name)(struct $(myname) *self,struct $(attr.attr_type_ref) **a_$(attr.name))
+{
+	*a_$(attr.name) = self->$(attr.name);
+	return 0;
+}
+
+int $(myname)_set_$(attr.name)(struct $(myname) *self,struct $(attr.attr_type_ref) *a_$(attr.name))
+{
+	self->$(attr.name) = a_$(attr.name);
+	return 0;
+}
+
+.   elsif attr.attr_type = "hashtab"
+struct $(attr.attr_hash_value_type) *$(myname)_lookup_$(attr.name)(struct $(myname) *self, char *a_$(attr.name))
+{
+
+}
+
+int $(myname)_add_$(attr.name)(struct $(myname) *self, struct $(attr.attr_hash_value_type) *a_$(attr.name))
+{
+
+}
+
+int $(myname)_remove_$(attr.name)(struct $(myname) *self, struct $(attr.attr_hash_value_type) *a_$(attr.name))
+{
+
+}
+
+.   endif
+. endfor
+
+
+.endtemplate

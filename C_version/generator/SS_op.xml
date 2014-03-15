@@ -1,0 +1,5 @@
+<object name="SS_op" >
+	<attr name="type" attr_type="enum" attr_type_ref="SS_op_type" />
+	<attr name="arglist" attr_type="objlist" attr_type_ref="SS_op_arg" />
+	<attr name="preg" attr_type="string" />
+</object>

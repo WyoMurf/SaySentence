@@ -1,0 +1,11 @@
+<object name="SS_play_expr">
+	<attr name="type" attr_type="enum" attr_type_ref="SS_play_expr_type" />
+	<attr name="str" attr_type="string" />
+	<attr name="num" attr_type="long" />
+	<attr name="range_type" attr_type="enum" attr_type_ref="SS_play_expr_range_type" />
+	<attr name="range_start" attr_type="long" />
+	<attr name="range_end" attr_type="long" />
+	<attr name="subcall_script_name" attr_type="string" />
+	<attr name="subcall_exprlist" attr_type="objlist" attr_type_ref="SS_play_expr" />
+</object>
+

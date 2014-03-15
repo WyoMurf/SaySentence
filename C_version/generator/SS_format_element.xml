@@ -1,0 +1,11 @@
+
+<object name = "SS_format_element">
+	<attr name = "type" attr_type="enum" attr_type_ref="fe_type" />
+	<attr name = "silence" attr_type="enum" attr_type_ref="fe_silence_type" />
+	<attr name = "file" attr_type="string" />
+	<attr name = "num" attr_type="long" />
+	<attr name = "opt" attr_type="string" />
+	<attr name = "sayscript_type" attr_type="enum" attr_type_ref="sayscript_type" />
+</object>
+
+

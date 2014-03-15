@@ -1,0 +1,6 @@
+
+<object name = "SS_format">
+	<attr name="format" attr_type="string" />
+	<attr name="elements" attr_type="objlist" attr_type_ref="SS_format_element" />
+</object>
+

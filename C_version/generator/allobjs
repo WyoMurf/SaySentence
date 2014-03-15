@@ -1,0 +1,357 @@
+<?xml version="1.0"?>
+<>
+    <object
+        name = "SS_vardef">
+        <attr
+            name = "varname"
+            attr_type = "string"/>
+        <attr
+            name = "varval"
+            attr_type = "string"/>
+    </object>
+    <object
+        name = "SS_arglist">
+        <attr
+            name = "ind"
+            attr_type = "int"/>
+        <attr
+            name = "value"
+            attr_type = "string"/>
+        <attr
+            name = "next"
+            attr_type = "nextptr"/>
+    </object>
+    <object
+        name = "SS_translationstring">
+        <attr
+            name = "lineno"
+            attr_type = "int"/>
+        <attr
+            name = "str"
+            attr_type = "string"/>
+        <attr
+            name = "num"
+            attr_type = "int"/>
+    </object>
+    <object
+        name = "SS_playlist">
+        <attr
+            name = "str"
+            attr_type = "string"/>
+        <attr
+            name = "interrupt"
+            attr_type = "string"/>
+    </object>
+    <object
+        name = "SS_scriptset">
+        <attr
+            name = "lang"
+            attr_type = "string"/>
+        <attr
+            name = "locale"
+            attr_type = "string"/>
+        <attr
+            name = "Filename"
+            attr_type = "string"/>
+        <attr
+            name = "lastmod"
+            attr_type = "timestamp"/>
+        <attr
+            name = "marked"
+            attr_type = "int"/>
+        <attr
+            name = "silence_def_list"
+            attr_type = "objlist"
+            attr_type_ref = "SS_silence_def"/>
+        <attr
+            name = "by_name"
+            attr_type = "hashtabnamelist"
+            attr_hash_key_type = "string"
+            attr_hash_value_type = "SS_script"
+            attr_hash_key_field = "names"
+            attr_hash_key_list_type = "SS_script_name"
+            attr_hash_key_list_field = "name"/>
+        <attr
+            name = "date_format_list"
+            attr_type = "objlist"
+            attr_type_ref = "SS_script"/>
+        <attr
+            name = "log_list"
+            attr_type = "objlist"
+            attr_type_ref = "SS_log"/>
+        <attr
+            name = "dad"
+            attr_type = "objref"
+            attr_type_ref = "SS_engine"/>
+    </object>
+    <object
+        name = "SS_translationset">
+        <attr
+            name = "lang"
+            attr_type = "string"/>
+        <attr
+            name = "locale"
+            attr_type = "string"/>
+        <attr
+            name = "Filename"
+            attr_type = "string"/>
+        <attr
+            name = "lastmod"
+            attr_type = "string"/>
+        <attr
+            name = "marked"
+            attr_type = "int"/>
+        <attr
+            name = "version"
+            attr_type = "string"/>
+        <attr
+            name = "loglist"
+            attr_type = "objlist"
+            attr_type_ref = "SS_log"/>
+        <attr
+            name = "by_format"
+            attr_type = "hashtab"
+            attr_hash_key_type = "string"
+            attr_hash_value_type = "SS_translation"
+            attr_hash_key_field = "Format"/>
+        <attr
+            name = "dad"
+            attr_type = "objref"
+            attr_type_ref = "SS_engine"/>
+    </object>
+    <object
+        name = "SS_script">
+        <attr
+            name = "script_type"
+            attr_type = "enum"
+            attr_type_ref = "SS_script_type"/>
+        <attr
+            name = "names"
+            attr_type = "objlist"
+            attr_type_ref = "SS_script_name"/>
+        <attr
+            name = "statement_list"
+            attr_type = "objlist"
+            attr_type_ref = "SS_statement"/>
+    </object>
+    <object
+        name = "SS_log">
+        <attr
+            name = "lineno"
+            attr_type = "int"/>
+        <attr
+            name = "pos"
+            attr_type = "int"/>
+        <attr
+            name = "message"
+            attr_type = "string"/>
+    </object>
+    <object
+        name = "SS_format_element">
+        <attr
+            name = "type"
+            attr_type = "enum"
+            attr_type_ref = "fe_type"/>
+        <attr
+            name = "silence"
+            attr_type = "enum"
+            attr_type_ref = "fe_silence_type"/>
+        <attr
+            name = "file"
+            attr_type = "string"/>
+        <attr
+            name = "num"
+            attr_type = "long"/>
+        <attr
+            name = "opt"
+            attr_type = "string"/>
+        <attr
+            name = "sayscript_type"
+            attr_type = "enum"
+            attr_type_ref = "sayscript_type"/>
+    </object>
+    <object
+        name = "SS_silence_def">
+        <attr
+            name = "lineno"
+            attr_type = "int"/>
+        <attr
+            name = "sent_silence_rep"
+            attr_type = "char"/>
+        <attr
+            name = "script_silence_rep"
+            attr_type = "char"/>
+        <attr
+            name = "playfiles"
+            attr_type = "objlist"
+            attr_type_ref = "SS_playlist"/>
+    </object>
+    <object
+        name = "SS_format">
+        <attr
+            name = "format"
+            attr_type = "string"/>
+        <attr
+            name = "elements"
+            attr_type = "objlist"
+            attr_type_ref = "SS_format_element"/>
+    </object>
+    <object
+        name = "SS_script_name">
+        <attr
+            name = "name"
+            attr_type = "string"/>
+    </object>
+    <object
+        name = "SS_play_expr">
+        <attr
+            name = "type"
+            attr_type = "enum"
+            attr_type_ref = "SS_play_expr_type"/>
+        <attr
+            name = "str"
+            attr_type = "string"/>
+        <attr
+            name = "num"
+            attr_type = "long"/>
+        <attr
+            name = "range_type"
+            attr_type = "enum"
+            attr_type_ref = "SS_play_expr_range_type"/>
+        <attr
+            name = "range_start"
+            attr_type = "long"/>
+        <attr
+            name = "range_end"
+            attr_type = "long"/>
+        <attr
+            name = "subcall_script_name"
+            attr_type = "string"/>
+        <attr
+            name = "subcall_exprlist"
+            attr_type = "objlist"
+            attr_type_ref = "SS_play_expr"/>
+    </object>
+    <object
+        name = "SS_statement">
+        <attr
+            name = "lineno"
+            attr_type = "int"/>
+        <attr
+            name = "oplist"
+            attr_type = "objlist"
+            attr_type_ref = "SS_op"/>
+        <attr
+            name = "arglist"
+            attr_type = "objlist"
+            attr_type_ref = "SS_op_arg"/>
+        <attr
+            name = "playlist"
+            attr_type = "objlist"
+            attr_type_ref = "SS_play_expr"/>
+        <attr
+            name = "varlist"
+            attr_type = "objlist"
+            attr_type_ref = "SS_vardef"/>
+        <attr
+            name = "action"
+            attr_type = "objlist"
+            attr_type_ref = "SS_action"/>
+    </object>
+    <object
+        name = "SS_op">
+        <attr
+            name = "type"
+            attr_type = "enum"
+            attr_type_ref = "SS_op_type"/>
+        <attr
+            name = "arglist"
+            attr_type = "objlist"
+            attr_type_ref = "SS_op_arg"/>
+        <attr
+            name = "preg"
+            attr_type = "string"/>
+    </object>
+    <object
+        name = "SS_interp">
+        <attrib
+            name = "vars"
+            attr_type = "objlist"
+            attr_type_ref = "SS_format_element"/>
+        <attrib
+            name = "num"
+            attr_type = "long"/>
+        <attrib
+            name = "str"
+            attr_type = "string"/>
+        <attr
+            name = "options"
+            attr_type = "string"/>
+        <attr
+            name = "pref_lang_locale"
+            attr_type = "string"/>
+        <attr
+            name = "timeval"
+            attr_type = "long"/>
+    </object>
+    <object
+        name = "SS_engine">
+        <attr
+            name = "varlib"
+            attr_type = "string"/>
+        <attr
+            name = "scriptsets_by_lang"
+            attr_type = "hashtab"
+            attr_hash_key_type = "string"
+            attr_hash_value_type = "SS_scriptset"
+            attr_hash_key_field = "lang"/>
+        <attr
+            name = "trans_by_lang"
+            attr_type = "hashtab"
+            attr_hash_key_type = "string"
+            attr_hash_value_type = "SS_translationset"
+            attr_hash_key_field = "lang"/>
+        <attr
+            name = "q"
+            attr_type = "objref"
+            attr_type_ref = "SS_update_thread"/>
+    </object>
+    <object
+        name = "SS_translation">
+        <attr
+            name = "Format"
+            attr_type = "string"/>
+        <attr
+            name = "lineno"
+            attr_type = "int"/>
+        <attr
+            name = "Translations"
+            attr_type = "objlist"
+            attr_type_ref = "SS_translationstring"/>
+    </object>
+    <object
+        name = "SS_op_arg">
+        <attr
+            name = "str"
+            attr_type = "string"/>
+        <attr
+            name = "pattern"
+            attr_type = "string"/>
+        <attr
+            name = "preg"
+            attr_type = "string"/>
+        <attr
+            name = "num"
+            attr_type = "long"/>
+    </object>
+    <object
+        name = "SS_action">
+        <attr
+            name = "action_type"
+            attr_type = "enum"
+            attr_type_ref = "SS_action_type"/>
+        <attr
+            name = "arg"
+            attr_type = "int"/>
+    </object>
+</>

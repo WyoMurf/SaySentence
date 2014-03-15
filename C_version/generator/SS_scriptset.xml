@@ -1,0 +1,18 @@
+
+<object name="SS_scriptset">
+        <attr name="lang" attr_type="string" />
+        <attr name="locale" attr_type="string" />
+        <attr name="Filename" attr_type="string" />
+	<attr name="lastmod" attr_type="timestamp" />
+	<attr name="marked" attr_type="int" />
+
+	<attr name="silence_def_list" attr_type="objlist" attr_type_ref="SS_silence_def" />
+	<attr name="by_name" attr_type="hashtabnamelist" attr_hash_key_type="string" 
+                             attr_hash_value_type="SS_script"  attr_hash_key_field="names" 
+                             attr_hash_key_list_type="SS_script_name" attr_hash_key_list_field="name" />
+	<attr name="date_format_list" attr_type="objlist" attr_type_ref="SS_script" />
+	<attr name="log_list" attr_type="objlist" attr_type_ref="SS_log" />
+	<attr name="dad" attr_type="objref" attr_type_ref="SS_engine" />
+</object>
+
+

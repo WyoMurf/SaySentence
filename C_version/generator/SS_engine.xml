@@ -1,0 +1,8 @@
+
+<object name = "SS_engine">
+	<attr name = "varlib" attr_type = "string" />
+	<attr name = "scriptsets_by_lang" attr_type = "hashtab" attr_hash_key_type="string" attr_hash_value_type="SS_scriptset" attr_hash_key_field="lang"/>
+	<attr name = "trans_by_lang" attr_type = "hashtab" attr_hash_key_type="string" attr_hash_value_type="SS_translationset" attr_hash_key_field="lang"/>
+	<attr name = "q" attr_type = "objref" attr_type_ref="SS_update_thread" />
+</object>
+

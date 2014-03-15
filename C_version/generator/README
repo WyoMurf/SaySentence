@@ -1,0 +1,21 @@
+
+This is how I'm going to build the api code for SaySentence in C. I'm going to generate it.
+I'm using gsl for this. See (https://github.com/imatix/gsl).
+
+I have a set of xml "model" files for each structure built. I'm planning on using 
+the hashtab from Asterisk, and MAYBE the DLL implementation from there as well.
+
+It's about 2/3 done. I've fleshed in most things, but the hash stuff needs
+a bit more work. The objlists need some also.
+
+GSL has a pretty good tutorial associated with it, but... for actual code generation
+you might find this project a much better example, as there are common things you'll
+need to do (like find who mentions your struct, or what structs you mention, 
+how to read in files with xml suffixes, and such like). GSL has some quirks,
+like not liking tabs in some places, very sparse documentation of the helper functions,
+and such like, but my little project here demonstrates that it is fully capable of
+doing the job.
+
+When I'm done, all this will move up a directory, and be a lot cleaner.
+
+

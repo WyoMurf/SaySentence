@@ -1,0 +1,14 @@
+
+<object name="SS_translationset">
+	<attr name="lang" attr_type="string" />
+	<attr name="locale" attr_type="string" />
+	<attr name="Filename" attr_type="string" />
+	<attr name="lastmod" attr_type="string" />
+	<attr name="marked" attr_type="int" />
+	<attr name="version" attr_type="string" />
+	<attr name="loglist" attr_type="objlist" attr_type_ref="SS_log" />
+	<attr name="by_format" attr_type="hashtab" attr_hash_key_type="string" attr_hash_value_type="SS_translation" attr_hash_key_field="Format" />
+	<attr name="dad" attr_type="objref" attr_type_ref="SS_engine" />
+</object>
+
+

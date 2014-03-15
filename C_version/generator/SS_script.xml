@@ -1,0 +1,8 @@
+
+<object name="SS_script">
+	<attr name="script_type" attr_type="enum" attr_type_ref="SS_script_type" />
+	<attr name="names" attr_type="objlist" attr_type_ref="SS_script_name" />
+	<attr name="statement_list" attr_type="objlist" attr_type_ref="SS_statement" />
+</object>
+
+

@@ -1,0 +1,9 @@
+
+<object name="SS_translationstring">
+	<attr name="lineno" attr_type="int" />
+	<attr name="str" attr_type="string" />
+	<attr name="num" attr_type="int" />
+</object>
+
+
+

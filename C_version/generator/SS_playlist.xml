@@ -1,0 +1,5 @@
+<object name="SS_playlist">
+	<attr name="str" attr_type="string" />
+	<attr name="interrupt" attr_type="string" />
+</object>
+

@@ -1,0 +1,10 @@
+<object name = "SS_interp" >
+	<attrib name="vars" attr_type="objlist" attr_type_ref="SS_format_element" />
+	<attrib name="num" attr_type="long" />
+	<attrib name="str" attr_type="string" />
+	<attr  name="options" attr_type="string" />
+	<attr  name="pref_lang_locale" attr_type="string" />
+	<attr name="timeval" attr_type="long" />
+</object>
+
+

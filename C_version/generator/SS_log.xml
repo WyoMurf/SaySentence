@@ -1,0 +1,6 @@
+<object name="SS_log">
+	<attr name="lineno" attr_type="int" />
+	<attr name="pos" attr_type="int" />
+	<attr name="message" attr_type="string" />
+</object>
+

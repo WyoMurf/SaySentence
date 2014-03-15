@@ -1,0 +1,10 @@
+<object 
+	name = "SS_action"
+	>
+	<attr name = "action_type" attr_type="enum" attr_type_ref="SS_action_type">
+	</attr>
+	<attr name = "arg" attr_type="int">
+	</attr>
+
+</object>
+

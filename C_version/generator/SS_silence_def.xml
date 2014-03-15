@@ -1,0 +1,9 @@
+
+<object name="SS_silence_def">
+	<attr name="lineno" attr_type="int" />
+	<attr name="sent_silence_rep" attr_type="char" />
+	<attr name="script_silence_rep" attr_type="char" />
+	<attr name="playfiles" attr_type="objlist" attr_type_ref="SS_playlist" />
+</object>
+
+

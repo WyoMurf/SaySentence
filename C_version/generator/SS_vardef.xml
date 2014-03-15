@@ -1,0 +1,6 @@
+
+<object name="SS_vardef">
+	<attr name="varname" attr_type="string" />
+	<attr name="varval" attr_type="string" />
+</object>
+

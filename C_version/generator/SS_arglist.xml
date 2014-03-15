@@ -1,0 +1,7 @@
+
+<object name="SS_arglist">
+	<attr name = "ind" attr_type="int" />
+	<attr name = "value" attr_type="string" />
+	<attr name = "next" attr_type="nextptr" />
+</object>
+

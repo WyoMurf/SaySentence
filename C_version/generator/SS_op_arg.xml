@@ -1,0 +1,8 @@
+<object name="SS_op_arg">
+	<attr name="str" attr_type="string"/>
+	<attr name="pattern"  attr_type="string" />
+	<attr name="preg"   attr_type="string" />
+	<attr name="num"    attr_type="long" />
+</object>
+
+

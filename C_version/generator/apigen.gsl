@@ -1,0 +1,39 @@
+/*
+ * SaySentence Engine -- An open source SayScript Interpreter and Environment.
+ *
+ * Copyright (C) 2014, ParseTree Corporation.
+ *
+ * Steve Murphy <murf@parsetree.com>
+ *
+ * This program is free software, distributed under the terms of
+ * the Lesser GNU General Public License Version 2.1. See the LICENSE file
+ * at the top of the source tree.
+ */
+
+ignorecase = 0
+objs = XML.new(objs)
+
+dir = directory.open(".", error_text) ?
+
+if defined(dir)
+ for dir.file as f
+  x = regexp.match(".*xml", f.name)
+  if x
+   /* echo "file:$(f.name) has size: $(f.size)" */
+   ptr = objs.load_file(f.name,error_text) ?
+   if !defined(ptr)
+     echo "Error: " + error_text
+   endif
+  endif
+ endfor
+else
+ abort "Error: " + error_text
+endif
+s1=objs.save("allobjs",error_text)
+echo "Done saving allobjs... $(s1)"
+
+echo "Done loading..."
+for objs.object
+ include "per_obj.gsl"
+endfor
+

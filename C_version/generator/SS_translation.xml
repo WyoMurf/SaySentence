@@ -1,0 +1,7 @@
+
+<object name="SS_translation">
+	<attr name="Format" attr_type="string" />
+	<attr name="lineno" attr_type="int" />
+	<attr name="Translations" attr_type="objlist" attr_type_ref="SS_translationstring" />
+</object>
+

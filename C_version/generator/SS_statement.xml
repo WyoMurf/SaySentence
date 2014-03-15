@@ -1,0 +1,10 @@
+
+<object name="SS_statement">
+	<attr name="lineno" attr_type="int" />
+	<attr name="oplist" attr_type="objlist" attr_type_ref="SS_op" />
+	<attr name="arglist" attr_type="objlist" attr_type_ref="SS_op_arg" />
+	<attr name="playlist" attr_type="objlist" attr_type_ref="SS_play_expr" />
+	<attr name="varlist" attr_type="objlist" attr_type_ref="SS_vardef" />
+	<attr name="action" attr_type="objlist" attr_type_ref="SS_action" />
+</object>
+
