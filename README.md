@@ -63,10 +63,11 @@ will both reduce the learning curve, keep the code simple, and improve security.
 Building:
 
 In this repository, I have two files, app_say_sentence.c, and asterisk-trunk-diffs. THey are 
-both based on trunk version 403615. I may provide frequent updates to follow trunk, but it would
+both based on trunk version 429562. I may provide frequent updates to follow trunk, but it would
 appear that most of the files I have patches for aren't in very combustible code. I let the
 trunk version lapse for two years before I finally did another "svn update", and got like two
-small conflicts total! 
+small conflicts total! (and another multi-month pause, and about 6 files yielded conflicts, the biggest
+issue was the addition of Japanese!).
 
 cd to your asterisk trunk and do a patch -p0 < asterisk-trunk-diffs; then copy the app_say_sentence.c
 into the apps dir. Do a make, make install.
@@ -145,7 +146,8 @@ include all the language specific functions in app_voicemail.c, along with prett
 
 TODO:
 
-1. Finish incorporating ast_say_sentence into Asterisk. I have most of this done, over 50% so far!
+1. The first pass of conversion of Asterisk to use the SaySentence code is complete. A couple of passes to confirm correctness
+   and cleanliness is still to be done.
 
 2. Generate full sayscripts for all the current localizations: German, French, Chinese, Swedish, Russian, Polish, and so on. This may entail
    a bit of addition to the SayScript Language to make all these possible.  Hopefully, this won't be too painful, most of
@@ -167,11 +169,13 @@ TODO:
 6. Get rid of all the configured sound files in Asterisk, and the enties in the example config files. This is work for the translation files to do.
 
 7. The SaySentenceServer needs a debug mode. It's pretty easy to make some errors in your sayscript, and sometimes a challenge
-   to find out why.
+   to find out why. This is sort of complete. I have debug statements embedded in the code. They need to executed when the
+   debug mode is set. I haven't done yet.
 
 8. We need to add a feature to the SayScript interpreter to abort after some number of cycles have elapsed, and the state hasn't
    changed. Say, 5 or 10 cycles. This should prevent any "DOS" type attacks on the SayScript engine. And, since infinite loops
-   are easy to achieve, getting an error message with a line number might be very helpful for development.
+   are easy to achieve, getting an error message with a line number might be very helpful for development. Done. I also
+   added code to prevent infinite recursion.
 
 10. It might be handy (and more secure) if the SayScript engine ran in a chroot jail.
 
